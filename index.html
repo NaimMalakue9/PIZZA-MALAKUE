@@ -54,7 +54,33 @@
       <p>📍 BTN GRIYA BUMI REZKITA Blok E/5, UGI BARU, MAPILLI, POLEWALI MANDAR, SUL-BAR</p>
       <p>💳 GOPAY: 085398999795 a.n. MUHAMMAD NAIM MU'MIN</p>
       <p class="text-sm text-gray-500 mt-4">© 2025 Pizza Malakue</p>
+    <!-- TOMBOL QRIS KHUSUS -->
+<div class="text-center my-8">
+  <button onclick="showQris()" class="bg-green-500 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:bg-green-600">
+    💳 Bayar Pakai QRIS
+  </button>
+</div>
+
+<!-- POP-UP QRIS -->
+<div id="qrisModal" class="hidden fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4" onclick="hideQris()">
+  <div class="bg-white rounded-2xl p-6 max-w-sm w-full text-center" onclick="event.stopPropagation()">
+    <h3 class="text-xl font-bold text-orange-800 mb-4">Scan QRIS Pizza Malakue</h3>
+    <img src="qris-pizza-malakue.jpg" alt="QRIS Pizza Malakue" class="w-full rounded-xl shadow-md mb-4">
+    <p class="text-sm text-gray-600 mb-4">a.n. Naim Malakue<br>Scan pake GoPay, OVO, Dana, m-Banking</p>
+    <button onclick="hideQris()" class="bg-orange-500 text-white px-6 py-2 rounded-lg font-bold">
+      Tutup
+    </button>
+  </div>
+</div>
     </footer>
   </div>
+<script>
+function showQris() {
+  document.getElementById('qrisModal').classList.remove('hidden');
+}
+function hideQris() {
+  document.getElementById('qrisModal').classList.add('hidden');
+}
+</script>
 </body>
 </html>
