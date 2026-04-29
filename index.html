@@ -20,7 +20,7 @@
 
     <!-- TAMPILAN AWAL: TOMBOL SOSMED + ORDER -->
     <div id="landingPage" class="my-6 space-y-3">
-      
+
       <!-- TOMBOL BUAT PESANAN - KLIK INI MUNCUL MENU -->
       <button onclick="showMenu()" class="w-full bg-orange-500 text-white p-4 rounded-2xl shadow-lg font-bold text-lg hover:bg-orange-600 mb-6">
         🍕 Buat Pesanan Anda Disini
@@ -104,4 +104,112 @@
         <div class="bg-white rounded-2xl shadow-lg p-4 text-center">
           <div class="text-5xl mb-2">🍕</div>
           <h3 class="font-bold text-orange-800 text-sm">Ayam Pedas</h3>
-          <p class="text-lg
+          <p class="text-lg font-bold text-orange-600 my-1">Rp 12.000</p>
+          <div class="flex items-center justify-center gap-3 mt-2">
+            <button onclick="updateQty('ayam-pedas', -1)" class="bg-orange-200 text-orange-800 w-7 h-7 rounded-full font-bold">-</button>
+            <span id="qty-ayam-pedas" class="font-bold w-5">0</span>
+            <button onclick="updateQty('ayam-pedas', 1)" class="bg-orange-500 text-white w-7 h-7 rounded-full font-bold">+</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- TOMBOL KIRIM PESANAN -->
+      <div class="sticky bottom-4 mt-6">
+        <button onclick="kirimPesanan()" class="w-full bg-orange-500 text-white py-4 rounded-xl font-bold text-lg shadow-2xl hover:bg-orange-600">
+          🛒 Kirim Pesanan - <span id="totalHarga">Rp 0</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- TOMBOL QRIS -->
+    <div class="text-center my-8">
+      <button onclick="showQris()" class="bg-green-500 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:bg-green-600">
+        💳 Bayar Pakai QRIS
+      </button>
+    </div>
+
+    <!-- POP-UP QRIS -->
+    <div id="qrisModal" class="hidden fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4" onclick="hideQris()">
+      <div class="bg-white rounded-2xl p-6 max-w-sm w-full text-center" onclick="event.stopPropagation()">
+        <h3 class="text-xl font-bold text-orange-800 mb-4">Scan QRIS Pizza Malakue</h3>
+        <img src="qris-pizza-malakue.jpg" alt="QRIS Pizza Malakue" class="w-full rounded-xl shadow-md mb-4">
+        <p class="text-sm text-gray-600 mb-4">a.n. MUHAMMAD NAIM MU'MIN<br>Scan pake GoPay, OVO, Dana, m-Banking</p>
+        <button onclick="hideQris()" class="bg-orange-500 text-white px-6 py-2 rounded-lg font-bold">Tutup</button>
+      </div>
+    </div>
+
+    <footer class="text-center mt-12 p-6 bg-white rounded-2xl shadow-lg">
+      <h4 class="font-bold text-orange-800 text-lg">Info Pemesanan</h4>
+      <p class="mt-2">📱 WhatsApp: <a href="https://wa.me/6282193795771" class="text-orange-600 font-bold">0821-9379-5771</a></p>
+      <p>📍 BTN GRIYA BUMI REZKITA Blok E/5, UGI BARU, MAPILLI, POLEWALI MANDAR</p>
+      <p>💳 GOPAY: 085398999795 a.n. MUHAMMAD NAIM MU'MIN</p>
+      <p class="text-sm text-gray-500 mt-4">© 2025 Pizza Malakue</p>
+    </footer>
+  </div>
+
+<script>
+const menu = {
+  'sosis': {nama: 'Pizza Sosis', harga: 10000, qty: 0},
+  'sosis-ayam': {nama: 'Pizza Sosis Ayam', harga: 10000, qty: 0},
+  'kornet': {nama: 'Pizza Kornet', harga: 10000, qty: 0},
+  'ayam-pedas': {nama: 'Pizza Ayam Pedas', harga: 12000, qty: 0}
+};
+
+function showMenu() {
+  document.getElementById('landingPage').classList.add('hidden');
+  document.getElementById('menuPage').classList.remove('hidden');
+  window.scrollTo(0, 0);
+}
+
+function showLanding() {
+  document.getElementById('menuPage').classList.add('hidden');
+  document.getElementById('landingPage').classList.remove('hidden');
+  window.scrollTo(0, 0);
+}
+
+function updateQty(id, change) {
+  menu[id].qty = Math.max(0, menu[id].qty + change);
+  document.getElementById('qty-' + id).innerText = menu[id].qty;
+  updateTotal();
+}
+
+function updateTotal() {
+  let total = 0;
+  for (let item in menu) {
+    total += menu[item].qty * menu[item].harga;
+  }
+  document.getElementById('totalHarga').innerText = 'Rp ' + total.toLocaleString('id-ID');
+}
+
+function kirimPesanan() {
+  let pesan = 'Halo Pizza Malakue, saya mau pesan:%0A%0A';
+  let adaPesanan = false;
+  let total = 0;
+
+  for (let item in menu) {
+    if (menu[item].qty > 0) {
+      adaPesanan = true;
+      let subtotal = menu[item].qty * menu[item].harga;
+      pesan += `- ${menu[item].nama} x${menu[item].qty} = Rp ${subtotal.toLocaleString('id-ID')}%0A`;
+      total += subtotal;
+    }
+  }
+
+  if (!adaPesanan) {
+    alert('Pilih menu dulu bro!');
+    return;
+  }
+
+  pesan += `%0ATotal: Rp ${total.toLocaleString('id-ID')}%0A%0ATerima kasih!`;
+  window.open('https://wa.me/6282193795771?text=' + pesan, '_blank');
+}
+
+function showQris() {
+  document.getElementById('qrisModal').classList.remove('hidden');
+}
+function hideQris() {
+  document.getElementById('qrisModal').classList.add('hidden');
+}
+</script>
+</body>
+</html>
