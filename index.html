@@ -25,7 +25,7 @@
     </div>
 
     <!-- HALAMAN 2: MENU -->
-    <div id="page2" style="display:none; padding-bottom:100px;">
+    <div id="page2" style="display:none;">
       <header class="text-center py-4">
         <button onclick="balikAwal()" class="float-left text-orange-600 font-bold">← Kembali</button>
         <h1 class="text-3xl font-bold text-orange-600">Pizza Malakue</h1>
@@ -80,15 +80,14 @@
         </div>
       </div>
 
+      <!-- TOMBOL KIRIM PESANAN - SEKARANG DI ATAS QRIS + IKUT SCROLL -->
+      <button onclick="kirimWA()" class="w-full bg-orange-500 text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:bg-orange-600 mb-4">
+        🛒 Kirim Pesanan - <span id="total">Rp 0</span>
+      </button>
+
       <button onclick="qrisMuncul()" class="w-full bg-green-500 text-white py-3 rounded-xl font-bold text-lg mb-4">
         💳 Bayar Pakai QRIS
       </button>
-
-      <div class="fixed bottom-4 left-4 right-4 max-w-md mx-auto">
-        <button onclick="kirimWA()" class="w-full bg-orange-500 text-white py-4 rounded-xl font-bold text-lg shadow-2xl">
-          🛒 Kirim Pesanan - <span id="total">Rp 0</span>
-        </button>
-      </div>
     </div>
 
     <!-- POP-UP QRIS -->
@@ -101,7 +100,7 @@
       </div>
     </div>
 
-    <!-- FOOTER INFO - SEKARANG MUNCUL TERUS -->
+    <!-- FOOTER INFO -->
     <footer class="text-center mt-12 p-6 bg-white rounded-2xl shadow-lg">
       <h4 class="font-bold text-orange-800 text-lg">Info Pemesanan</h4>
       <p class="mt-2">📱 WhatsApp: <a href="https://wa.me/6282193795771" class="text-orange-600 font-bold">0821-9379-5771</a></p>
