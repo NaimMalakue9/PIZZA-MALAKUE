@@ -196,7 +196,7 @@ function kirimWA() {
   if(jmlParty > 0) teks += '- Pizza Party x' + jmlParty + ' = Rp ' + (jmlParty*85000).toLocaleString('id-ID') + '%0A';
   if(jmlVulcano > 0) teks += '- Pizza Vulcano Non Spicy x' + jmlVulcano + ' = Rp ' + (jmlVulcano*45000).toLocaleString('id-ID') + '%0A';
 
-  var total = (jmlCoklatMocarella * 33000 rb) + (jmlCoklatKeju * 28000 rb) + (jmlParty * 85000 rb) + (jmlVulcano * 45000 rb);
+  var total = (jmlCoklatMocarella * 33000rb) + (jmlCoklatKeju * 28000rb) + (jmlParty * 85000rb) + (jmlVulcano * 45000rb);
   teks += '%0ATotal: Rp ' + total.toLocaleString('id-ID');
 
   window.open('https://wa.me/6282193795771?text=' + teks, '_blank');
