@@ -46,7 +46,7 @@
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
           <img src="pizza-coklat mozarella.jpg" alt="Pizza Coklat Mozarella" class="w-full h-24 object-cover rounded-lg mb-2">
           <h3 class="font-bold text-[#5D4037] text-sm">Coklat Mozarella</h3>
-          <p class="text-lg font-bold text-[#E65100] my-1">33.000</p>
+          <p class="text-lg font-bold text-[#E65100] my-1">33 rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
             <button onclick="kurang('coklatMocarella')" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
             <span id="coklatMocarella" class="font-bold w-4 text-[#5D4037]">0</span>
@@ -58,7 +58,7 @@
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
           <img src="pizza-coklat-keju ceedor.jpg" alt="Pizza Coklat Keju Cedar" class="w-full h-24 object-cover rounded-lg mb-2">
           <h3 class="font-bold text-[#5D4037] text-sm">Coklat Keju Cedar</h3>
-          <p class="text-lg font-bold text-[#E65100] my-1">28.000</p>
+          <p class="text-lg font-bold text-[#E65100] my-1">28 rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
             <button onclick="kurang('coklatKeju')" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
             <span id="coklatKeju" class="font-bold w-4 text-[#5D4037]">0</span>
@@ -70,7 +70,7 @@
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
           <img src="pizza-party.jpg" alt="Pizza Party" class="w-full h-24 object-cover rounded-lg mb-2">
           <h3 class="font-bold text-[#5D4037] text-sm">Party</h3>
-          <p class="text-lg font-bold text-[#E65100] my-1">85.000</p>
+          <p class="text-lg font-bold text-[#E65100] my-1">85 rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
             <button onclick="kurang('party')" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
             <span id="party" class="font-bold w-4 text-[#5D4037]">0</span>
@@ -82,7 +82,7 @@
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
           <img src="pizza vulcano-non-spicy.jpg" alt="Pizza Vulcano Non Spicy" class="w-full h-24 object-cover rounded-lg mb-2">
           <h3 class="font-bold text-[#5D4037] text-sm">Vulcano Non Spicy</h3>
-          <p class="text-lg font-bold text-[#E65100] my-1">45.000rb</p>
+          <p class="text-lg font-bold text-[#E65100] my-1">45 rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
             <button onclick="kurang('vulcano')" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
             <span id="vulcano" class="font-bold w-4 text-[#5D4037]">0</span>
@@ -180,7 +180,7 @@ function kurang(menu) {
 }
 
 function hitungTotal() {
-  var total = (jmlCoklatMocarella * 33.000) + (jmlCoklatKeju * 28.000) + (jmlParty * 85.000) + (jmlVulcano * 45000);
+  var total = (jmlCoklatMocarella * 33000) + (jmlCoklatKeju * 28000) + (jmlParty * 85000) + (jmlVulcano * 45000);
   document.getElementById('total').innerText = 'Rp ' + total.toLocaleString('id-ID');
 }
 
