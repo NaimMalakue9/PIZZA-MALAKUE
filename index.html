@@ -12,35 +12,32 @@
 <body class="bg-gradient-to-b from-amber-50 to-orange-100 min-h-screen">
   <div class="max-w-md mx-auto p-4">
 
-    <!-- TAMPILAN AWAL SESUAI GAMBAR -->
+    <!-- TAMPILAN AWAL PERSIS GAMBAR -->
     <div id="landingPage" class="min-h-screen flex flex-col justify-center items-center text-center">
       <p class="text-gray-600 text-sm mb-2">TERIMA KASIH SUDAH DI KLIK LINK NYA</p>
       <h1 class="text-3xl font-bold text-gray-800 mb-1">WELCOME!!!</h1>
       <h2 class="text-lg text-gray-700 mb-8">PIZZA MALAKUE</h2>
 
-      <!-- TOMBOL BUAT PESANAN -->
-      <button onclick="showMenu()" class="w-full max-w-xs border-2 border-black py-3 font-bold text-black mb-4 hover:bg-orange-500 hover:text-white hover:border-orange-500">
+      <button onclick="showMenu()" class="w-full max-w-xs border-2 border-black py-3 font-bold text-black mb-4 bg-white hover:bg-gray-100">
         Buat Pesanan Anda Disini
       </button>
 
-      <!-- TOMBOL TIKTOK -->
-      <a href="LINK_TIKTOK_LU" target="_blank" class="w-full max-w-xs border-2 border-black py-3 font-bold text-black hover:bg-black hover:text-white">
+      <a href="LINK_TIKTOK_LU" target="_blank" class="w-full max-w-xs border-2 border-black py-3 font-bold text-black bg-white hover:bg-gray-100">
         TikTok
       </a>
+    </div>
 
-    <!-- HALAMAN MENU - AWALNYA KESEMBUNYI -->
-    <div id="menuPage" class="hidden">
-      <header class="text-center py-4">
-        <button onclick="showLanding()" class="float-left text-orange-600 font-bold">← Kembali</button>
+    <!-- HALAMAN MENU -->
+    <div id="menuPage" class="hidden pb-24">
+      <header class="text-center py-4 relative">
+        <button onclick="showLanding()" class="absolute left-0 top-4 text-orange-600 font-bold">← Kembali</button>
         <h1 class="text-3xl font-bold text-orange-600">Pizza Malakue</h1>
         <p class="text-sm text-orange-700">Homemade, Fresh From The Oven</p>
       </header>
 
       <h2 class="text-xl font-bold text-orange-800 text-center my-4">Pilih Menu Favoritmu</h2>
 
-      <!-- LIST MENU 2 KOLOM -->
       <div class="grid grid-cols-2 gap-3 my-6">
-        <!-- PRODUK 1 -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
           <div class="text-4xl mb-1">🍕</div>
           <h3 class="font-bold text-orange-800 text-sm">Sosis</h3>
@@ -52,7 +49,6 @@
           </div>
         </div>
 
-        <!-- PRODUK 2 -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
           <div class="text-4xl mb-1">🍕</div>
           <h3 class="font-bold text-orange-800 text-sm">Sosis Ayam</h3>
@@ -64,7 +60,6 @@
           </div>
         </div>
 
-        <!-- PRODUK 3 -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
           <div class="text-4xl mb-1">🍕</div>
           <h3 class="font-bold text-orange-800 text-sm">Kornet</h3>
@@ -76,7 +71,6 @@
           </div>
         </div>
 
-        <!-- PRODUK 4 -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
           <div class="text-4xl mb-1">🍕</div>
           <h3 class="font-bold text-orange-800 text-sm">Ayam Pedas</h3>
@@ -89,8 +83,15 @@
         </div>
       </div>
 
+      <!-- TOMBOL QRIS PINDAH KE SINI -->
+      <div class="text-center my-6">
+        <button onclick="showQris()" class="w-full bg-green-500 text-white py-3 rounded-xl font-bold text-lg shadow-lg hover:bg-green-600">
+          💳 Bayar Pakai QRIS
+        </button>
+      </div>
+
       <!-- 1 TOMBOL KIRIM PESANAN -->
-      <div class="sticky bottom-4 mt-6">
+      <div class="fixed bottom-4 left-4 right-4 max-w-md mx-auto">
         <button onclick="kirimPesanan()" class="w-full bg-orange-500 text-white py-4 rounded-xl font-bold text-lg shadow-2xl hover:bg-orange-600">
           🛒 Kirim Pesanan - <span id="totalHarga">Rp 0</span>
         </button>
@@ -107,7 +108,7 @@
       </div>
     </div>
 
-    <footer class="text-center mt-12 p-6 bg-white rounded-2xl shadow-lg">
+    <footer id="footer" class="text-center mt-12 p-6 bg-white rounded-2xl shadow-lg">
       <h4 class="font-bold text-orange-800 text-lg">Info Pemesanan</h4>
       <p class="mt-2">📱 WhatsApp: <a href="https://wa.me/6282193795771" class="text-orange-600 font-bold">0821-9379-5771</a></p>
       <p>📍 BTN GRIYA BUMI REZKITA Blok E/5, UGI BARU, MAPILLI, POLEWALI MANDAR</p>
@@ -117,68 +118,4 @@
   </div>
 
 <script>
-const menu = {
-  'sosis': {nama: 'Pizza Sosis', harga: 10000, qty: 0},
-  'sosis-ayam': {nama: 'Pizza Sosis Ayam', harga: 10000, qty: 0},
-  'kornet': {nama: 'Pizza Kornet', harga: 10000, qty: 0},
-  'ayam-pedas': {nama: 'Pizza Ayam Pedas', harga: 12000, qty: 0}
-};
-
-function showMenu() {
-  document.getElementById('landingPage').classList.add('hidden');
-  document.getElementById('menuPage').classList.remove('hidden');
-  window.scrollTo(0, 0);
-}
-
-function showLanding() {
-  document.getElementById('menuPage').classList.add('hidden');
-  document.getElementById('landingPage').classList.remove('hidden');
-  window.scrollTo(0, 0);
-}
-
-function updateQty(id, change) {
-  menu[id].qty = Math.max(0, menu[id].qty + change);
-  document.getElementById('qty-' + id).innerText = menu[id].qty;
-  updateTotal();
-}
-
-function updateTotal() {
-  let total = 0;
-  for (let item in menu) {
-    total += menu[item].qty * menu[item].harga;
-  }
-  document.getElementById('totalHarga').innerText = 'Rp ' + total.toLocaleString('id-ID');
-}
-
-function kirimPesanan() {
-  let pesan = 'Halo Pizza Malakue, saya mau pesan:%0A%0A';
-  let adaPesanan = false;
-  let total = 0;
-
-  for (let item in menu) {
-    if (menu[item].qty > 0) {
-      adaPesanan = true;
-      let subtotal = menu[item].qty * menu[item].harga;
-      pesan += `- ${menu[item].nama} x${menu[item].qty} = Rp ${subtotal.toLocaleString('id-ID')}%0A`;
-      total += subtotal;
-    }
-  }
-
-  if (!adaPesanan) {
-    alert('Pilih menu dulu bro!');
-    return;
-  }
-
-  pesan += `%0ATotal: Rp ${total.toLocaleString('id-ID')}%0A%0ATerima kasih!`;
-  window.open('https://wa.me/6282193795771?text=' + pesan, '_blank');
-}
-
-function showQris() {
-  document.getElementById('qrisModal').classList.remove('hidden');
-}
-function hideQris() {
-  document.getElementById('qrisModal').classList.add('hidden');
-}
-</script>
-</body>
-</html>
+const
