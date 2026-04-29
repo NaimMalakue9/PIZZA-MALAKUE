@@ -58,7 +58,7 @@
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
           <img src="pizza-coklat-keju ceedor.jpg" alt="Pizza Coklat Keju Cedar" class="w-full h-24 object-cover rounded-lg mb-2">
           <h3 class="font-bold text-[#5D4037] text-sm">Coklat Keju Cedar</h3>
-          <p class="text-lg font-bold text-[#E65100] my-1">15rb</p>
+          <p class="text-lg font-bold text-[#E65100] my-1">28.000</p>
           <div class="flex items-center justify-center gap-2 mt-2">
             <button onclick="kurang('coklatKeju')" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
             <span id="coklatKeju" class="font-bold w-4 text-[#5D4037]">0</span>
@@ -180,7 +180,7 @@ function kurang(menu) {
 }
 
 function hitungTotal() {
-  var total = (jmlCoklatMocarella * 15000) + (jmlCoklatKeju * 15000) + (jmlParty * 18000) + (jmlVulcano * 18000);
+  var total = (jmlCoklatMocarella * 33.000) + (jmlCoklatKeju * 28.000) + (jmlParty * 85.000) + (jmlVulcano * 45000);
   document.getElementById('total').innerText = 'Rp ' + total.toLocaleString('id-ID');
 }
 
@@ -191,12 +191,12 @@ function kirimWA() {
   }
 
   var teks = 'Halo Pizza Malakue, saya mau pesan:%0A%0A';
-  if(jmlCoklatMocarella > 0) teks += '- Pizza Coklat Mocarella x' + jmlCoklatMocarella + ' = Rp ' + (jmlCoklatMocarella*15000).toLocaleString('id-ID') + '%0A';
-  if(jmlCoklatKeju > 0) teks += '- Pizza Coklat Keju Cedar x' + jmlCoklatKeju + ' = Rp ' + (jmlCoklatKeju*15000).toLocaleString('id-ID') + '%0A';
-  if(jmlParty > 0) teks += '- Pizza Party x' + jmlParty + ' = Rp ' + (jmlParty*18000).toLocaleString('id-ID') + '%0A';
-  if(jmlVulcano > 0) teks += '- Pizza Vulcano Non Spicy x' + jmlVulcano + ' = Rp ' + (jmlVulcano*18000).toLocaleString('id-ID') + '%0A';
+  if(jmlCoklatMocarella > 0) teks += '- Pizza Coklat Mocarella x' + jmlCoklatMocarella + ' = Rp ' + (jmlCoklatMocarella*33.000).toLocaleString('id-ID') + '%0A';
+  if(jmlCoklatKeju > 0) teks += '- Pizza Coklat Keju Cedar x' + jmlCoklatKeju + ' = Rp ' + (jmlCoklatKeju*28.000).toLocaleString('id-ID') + '%0A';
+  if(jmlParty > 0) teks += '- Pizza Party x' + jmlParty + ' = Rp ' + (jmlParty*85.000).toLocaleString('id-ID') + '%0A';
+  if(jmlVulcano > 0) teks += '- Pizza Vulcano Non Spicy x' + jmlVulcano + ' = Rp ' + (jmlVulcano*45.000).toLocaleString('id-ID') + '%0A';
 
-  var total = (jmlCoklatMocarella * 15000) + (jmlCoklatKeju * 15000) + (jmlParty * 18000) + (jmlVulcano * 18000);
+  var total = (jmlCoklatMocarella * 33.000) + (jmlCoklatKeju * 28.000) + (jmlParty * 85.000) + (jmlVulcano * 45.000);
   teks += '%0ATotal: Rp ' + total.toLocaleString('id-ID');
 
   window.open('https://wa.me/6282193795771?text=' + teks, '_blank');
