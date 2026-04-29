@@ -174,4 +174,21 @@ function kirimWA() {
   if(jmlSosis > 0) teks += '- Pizza Sosis x' + jmlSosis + ' = Rp ' + (jmlSosis*10000).toLocaleString('id-ID') + '%0A';
   if(jmlSosisAyam > 0) teks += '- Pizza Sosis Ayam x' + jmlSosisAyam + ' = Rp ' + (jmlSosisAyam*10000).toLocaleString('id-ID') + '%0A';
   if(jmlKornet > 0) teks += '- Pizza Kornet x' + jmlKornet + ' = Rp ' + (jmlKornet*10000).toLocaleString('id-ID') + '%0A';
-  if(jmlAyamP
+  if(jmlAyamPedas > 0) teks += '- Pizza Ayam Pedas x' + jmlAyamPedas + ' = Rp ' + (jmlAyamPedas*12000).toLocaleString('id-ID') + '%0A';
+
+  var total = (jmlSosis * 10000) + (jmlSosisAyam * 10000) + (jmlKornet * 10000) + (jmlAyamPedas * 12000);
+  teks += '%0ATotal: Rp ' + total.toLocaleString('id-ID');
+
+  window.open('https://wa.me/6282193795771?text=' + teks, '_blank');
+}
+
+function qrisMuncul() {
+  document.getElementById('popupQris').style.display = 'flex';
+}
+
+function qrisTutup() {
+  document.getElementById('popupQris').style.display = 'none';
+}
+</script>
+</body>
+</html>
