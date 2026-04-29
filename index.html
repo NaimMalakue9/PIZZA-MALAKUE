@@ -5,157 +5,103 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pizza Malakue - Homemade, Fresh From The Oven</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: sans-serif; }
+  </style>
 </head>
 <body class="bg-gradient-to-b from-amber-50 to-orange-100 min-h-screen">
-  <div class="max-w-4xl mx-auto p-4">
+  <div class="max-w-md mx-auto p-4">
+
+    <!-- HEADER -->
     <header class="text-center py-6">
       <h1 class="text-4xl font-bold text-orange-600">Pizza Malakue</h1>
       <p class="text-lg text-orange-700 mt-1">Homemade, Fresh From The Oven</p>
     </header>
 
-    <!-- LIST MENU 2 KOLOM -->
-    <div class="grid grid-cols-2 gap-4 my-6" id="menuList">
-
-      <!-- PRODUK 1 -->
-      <div class="bg-white rounded-2xl shadow-lg p-4 text-center">
-        <div class="text-5xl mb-2">🍕</div>
-        <h3 class="font-bold text-orange-800">Sosis</h3>
-        <p class="text-xs text-gray-600 my-1">Mozzarella, sosis sapi</p>
-        <p class="text-xl font-bold text-orange-600 my-2">Rp 10.000</p>
-        <div class="flex items-center justify-center gap-3 mt-3">
-          <button onclick="updateQty('sosis', -1)" class="bg-orange-200 text-orange-800 w-8 h-8 rounded-full font-bold text-lg">-</button>
-          <span id="qty-sosis" class="font-bold text-lg w-6">0</span>
-          <button onclick="updateQty('sosis', 1)" class="bg-orange-500 text-white w-8 h-8 rounded-full font-bold text-lg">+</button>
-        </div>
-      </div>
-
-      <!-- PRODUK 2 -->
-      <div class="bg-white rounded-2xl shadow-lg p-4 text-center">
-        <div class="text-5xl mb-2">🍕</div>
-        <h3 class="font-bold text-orange-800">Sosis Ayam</h3>
-        <p class="text-xs text-gray-600 my-1">Mozzarella, sosis ayam</p>
-        <p class="text-xl font-bold text-orange-600 my-2">Rp 10.000</p>
-        <div class="flex items-center justify-center gap-3 mt-3">
-          <button onclick="updateQty('sosis-ayam', -1)" class="bg-orange-200 text-orange-800 w-8 h-8 rounded-full font-bold text-lg">-</button>
-          <span id="qty-sosis-ayam" class="font-bold text-lg w-6">0</span>
-          <button onclick="updateQty('sosis-ayam', 1)" class="bg-orange-500 text-white w-8 h-8 rounded-full font-bold text-lg">+</button>
-        </div>
-      </div>
-
-      <!-- PRODUK 3 -->
-      <div class="bg-white rounded-2xl shadow-lg p-4 text-center">
-        <div class="text-5xl mb-2">🍕</div>
-        <h3 class="font-bold text-orange-800">Kornet</h3>
-        <p class="text-xs text-gray-600 my-1">Mozzarella, kornet sapi</p>
-        <p class="text-xl font-bold text-orange-600 my-2">Rp 10.000</p>
-        <div class="flex items-center justify-center gap-3 mt-3">
-          <button onclick="updateQty('kornet', -1)" class="bg-orange-200 text-orange-800 w-8 h-8 rounded-full font-bold text-lg">-</button>
-          <span id="qty-kornet" class="font-bold text-lg w-6">0</span>
-          <button onclick="updateQty('kornet', 1)" class="bg-orange-500 text-white w-8 h-8 rounded-full font-bold text-lg">+</button>
-        </div>
-      </div>
-
-      <!-- TAMBAH PRODUK BARU COPY DARI SINI -->
-      <div class="bg-white rounded-2xl shadow-lg p-4 text-center">
-        <div class="text-5xl mb-2">🍕</div>
-        <h3 class="font-bold text-orange-800">Ayam Pedas</h3>
-        <p class="text-xs text-gray-600 my-1">Mozzarella, ayam pedas</p>
-        <p class="text-xl font-bold text-orange-600 my-2">Rp 12.000</p>
-        <div class="flex items-center justify-center gap-3 mt-3">
-          <button onclick="updateQty('ayam-pedas', -1)" class="bg-orange-200 text-orange-800 w-8 h-8 rounded-full font-bold text-lg">-</button>
-          <span id="qty-ayam-pedas" class="font-bold text-lg w-6">0</span>
-          <button onclick="updateQty('ayam-pedas', 1)" class="bg-orange-500 text-white w-8 h-8 rounded-full font-bold text-lg">+</button>
-        </div>
-      </div>
-      <!-- SAMPE SINI -->
-
-    </div>
-
-    <!-- TOMBOL REKAP PESANAN -->
-    <div class="sticky bottom-4">
-      <button onclick="kirimPesanan()" class="w-full bg-orange-500 text-white py-4 rounded-xl font-bold text-lg shadow-2xl hover:bg-orange-600">
-        🛒 Pesan Sekarang - <span id="totalHarga">Rp 0</span>
+    <!-- TAMPILAN AWAL: TOMBOL SOSMED + ORDER -->
+    <div id="landingPage" class="my-6 space-y-3">
+      
+      <!-- TOMBOL BUAT PESANAN - KLIK INI MUNCUL MENU -->
+      <button onclick="showMenu()" class="w-full bg-orange-500 text-white p-4 rounded-2xl shadow-lg font-bold text-lg hover:bg-orange-600 mb-6">
+        🍕 Buat Pesanan Anda Disini
       </button>
+
+      <!-- GRAB FOOD -->
+      <a href="LINK_GRABFOOD_LU" target="_blank" class="flex items-center bg-white p-4 rounded-2xl shadow-md hover:shadow-lg">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732217.png" alt="Grab" class="w-10 h-10 mr-4 object-contain">
+        <span class="font-bold text-gray-800">Pesan via Grab</span>
+      </a>
+
+      <!-- WHATSAPP -->
+      <a href="https://wa.me/6282193795771" target="_blank" class="flex items-center bg-white p-4 rounded-2xl shadow-md hover:shadow-lg">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1024px-WhatsApp.svg.png" alt="WhatsApp" class="w-10 h-10 mr-4">
+        <span class="font-bold text-gray-800">Order via WhatsApp</span>
+      </a>
+
+      <!-- INSTAGRAM -->
+      <a href="LINK_IG_LU" target="_blank" class="flex items-center bg-white p-4 rounded-2xl shadow-md hover:shadow-lg">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png" alt="Instagram" class="w-10 h-10 mr-4">
+        <span class="font-bold text-gray-800">Instagram</span>
+      </a>
+
+      <!-- TIKTOK -->
+      <a href="LINK_TIKTOK_LU" target="_blank" class="flex items-center bg-white p-4 rounded-2xl shadow-md hover:shadow-lg">
+        <img src="https://cdn.pixabay.com/photo/2021/06/15/12/28/tiktok-6338432_960_720.png" alt="TikTok" class="w-10 h-10 mr-4">
+        <span class="font-bold text-gray-800">TikTok</span>
+      </a>
+
+      <!-- GOFOOD -->
+      <a href="LINK_GOFOOD_LU" target="_blank" class="flex items-center bg-white p-4 rounded-2xl shadow-md hover:shadow-lg">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Gofood_logo.svg/1200px-Gofood_logo.svg.png" alt="GoFood" class="w-10 h-10 mr-4 object-contain">
+        <span class="font-bold text-gray-800">GOFOOD</span>
+      </a>
     </div>
 
-    <!-- TOMBOL QRIS -->
-    <div class="text-center my-8">
-      <button onclick="showQris()" class="bg-green-500 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:bg-green-600">
-        💳 Bayar Pakai QRIS
-      </button>
-    </div>
-  </div>
+    <!-- HALAMAN MENU - AWALNYA KESEMBUNYI -->
+    <div id="menuPage" class="hidden">
+      <button onclick="showLanding()" class="mb-4 text-orange-600 font-bold">← Kembali</button>
+      <h2 class="text-2xl font-bold text-orange-800 text-center mb-4">Pilih Menu Favoritmu</h2>
 
-  <!-- POP-UP QRIS -->
-  <div id="qrisModal" class="hidden fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4" onclick="hideQris()">
-    <div class="bg-white rounded-2xl p-6 max-w-sm w-full text-center" onclick="event.stopPropagation()">
-      <h3 class="text-xl font-bold text-orange-800 mb-4">Scan QRIS Pizza Malakue</h3>
-      <img src="qris-pizza-malakue.jpg" alt="QRIS Pizza Malakue" class="w-full rounded-xl shadow-md mb-4">
-      <p class="text-sm text-gray-600 mb-4">a.n. MUHAMMAD NAIM MU'MIN<br>Scan pake GoPay, OVO, Dana, m-Banking</p>
-      <button onclick="hideQris()" class="bg-orange-500 text-white px-6 py-2 rounded-lg font-bold">Tutup</button>
-    </div>
-  </div>
+      <!-- LIST MENU 2 KOLOM -->
+      <div class="grid grid-cols-2 gap-4 my-6">
+        <!-- PRODUK 1 -->
+        <div class="bg-white rounded-2xl shadow-lg p-4 text-center">
+          <div class="text-5xl mb-2">🍕</div>
+          <h3 class="font-bold text-orange-800 text-sm">Sosis</h3>
+          <p class="text-lg font-bold text-orange-600 my-1">Rp 10.000</p>
+          <div class="flex items-center justify-center gap-3 mt-2">
+            <button onclick="updateQty('sosis', -1)" class="bg-orange-200 text-orange-800 w-7 h-7 rounded-full font-bold">-</button>
+            <span id="qty-sosis" class="font-bold w-5">0</span>
+            <button onclick="updateQty('sosis', 1)" class="bg-orange-500 text-white w-7 h-7 rounded-full font-bold">+</button>
+          </div>
+        </div>
 
-  <footer class="text-center mt-12 p-6 bg-white rounded-2xl shadow-lg">
-    <h4 class="font-bold text-orange-800 text-lg">Info Pemesanan</h4>
-    <p class="mt-2">📱 WhatsApp: <a href="https://wa.me/6282193795771" class="text-orange-600 font-bold">0821-9379-5771</a></p>
-    <p>📍 BTN GRIYA BUMI REZKITA Blok E/5, UGI BARU, MAPILLI, POLEWALI MANDAR</p>
-    <p>💳 GOPAY: 085398999795 a.n. MUHAMMAD NAIM MU'MIN</p>
-    <p class="text-sm text-gray-500 mt-4">© 2025 Pizza Malakue</p>
-  </footer>
-</div>
+        <!-- PRODUK 2 -->
+        <div class="bg-white rounded-2xl shadow-lg p-4 text-center">
+          <div class="text-5xl mb-2">🍕</div>
+          <h3 class="font-bold text-orange-800 text-sm">Sosis Ayam</h3>
+          <p class="text-lg font-bold text-orange-600 my-1">Rp 10.000</p>
+          <div class="flex items-center justify-center gap-3 mt-2">
+            <button onclick="updateQty('sosis-ayam', -1)" class="bg-orange-200 text-orange-800 w-7 h-7 rounded-full font-bold">-</button>
+            <span id="qty-sosis-ayam" class="font-bold w-5">0</span>
+            <button onclick="updateQty('sosis-ayam', 1)" class="bg-orange-500 text-white w-7 h-7 rounded-full font-bold">+</button>
+          </div>
+        </div>
 
-<script>
-const menu = {
-  'sosis': {nama: 'Pizza Sosis', harga: 10000, qty: 0},
-  'sosis-ayam': {nama: 'Pizza Sosis Ayam', harga: 10000, qty: 0},
-  'kornet': {nama: 'Pizza Kornet', harga: 10000, qty: 0},
-  'ayam-pedas': {nama: 'Pizza Ayam Pedas', harga: 12000, qty: 0}
-};
+        <!-- PRODUK 3 -->
+        <div class="bg-white rounded-2xl shadow-lg p-4 text-center">
+          <div class="text-5xl mb-2">🍕</div>
+          <h3 class="font-bold text-orange-800 text-sm">Kornet</h3>
+          <p class="text-lg font-bold text-orange-600 my-1">Rp 10.000</p>
+          <div class="flex items-center justify-center gap-3 mt-2">
+            <button onclick="updateQty('kornet', -1)" class="bg-orange-200 text-orange-800 w-7 h-7 rounded-full font-bold">-</button>
+            <span id="qty-kornet" class="font-bold w-5">0</span>
+            <button onclick="updateQty('kornet', 1)" class="bg-orange-500 text-white w-7 h-7 rounded-full font-bold">+</button>
+          </div>
+        </div>
 
-function updateQty(id, change) {
-  menu[id].qty = Math.max(0, menu[id].qty + change);
-  document.getElementById('qty-' + id).innerText = menu[id].qty;
-  updateTotal();
-}
-
-function updateTotal() {
-  let total = 0;
-  for (let item in menu) {
-    total += menu[item].qty * menu[item].harga;
-  }
-  document.getElementById('totalHarga').innerText = 'Rp ' + total.toLocaleString('id-ID');
-}
-
-function kirimPesanan() {
-  let pesan = 'Halo Pizza Malakue, saya mau pesan:%0A%0A';
-  let adaPesanan = false;
-  let total = 0;
-
-  for (let item in menu) {
-    if (menu[item].qty > 0) {
-      adaPesanan = true;
-      let subtotal = menu[item].qty * menu[item].harga;
-      pesan += `- ${menu[item].nama} x${menu[item].qty} = Rp ${subtotal.toLocaleString('id-ID')}%0A`;
-      total += subtotal;
-    }
-  }
-
-  if (!adaPesanan) {
-    alert('Pilih menu dulu bro!');
-    return;
-  }
-
-  pesan += `%0ATotal: Rp ${total.toLocaleString('id-ID')}%0A%0ATerima kasih!`;
-  window.open('https://wa.me/6282193795771?text=' + pesan, '_blank');
-}
-
-function showQris() {
-  document.getElementById('qrisModal').classList.remove('hidden');
-}
-function hideQris() {
-  document.getElementById('qrisModal').classList.add('hidden');
-}
-</script>
-</body>
-        </html>
+        <!-- PRODUK 4 -->
+        <div class="bg-white rounded-2xl shadow-lg p-4 text-center">
+          <div class="text-5xl mb-2">🍕</div>
+          <h3 class="font-bold text-orange-800 text-sm">Ayam Pedas</h3>
+          <p class="text-lg
