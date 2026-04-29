@@ -3,33 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pizza Malakue - Homemade, Fresh From The Oven</title>
+  <title>Pizza Malakue</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body { font-family: sans-serif; }
-  </style>
 </head>
 <body class="bg-gradient-to-b from-amber-50 to-orange-100 min-h-screen">
   <div class="max-w-md mx-auto p-4">
 
-    <!-- TAMPILAN AWAL SESUAI GAMBAR -->
-    <div id="landingPage" class="min-h-screen flex flex-col justify-center items-center text-center">
+    <!-- HALAMAN 1: TAMPILAN AWAL -->
+    <div id="page1" class="min-h-screen flex flex-col justify-center items-center text-center">
       <p class="text-gray-600 text-sm mb-2">TERIMA KASIH SUDAH DI KLIK LINK NYA</p>
       <h1 class="text-3xl font-bold text-gray-800 mb-1">WELCOME!!!</h1>
       <h2 class="text-lg text-gray-700 mb-8">PIZZA MALAKUE</h2>
 
-      <button onclick="showMenu()" class="w-full max-w-xs border-2 border-black py-3 font-bold text-black mb-4 hover:bg-orange-500 hover:text-white hover:border-orange-500">
+      <button onclick="bukaMenu()" class="w-full max-w-xs border-2 border-black py-3 font-bold text-black mb-4 bg-white">
         Buat Pesanan Anda Disini
       </button>
 
-      <a href="LINK_TIKTOK_LU" target="_blank" class="w-full max-w-xs border-2 border-black py-3 font-bold text-black hover:bg-black hover:text-white">
+      <a href="https://tiktok.com" target="_blank" class="w-full max-w-xs border-2 border-black py-3 font-bold text-black bg-white text-center">
         TikTok
       </a>
+    </div>
 
-    <!-- HALAMAN MENU -->
-    <div id="menuPage" class="hidden pb-24">
-      <header class="text-center py-4 relative">
-        <button onclick="showLanding()" class="absolute left-0 top-4 text-orange-600 font-bold">← Kembali</button>
+    <!-- HALAMAN 2: MENU -->
+    <div id="page2" style="display:none;">
+      <header class="text-center py-4">
+        <button onclick="balikAwal()" class="float-left text-orange-600 font-bold">← Kembali</button>
         <h1 class="text-3xl font-bold text-orange-600">Pizza Malakue</h1>
         <p class="text-sm text-orange-700">Homemade, Fresh From The Oven</p>
       </header>
@@ -42,9 +40,9 @@
           <h3 class="font-bold text-orange-800 text-sm">Sosis</h3>
           <p class="text-lg font-bold text-orange-600 my-1">10rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
-            <button onclick="updateQty('sosis', -1)" class="bg-orange-200 text-orange-800 w-7 h-7 rounded-full font-bold">-</button>
-            <span id="qty-sosis" class="font-bold w-4">0</span>
-            <button onclick="updateQty('sosis', 1)" class="bg-orange-500 text-white w-7 h-7 rounded-full font-bold">+</button>
+            <button onclick="kurang('sosis')" class="bg-orange-200 text-orange-800 w-7 h-7 rounded-full font-bold">-</button>
+            <span id="sosis" class="font-bold w-4">0</span>
+            <button onclick="tambah('sosis')" class="bg-orange-500 text-white w-7 h-7 rounded-full font-bold">+</button>
           </div>
         </div>
 
@@ -53,9 +51,9 @@
           <h3 class="font-bold text-orange-800 text-sm">Sosis Ayam</h3>
           <p class="text-lg font-bold text-orange-600 my-1">10rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
-            <button onclick="updateQty('sosis-ayam', -1)" class="bg-orange-200 text-orange-800 w-7 h-7 rounded-full font-bold">-</button>
-            <span id="qty-sosis-ayam" class="font-bold w-4">0</span>
-            <button onclick="updateQty('sosis-ayam', 1)" class="bg-orange-500 text-white w-7 h-7 rounded-full font-bold">+</button>
+            <button onclick="kurang('sosisAyam')" class="bg-orange-200 text-orange-800 w-7 h-7 rounded-full font-bold">-</button>
+            <span id="sosisAyam" class="font-bold w-4">0</span>
+            <button onclick="tambah('sosisAyam')" class="bg-orange-500 text-white w-7 h-7 rounded-full font-bold">+</button>
           </div>
         </div>
 
@@ -64,9 +62,9 @@
           <h3 class="font-bold text-orange-800 text-sm">Kornet</h3>
           <p class="text-lg font-bold text-orange-600 my-1">10rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
-            <button onclick="updateQty('kornet', -1)" class="bg-orange-200 text-orange-800 w-7 h-7 rounded-full font-bold">-</button>
-            <span id="qty-kornet" class="font-bold w-4">0</span>
-            <button onclick="updateQty('kornet', 1)" class="bg-orange-500 text-white w-7 h-7 rounded-full font-bold">+</button>
+            <button onclick="kurang('kornet')" class="bg-orange-200 text-orange-800 w-7 h-7 rounded-full font-bold">-</button>
+            <span id="kornet" class="font-bold w-4">0</span>
+            <button onclick="tambah('kornet')" class="bg-orange-500 text-white w-7 h-7 rounded-full font-bold">+</button>
           </div>
         </div>
 
@@ -75,105 +73,88 @@
           <h3 class="font-bold text-orange-800 text-sm">Ayam Pedas</h3>
           <p class="text-lg font-bold text-orange-600 my-1">12rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
-            <button onclick="updateQty('ayam-pedas', -1)" class="bg-orange-200 text-orange-800 w-7 h-7 rounded-full font-bold">-</button>
-            <span id="qty-ayam-pedas" class="font-bold w-4">0</span>
-            <button onclick="updateQty('ayam-pedas', 1)" class="bg-orange-500 text-white w-7 h-7 rounded-full font-bold">+</button>
+            <button onclick="kurang('ayamPedas')" class="bg-orange-200 text-orange-800 w-7 h-7 rounded-full font-bold">-</button>
+            <span id="ayamPedas" class="font-bold w-4">0</span>
+            <button onclick="tambah('ayamPedas')" class="bg-orange-500 text-white w-7 h-7 rounded-full font-bold">+</button>
           </div>
         </div>
       </div>
 
-      <!-- 1 TOMBOL KIRIM PESANAN -->
+      <button onclick="qrisMuncul()" class="w-full bg-green-500 text-white py-3 rounded-xl font-bold text-lg mb-4">
+        💳 Bayar Pakai QRIS
+      </button>
+
       <div class="fixed bottom-4 left-4 right-4 max-w-md mx-auto">
-        <button onclick="kirimPesanan()" class="w-full bg-orange-500 text-white py-4 rounded-xl font-bold text-lg shadow-2xl hover:bg-orange-600">
-          🛒 Kirim Pesanan - <span id="totalHarga">Rp 0</span>
+        <button onclick="kirimWA()" class="w-full bg-orange-500 text-white py-4 rounded-xl font-bold text-lg shadow-2xl">
+          🛒 Kirim Pesanan - <span id="total">Rp 0</span>
         </button>
       </div>
     </div>
 
     <!-- POP-UP QRIS -->
-    <div id="qrisModal" class="hidden fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4" onclick="hideQris()">
+    <div id="popupQris" style="display:none;" class="fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4" onclick="qrisTutup()">
       <div class="bg-white rounded-2xl p-6 max-w-sm w-full text-center" onclick="event.stopPropagation()">
         <h3 class="text-xl font-bold text-orange-800 mb-4">Scan QRIS Pizza Malakue</h3>
-        <img src="qris-pizza-malakue.jpg" alt="QRIS Pizza Malakue" class="w-full rounded-xl shadow-md mb-4">
-        <p class="text-sm text-gray-600 mb-4">a.n. MUHAMMAD NAIM MU'MIN<br>Scan pake GoPay, OVO, Dana, m-Banking</p>
-        <button onclick="hideQris()" class="bg-orange-500 text-white px-6 py-2 rounded-lg font-bold">Tutup</button>
+        <img src="qris-pizza-malakue.jpg" alt="QRIS" class="w-full rounded-xl shadow-md mb-4">
+        <p class="text-sm text-gray-600 mb-4">a.n. MUHAMMAD NAIM MU'MIN</p>
+        <button onclick="qrisTutup()" class="bg-orange-500 text-white px-6 py-2 rounded-lg font-bold">Tutup</button>
       </div>
     </div>
 
-    <footer id="footer" class="text-center mt-12 p-6 bg-white rounded-2xl shadow-lg">
-      <h4 class="font-bold text-orange-800 text-lg">Info Pemesanan</h4>
-      <p class="mt-2">📱 WhatsApp: <a href="https://wa.me/6282193795771" class="text-orange-600 font-bold">0821-9379-5771</a></p>
-      <p>📍 BTN GRIYA BUMI REZKITA Blok E/5, UGI BARU, MAPILLI, POLEWALI MANDAR</p>
-      <p>💳 GOPAY: 085398999795 a.n. MUHAMMAD NAIM MU'MIN</p>
-      <p class="text-sm text-gray-500 mt-4">© 2025 Pizza Malakue</p>
-    </footer>
   </div>
 
 <script>
-const menu = {
-  'sosis': {nama: 'Pizza Sosis', harga: 10000, qty: 0},
-  'sosis-ayam': {nama: 'Pizza Sosis Ayam', harga: 10000, qty: 0},
-  'kornet': {nama: 'Pizza Kornet', harga: 10000, qty: 0},
-  'ayam-pedas': {nama: 'Pizza Ayam Pedas', harga: 12000, qty: 0}
-};
+let sosis = 0, sosisAyam = 0, kornet = 0, ayamPedas = 0;
 
-function showMenu() {
-  document.getElementById('landingPage').classList.add('hidden');
-  document.getElementById('menuPage').classList.remove('hidden');
-  document.getElementById('footer').classList.add('hidden');
-  window.scrollTo(0, 0);
+function bukaMenu() {
+  document.getElementById('page1').style.display = 'none';
+  document.getElementById('page2').style.display = 'block';
 }
 
-function showLanding() {
-  document.getElementById('menuPage').classList.add('hidden');
-  document.getElementById('landingPage').classList.remove('hidden');
-  document.getElementById('footer').classList.remove('hidden');
-  window.scrollTo(0, 0);
+function balikAwal() {
+  document.getElementById('page2').style.display = 'none';
+  document.getElementById('page1').style.display = 'flex';
 }
 
-function updateQty(id, change) {
-  menu[id].qty = Math.max(0, menu[id].qty + change);
-  document.getElementById('qty-' + id).innerText = menu[id].qty;
-  updateTotal();
+function tambah(menu) {
+  window[menu]++;
+  document.getElementById(menu).innerText = window[menu];
+  hitungTotal();
 }
 
-function updateTotal() {
-  let total = 0;
-  for (let item in menu) {
-    total += menu[item].qty * menu[item].harga;
+function kurang(menu) {
+  if(window[menu] > 0) {
+    window[menu]--;
+    document.getElementById(menu).innerText = window[menu];
+    hitungTotal();
   }
-  document.getElementById('totalHarga').innerText = 'Rp ' + total.toLocaleString('id-ID');
 }
 
-function kirimPesanan() {
-  let pesan = 'Halo Pizza Malakue, saya mau pesan:%0A%0A';
-  let adaPesanan = false;
-  let total = 0;
+function hitungTotal() {
+  let total = (sosis * 10000) + (sosisAyam * 10000) + (kornet * 10000) + (ayamPedas * 12000);
+  document.getElementById('total').innerText = 'Rp ' + total.toLocaleString('id-ID');
+}
 
-  for (let item in menu) {
-    if (menu[item].qty > 0) {
-      adaPesanan = true;
-      let subtotal = menu[item].qty * menu[item].harga;
-      pesan += `- ${menu[item].nama} x${menu[item].qty} = Rp ${subtotal.toLocaleString('id-ID')}%0A`;
-      total += subtotal;
-    }
-  }
-
-  if (!adaPesanan) {
+function kirimWA() {
+  if(sosis + sosisAyam + kornet + ayamPedas == 0) {
     alert('Pilih menu dulu bro!');
     return;
   }
 
-  pesan += `%0ATotal: Rp ${total.toLocaleString('id-ID')}%0A%0ATerima kasih!`;
-  window.open('https://wa.me/6282193795771?text=' + pesan, '_blank');
+  let teks = 'Halo Pizza Malakue, saya mau pesan:%0A%0A';
+  if(sosis > 0) teks += `- Pizza Sosis x${sosis} = Rp ${(sosis*10000).toLocaleString('id-ID')}%0A`;
+  if(sosisAyam > 0) teks += `- Pizza Sosis Ayam x${sosisAyam} = Rp ${(sosisAyam*10000).toLocaleString('id-ID')}%0A`;
+  if(kornet > 0) teks += `- Pizza Kornet x${kornet} = Rp ${(kornet*10000).toLocaleString('id-ID')}%0A`;
+  if(ayamPedas > 0) teks += `- Pizza Ayam Pedas x${ayamPedas} = Rp ${(ayamPedas*12000).toLocaleString('id-ID')}%0A`;
+
+  let total = (sosis * 10000) + (sosisAyam * 10000) + (kornet * 10000) + (ayamPedas * 12000);
+  teks += `%0ATotal: Rp ${total.toLocaleString('id-ID')}`;
+
+  window.open('https://wa.me/6282193795771?text=' + teks, '_blank');
 }
 
-function showQris() {
-  document.getElementById('qrisModal').classList.remove('hidden');
+function qrisMuncul() {
+  document.getElementById('popupQris').style.display = 'flex';
 }
-function hideQris() {
-  document.getElementById('qrisModal').classList.add('hidden');
-}
-</script>
-</body>
-</html>
+
+function qrisTutup()
