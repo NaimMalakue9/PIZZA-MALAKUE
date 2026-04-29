@@ -15,7 +15,7 @@
 <body class="min-h-screen">
   <div class="max-w-md mx-auto p-4">
 
-    <!-- HALAMAN 1: TAMPILAN AWAL UDAH DIUPDATE -->
+    <!-- HALAMAN 1: TAMPILAN AWAL -->
     <div id="page1" class="min-h-screen flex flex-col justify-center items-center text-center">
       <p class="text-[#5D4037] text-sm mb-2">Terima kasih sudah klik Link Tautannya</p>
       <h1 class="text-3xl font-bold text-black mb-1">WELCOME!!!</h1>
@@ -31,7 +31,7 @@
       </a>
     </div>
 
-    <!-- HALAMAN 2: MENU -->
+    <!-- HALAMAN 2: MENU + FOTO PRODUK -->
     <div id="page2" style="display:none;">
       <header class="text-center py-4">
         <button onclick="balikAwal()" class="float-left text-[#E65100] font-bold">← Kembali</button>
@@ -42,47 +42,51 @@
       <h2 class="text-xl font-bold text-[#5D4037] text-center my-4">Pilih Menu Favoritmu</h2>
 
       <div class="grid grid-cols-2 gap-3 my-6">
+        <!-- MENU 1: COKLAT MOZARELLA -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <div class="text-4xl mb-1">🍕</div>
-          <h3 class="font-bold text-[#5D4037] text-sm">Sosis</h3>
-          <p class="text-lg font-bold text-[#E65100] my-1">10rb</p>
+          <img src="pizza-coklat mozarella.jpg" alt="Pizza Coklat Mozarella" class="w-full h-24 object-cover rounded-lg mb-2">
+          <h3 class="font-bold text-[#5D4037] text-sm">Coklat Mozarella</h3>
+          <p class="text-lg font-bold text-[#E65100] my-1">33.000</p>
           <div class="flex items-center justify-center gap-2 mt-2">
-            <button onclick="kurang('sosis')" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
-            <span id="sosis" class="font-bold w-4 text-[#5D4037]">0</span>
-            <button onclick="tambah('sosis')" class="bg-[#E65100] text-white w-7 h-7 rounded-full font-bold">+</button>
+            <button onclick="kurang('coklatMocarella')" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
+            <span id="coklatMocarella" class="font-bold w-4 text-[#5D4037]">0</span>
+            <button onclick="tambah('coklatMocarella')" class="bg-[#E65100] text-white w-7 h-7 rounded-full font-bold">+</button>
           </div>
         </div>
 
+        <!-- MENU 2: COKLAT KEJU CEDAR -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <div class="text-4xl mb-1">🍕</div>
-          <h3 class="font-bold text-[#5D4037] text-sm">Sosis Ayam</h3>
-          <p class="text-lg font-bold text-[#E65100] my-1">10rb</p>
+          <img src="pizza-coklat-keju ceedor.jpg" alt="Pizza Coklat Keju Cedar" class="w-full h-24 object-cover rounded-lg mb-2">
+          <h3 class="font-bold text-[#5D4037] text-sm">Coklat Keju Cedar</h3>
+          <p class="text-lg font-bold text-[#E65100] my-1">15rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
-            <button onclick="kurang('sosisAyam')" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
-            <span id="sosisAyam" class="font-bold w-4 text-[#5D4037]">0</span>
-            <button onclick="tambah('sosisAyam')" class="bg-[#E65100] text-white w-7 h-7 rounded-full font-bold">+</button>
+            <button onclick="kurang('coklatKeju')" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
+            <span id="coklatKeju" class="font-bold w-4 text-[#5D4037]">0</span>
+            <button onclick="tambah('coklatKeju')" class="bg-[#E65100] text-white w-7 h-7 rounded-full font-bold">+</button>
           </div>
         </div>
 
+        <!-- MENU 3: PARTY -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <div class="text-4xl mb-1">🍕</div>
-          <h3 class="font-bold text-[#5D4037] text-sm">Kornet</h3>
-          <p class="text-lg font-bold text-[#E65100] my-1">10rb</p>
+          <img src="pizza-party.jpg" alt="Pizza Party" class="w-full h-24 object-cover rounded-lg mb-2">
+          <h3 class="font-bold text-[#5D4037] text-sm">Party</h3>
+          <p class="text-lg font-bold text-[#E65100] my-1">85.000</p>
           <div class="flex items-center justify-center gap-2 mt-2">
-            <button onclick="kurang('kornet')" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
-            <span id="kornet" class="font-bold w-4 text-[#5D4037]">0</span>
-            <button onclick="tambah('kornet')" class="bg-[#E65100] text-white w-7 h-7 rounded-full font-bold">+</button>
+            <button onclick="kurang('party')" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
+            <span id="party" class="font-bold w-4 text-[#5D4037]">0</span>
+            <button onclick="tambah('party')" class="bg-[#E65100] text-white w-7 h-7 rounded-full font-bold">+</button>
           </div>
         </div>
 
+        <!-- MENU 4: VULCANO NON SPICY -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <div class="text-4xl mb-1">🍕</div>
-          <h3 class="font-bold text-[#5D4037] text-sm">Ayam Pedas</h3>
-          <p class="text-lg font-bold text-[#E65100] my-1">12rb</p>
+          <img src="pizza vulcano-non-spicy.jpg" alt="Pizza Vulcano Non Spicy" class="w-full h-24 object-cover rounded-lg mb-2">
+          <h3 class="font-bold text-[#5D4037] text-sm">Vulcano Non Spicy</h3>
+          <p class="text-lg font-bold text-[#E65100] my-1">45.000rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
-            <button onclick="kurang('ayamPedas')" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
-            <span id="ayamPedas" class="font-bold w-4 text-[#5D4037]">0</span>
-            <button onclick="tambah('ayamPedas')" class="bg-[#E65100] text-white w-7 h-7 rounded-full font-bold">+</button>
+            <button onclick="kurang('vulcano')" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
+            <span id="vulcano" class="font-bold w-4 text-[#5D4037]">0</span>
+            <button onclick="tambah('vulcano')" class="bg-[#E65100] text-white w-7 h-7 rounded-full font-bold">+</button>
           </div>
         </div>
       </div>
@@ -118,10 +122,10 @@
   </div>
 
 <script>
-var jmlSosis = 0;
-var jmlSosisAyam = 0;
-var jmlKornet = 0;
-var jmlAyamPedas = 0;
+var jmlCoklatMocarella = 0;
+var jmlCoklatKeju = 0;
+var jmlParty = 0;
+var jmlVulcano = 0;
 
 function bukaMenu() {
   document.getElementById('page1').style.display = 'none';
@@ -136,63 +140,63 @@ function balikAwal() {
 }
 
 function tambah(menu) {
-  if(menu == 'sosis') {
-    jmlSosis++;
-    document.getElementById('sosis').innerText = jmlSosis;
+  if(menu == 'coklatMocarella') {
+    jmlCoklatMocarella++;
+    document.getElementById('coklatMocarella').innerText = jmlCoklatMocarella;
   }
-  if(menu == 'sosisAyam') {
-    jmlSosisAyam++;
-    document.getElementById('sosisAyam').innerText = jmlSosisAyam;
+  if(menu == 'coklatKeju') {
+    jmlCoklatKeju++;
+    document.getElementById('coklatKeju').innerText = jmlCoklatKeju;
   }
-  if(menu == 'kornet') {
-    jmlKornet++;
-    document.getElementById('kornet').innerText = jmlKornet;
+  if(menu == 'party') {
+    jmlParty++;
+    document.getElementById('party').innerText = jmlParty;
   }
-  if(menu == 'ayamPedas') {
-    jmlAyamPedas++;
-    document.getElementById('ayamPedas').innerText = jmlAyamPedas;
+  if(menu == 'vulcano') {
+    jmlVulcano++;
+    document.getElementById('vulcano').innerText = jmlVulcano;
   }
   hitungTotal();
 }
 
 function kurang(menu) {
-  if(menu == 'sosis' && jmlSosis > 0) {
-    jmlSosis--;
-    document.getElementById('sosis').innerText = jmlSosis;
+  if(menu == 'coklatMocarella' && jmlCoklatMocarella > 0) {
+    jmlCoklatMocarella--;
+    document.getElementById('coklatMocarella').innerText = jmlCoklatMocarella;
   }
-  if(menu == 'sosisAyam' && jmlSosisAyam > 0) {
-    jmlSosisAyam--;
-    document.getElementById('sosisAyam').innerText = jmlSosisAyam;
+  if(menu == 'coklatKeju' && jmlCoklatKeju > 0) {
+    jmlCoklatKeju--;
+    document.getElementById('coklatKeju').innerText = jmlCoklatKeju;
   }
-  if(menu == 'kornet' && jmlKornet > 0) {
-    jmlKornet--;
-    document.getElementById('kornet').innerText = jmlKornet;
+  if(menu == 'party' && jmlParty > 0) {
+    jmlParty--;
+    document.getElementById('party').innerText = jmlParty;
   }
-  if(menu == 'ayamPedas' && jmlAyamPedas > 0) {
-    jmlAyamPedas--;
-    document.getElementById('ayamPedas').innerText = jmlAyamPedas;
+  if(menu == 'vulcano' && jmlVulcano > 0) {
+    jmlVulcano--;
+    document.getElementById('vulcano').innerText = jmlVulcano;
   }
   hitungTotal();
 }
 
 function hitungTotal() {
-  var total = (jmlSosis * 10000) + (jmlSosisAyam * 10000) + (jmlKornet * 10000) + (jmlAyamPedas * 12000);
+  var total = (jmlCoklatMocarella * 15000) + (jmlCoklatKeju * 15000) + (jmlParty * 18000) + (jmlVulcano * 18000);
   document.getElementById('total').innerText = 'Rp ' + total.toLocaleString('id-ID');
 }
 
 function kirimWA() {
-  if(jmlSosis + jmlSosisAyam + jmlKornet + jmlAyamPedas == 0) {
+  if(jmlCoklatMocarella + jmlCoklatKeju + jmlParty + jmlVulcano == 0) {
     alert('Pilih menu dulu bro!');
     return;
   }
 
   var teks = 'Halo Pizza Malakue, saya mau pesan:%0A%0A';
-  if(jmlSosis > 0) teks += '- Pizza Sosis x' + jmlSosis + ' = Rp ' + (jmlSosis*10000).toLocaleString('id-ID') + '%0A';
-  if(jmlSosisAyam > 0) teks += '- Pizza Sosis Ayam x' + jmlSosisAyam + ' = Rp ' + (jmlSosisAyam*10000).toLocaleString('id-ID') + '%0A';
-  if(jmlKornet > 0) teks += '- Pizza Kornet x' + jmlKornet + ' = Rp ' + (jmlKornet*10000).toLocaleString('id-ID') + '%0A';
-  if(jmlAyamPedas > 0) teks += '- Pizza Ayam Pedas x' + jmlAyamPedas + ' = Rp ' + (jmlAyamPedas*12000).toLocaleString('id-ID') + '%0A';
+  if(jmlCoklatMocarella > 0) teks += '- Pizza Coklat Mocarella x' + jmlCoklatMocarella + ' = Rp ' + (jmlCoklatMocarella*15000).toLocaleString('id-ID') + '%0A';
+  if(jmlCoklatKeju > 0) teks += '- Pizza Coklat Keju Cedar x' + jmlCoklatKeju + ' = Rp ' + (jmlCoklatKeju*15000).toLocaleString('id-ID') + '%0A';
+  if(jmlParty > 0) teks += '- Pizza Party x' + jmlParty + ' = Rp ' + (jmlParty*18000).toLocaleString('id-ID') + '%0A';
+  if(jmlVulcano > 0) teks += '- Pizza Vulcano Non Spicy x' + jmlVulcano + ' = Rp ' + (jmlVulcano*18000).toLocaleString('id-ID') + '%0A';
 
-  var total = (jmlSosis * 10000) + (jmlSosisAyam * 10000) + (jmlKornet * 10000) + (jmlAyamPedas * 12000);
+  var total = (jmlCoklatMocarella * 15000) + (jmlCoklatKeju * 15000) + (jmlParty * 18000) + (jmlVulcano * 18000);
   teks += '%0ATotal: Rp ' + total.toLocaleString('id-ID');
 
   window.open('https://wa.me/6282193795771?text=' + teks, '_blank');
