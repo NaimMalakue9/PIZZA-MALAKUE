@@ -104,7 +104,10 @@
   </div>
 
 <script>
-let sosis = 0, sosisAyam = 0, kornet = 0, ayamPedas = 0;
+var jmlSosis = 0;
+var jmlSosisAyam = 0;
+var jmlKornet = 0;
+var jmlAyamPedas = 0;
 
 function bukaMenu() {
   document.getElementById('page1').style.display = 'none';
@@ -117,44 +120,58 @@ function balikAwal() {
 }
 
 function tambah(menu) {
-  window[menu]++;
-  document.getElementById(menu).innerText = window[menu];
+  if(menu == 'sosis') {
+    jmlSosis++;
+    document.getElementById('sosis').innerText = jmlSosis;
+  }
+  if(menu == 'sosisAyam') {
+    jmlSosisAyam++;
+    document.getElementById('sosisAyam').innerText = jmlSosisAyam;
+  }
+  if(menu == 'kornet') {
+    jmlKornet++;
+    document.getElementById('kornet').innerText = jmlKornet;
+  }
+  if(menu == 'ayamPedas') {
+    jmlAyamPedas++;
+    document.getElementById('ayamPedas').innerText = jmlAyamPedas;
+  }
   hitungTotal();
 }
 
 function kurang(menu) {
-  if(window[menu] > 0) {
-    window[menu]--;
-    document.getElementById(menu).innerText = window[menu];
-    hitungTotal();
+  if(menu == 'sosis' && jmlSosis > 0) {
+    jmlSosis--;
+    document.getElementById('sosis').innerText = jmlSosis;
   }
+  if(menu == 'sosisAyam' && jmlSosisAyam > 0) {
+    jmlSosisAyam--;
+    document.getElementById('sosisAyam').innerText = jmlSosisAyam;
+  }
+  if(menu == 'kornet' && jmlKornet > 0) {
+    jmlKornet--;
+    document.getElementById('kornet').innerText = jmlKornet;
+  }
+  if(menu == 'ayamPedas' && jmlAyamPedas > 0) {
+    jmlAyamPedas--;
+    document.getElementById('ayamPedas').innerText = jmlAyamPedas;
+  }
+  hitungTotal();
 }
 
 function hitungTotal() {
-  let total = (sosis * 10000) + (sosisAyam * 10000) + (kornet * 10000) + (ayamPedas * 12000);
+  var total = (jmlSosis * 10000) + (jmlSosisAyam * 10000) + (jmlKornet * 10000) + (jmlAyamPedas * 12000);
   document.getElementById('total').innerText = 'Rp ' + total.toLocaleString('id-ID');
 }
 
 function kirimWA() {
-  if(sosis + sosisAyam + kornet + ayamPedas == 0) {
+  if(jmlSosis + jmlSosisAyam + jmlKornet + jmlAyamPedas == 0) {
     alert('Pilih menu dulu bro!');
     return;
   }
 
-  let teks = 'Halo Pizza Malakue, saya mau pesan:%0A%0A';
-  if(sosis > 0) teks += `- Pizza Sosis x${sosis} = Rp ${(sosis*10000).toLocaleString('id-ID')}%0A`;
-  if(sosisAyam > 0) teks += `- Pizza Sosis Ayam x${sosisAyam} = Rp ${(sosisAyam*10000).toLocaleString('id-ID')}%0A`;
-  if(kornet > 0) teks += `- Pizza Kornet x${kornet} = Rp ${(kornet*10000).toLocaleString('id-ID')}%0A`;
-  if(ayamPedas > 0) teks += `- Pizza Ayam Pedas x${ayamPedas} = Rp ${(ayamPedas*12000).toLocaleString('id-ID')}%0A`;
-
-  let total = (sosis * 10000) + (sosisAyam * 10000) + (kornet * 10000) + (ayamPedas * 12000);
-  teks += `%0ATotal: Rp ${total.toLocaleString('id-ID')}`;
-
-  window.open('https://wa.me/6282193795771?text=' + teks, '_blank');
-}
-
-function qrisMuncul() {
-  document.getElementById('popupQris').style.display = 'flex';
-}
-
-function qrisTutup()
+  var teks = 'Halo Pizza Malakue, saya mau pesan:%0A%0A';
+  if(jmlSosis > 0) teks += '- Pizza Sosis x' + jmlSosis + ' = Rp ' + (jmlSosis*10000).toLocaleString('id-ID') + '%0A';
+  if(jmlSosisAyam > 0) teks += '- Pizza Sosis Ayam x' + jmlSosisAyam + ' = Rp ' + (jmlSosisAyam*10000).toLocaleString('id-ID') + '%0A';
+  if(jmlKornet > 0) teks += '- Pizza Kornet x' + jmlKornet + ' = Rp ' + (jmlKornet*10000).toLocaleString('id-ID') + '%0A';
+  if(jmlAyamP
