@@ -26,7 +26,7 @@
         🍕 Buat Pesanan Anda Disini
       </button>
 
-      <a href="https://tiktok.com/@malakue_pizza" target="_blank" class="w-full max-w-xs bg-[#E65100] text-white py-4 rounded-xl font-bold text-lg text-center shadow-md hover:bg-[#D84315]">
+      <a href="LINK_TIKTOK_LU" target="_blank" class="w-full max-w-xs bg-[#E65100] text-white py-4 rounded-xl font-bold text-lg text-center shadow-md hover:bg-[#D84315]">
         TikTok
       </a>
     </div>
@@ -42,11 +42,10 @@
       <h2 class="text-xl font-bold text-[#5D4037] text-center my-4">Pilih Menu Favoritmu</h2>
 
       <div class="grid grid-cols-2 gap-3 my-6">
-        <!-- MENU 1: COKLAT MOZARELLA -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
           <img src="pizza-coklat mozarella.jpg" alt="Pizza Coklat Mozarella" class="w-full h-24 object-cover rounded-lg mb-2">
           <h3 class="font-bold text-[#5D4037] text-sm">Coklat Mozarella</h3>
-          <p class="text-lg font-bold text-[#E65100] my-1">33 rb</p>
+          <p class="text-lg font-bold text-[#E65100] my-1">15rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
             <button onclick="kurang('coklatMocarella')" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
             <span id="coklatMocarella" class="font-bold w-4 text-[#5D4037]">0</span>
@@ -54,11 +53,10 @@
           </div>
         </div>
 
-        <!-- MENU 2: COKLAT KEJU CEDAR -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
           <img src="pizza-coklat-keju ceedor.jpg" alt="Pizza Coklat Keju Cedar" class="w-full h-24 object-cover rounded-lg mb-2">
           <h3 class="font-bold text-[#5D4037] text-sm">Coklat Keju Cedar</h3>
-          <p class="text-lg font-bold text-[#E65100] my-1">28 rb</p>
+          <p class="text-lg font-bold text-[#E65100] my-1">15rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
             <button onclick="kurang('coklatKeju')" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
             <span id="coklatKeju" class="font-bold w-4 text-[#5D4037]">0</span>
@@ -66,11 +64,10 @@
           </div>
         </div>
 
-        <!-- MENU 3: PARTY -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
           <img src="pizza-party.jpg" alt="Pizza Party" class="w-full h-24 object-cover rounded-lg mb-2">
           <h3 class="font-bold text-[#5D4037] text-sm">Party</h3>
-          <p class="text-lg font-bold text-[#E65100] my-1">85 rb</p>
+          <p class="text-lg font-bold text-[#E65100] my-1">33rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
             <button onclick="kurang('party')" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
             <span id="party" class="font-bold w-4 text-[#5D4037]">0</span>
@@ -78,11 +75,10 @@
           </div>
         </div>
 
-        <!-- MENU 4: VULCANO NON SPICY -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
           <img src="pizza vulcano-non-spicy.jpg" alt="Pizza Vulcano Non Spicy" class="w-full h-24 object-cover rounded-lg mb-2">
           <h3 class="font-bold text-[#5D4037] text-sm">Vulcano Non Spicy</h3>
-          <p class="text-lg font-bold text-[#E65100] my-1">45 rb</p>
+          <p class="text-lg font-bold text-[#E65100] my-1">18rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
             <button onclick="kurang('vulcano')" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
             <span id="vulcano" class="font-bold w-4 text-[#5D4037]">0</span>
@@ -107,6 +103,19 @@
         <img src="qris-pizza-malakue.jpg" alt="QRIS" class="w-full rounded-xl shadow-md mb-4">
         <p class="text-sm text-gray-600 mb-4">a.n. MUHAMMAD NAIM MU'MIN</p>
         <button onclick="qrisTutup()" class="bg-[#E65100] text-white px-6 py-2 rounded-lg font-bold">Tutup</button>
+      </div>
+    </div>
+
+    <!-- POP-UP TERIMA KASIH - BARU INI BRO -->
+    <div id="popupThanks" style="display:none;" class="fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4" onclick="thanksTutup()">
+      <div class="bg-white rounded-2xl p-6 max-w-sm w-full text-center" onclick="event.stopPropagation()">
+        <div class="text-5xl mb-4">🎉</div>
+        <h3 class="text-xl font-bold text-[#E65100] mb-3">Pesanan Terkirim!</h3>
+        <p class="text-[#5D4037] leading-relaxed">
+          Terima Kasih sudah melakukan pembelian di Pizza Malakue<br><br>
+          <strong>Sehat Selalu, Murah Rejeki, Panjang Umur serta dimudahkan selalu urusannya !!!</strong>
+        </p>
+        <button onclick="thanksTutup()" class="bg-[#E65100] text-white px-8 py-3 rounded-lg font-bold mt-6">Aamiin 🤲</button>
       </div>
     </div>
 
@@ -180,26 +189,31 @@ function kurang(menu) {
 }
 
 function hitungTotal() {
-  var total = (jmlCoklatMocarella * 33000) + (jmlCoklatKeju * 28000) + (jmlParty * 85000) + (jmlVulcano * 45000);
+  var total = (jmlCoklatMocarella * 15000) + (jmlCoklatKeju * 15000) + (jmlParty * 33000) + (jmlVulcano * 18000);
   document.getElementById('total').innerText = 'Rp ' + total.toLocaleString('id-ID');
 }
 
 function kirimWA() {
   if(jmlCoklatMocarella + jmlCoklatKeju + jmlParty + jmlVulcano == 0) {
-    alert('Tabe pilih menu dulu kakak!!!');
+    alert('Pilih menu dulu bro!');
     return;
   }
 
   var teks = 'Halo Pizza Malakue, saya mau pesan:%0A%0A';
-  if(jmlCoklatMocarella > 0) teks += '- Pizza Coklat Mocarella x' + jmlCoklatMocarella + ' = Rp ' + (jmlCoklatMocarella*33000).toLocaleString('id-ID') + '%0A';
-  if(jmlCoklatKeju > 0) teks += '- Pizza Coklat Keju Cedar x' + jmlCoklatKeju + ' = Rp ' + (jmlCoklatKeju*28000).toLocaleString('id-ID') + '%0A';
-  if(jmlParty > 0) teks += '- Pizza Party x' + jmlParty + ' = Rp ' + (jmlParty*85000).toLocaleString('id-ID') + '%0A';
-  if(jmlVulcano > 0) teks += '- Pizza Vulcano Non Spicy x' + jmlVulcano + ' = Rp ' + (jmlVulcano*45000).toLocaleString('id-ID') + '%0A';
+  if(jmlCoklatMocarella > 0) teks += '- Pizza Coklat Mocarella x' + jmlCoklatMocarella + ' = Rp ' + (jmlCoklatMocarella*15000).toLocaleString('id-ID') + '%0A';
+  if(jmlCoklatKeju > 0) teks += '- Pizza Coklat Keju Cedar x' + jmlCoklatKeju + ' = Rp ' + (jmlCoklatKeju*15000).toLocaleString('id-ID') + '%0A';
+  if(jmlParty > 0) teks += '- Pizza Party x' + jmlParty + ' = Rp ' + (jmlParty*33000).toLocaleString('id-ID') + '%0A';
+  if(jmlVulcano > 0) teks += '- Pizza Vulcano Non Spicy x' + jmlVulcano + ' = Rp ' + (jmlVulcano*18000).toLocaleString('id-ID') + '%0A';
 
-  var total = (jmlCoklatMocarella * 33000) + (jmlCoklatKeju * 28000) + (jmlParty * 85000) + (jmlVulcano * 45000);
+  var total = (jmlCoklatMocarella * 15000) + (jmlCoklatKeju * 15000) + (jmlParty * 33000) + (jmlVulcano * 18000);
   teks += '%0ATotal: Rp ' + total.toLocaleString('id-ID');
 
   window.open('https://wa.me/6282193795771?text=' + teks, '_blank');
+  
+  // TAMPILIN POP-UP TERIMA KASIH SETELAH 1 DETIK
+  setTimeout(function() {
+    document.getElementById('popupThanks').style.display = 'flex';
+  }, 1000);
 }
 
 function qrisMuncul() {
@@ -208,6 +222,10 @@ function qrisMuncul() {
 
 function qrisTutup() {
   document.getElementById('popupQris').style.display = 'none';
+}
+
+function thanksTutup() {
+  document.getElementById('popupThanks').style.display = 'none';
 }
 </script>
 </body>
