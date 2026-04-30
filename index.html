@@ -180,4 +180,78 @@ function tambah(menu) {
   }
   if(menu == 'vulcanoNon') {
     jmlVulcanoNon++;
-    document.getElementById('vulcano
+    document.getElementById('vulcanoNon').innerText = jmlVulcanoNon;
+  }
+  if(menu == 'vulcanoPedas') {
+    jmlVulcanoPedas++;
+    document.getElementById('vulcanoPedas').innerText = jmlVulcanoPedas;
+  }
+  hitungTotal();
+}
+
+function kurang(menu) {
+  if(menu == 'coklatMocarella' && jmlCoklatMocarella > 0) {
+    jmlCoklatMocarella--;
+    document.getElementById('coklatMocarella').innerText = jmlCoklatMocarella;
+  }
+  if(menu == 'coklatKeju' && jmlCoklatKeju > 0) {
+    jmlCoklatKeju--;
+    document.getElementById('coklatKeju').innerText = jmlCoklatKeju;
+  }
+  if(menu == 'party' && jmlParty > 0) {
+    jmlParty--;
+    document.getElementById('party').innerText = jmlParty;
+  }
+  if(menu == 'vulcanoNon' && jmlVulcanoNon > 0) {
+    jmlVulcanoNon--;
+    document.getElementById('vulcanoNon').innerText = jmlVulcanoNon;
+  }
+  if(menu == 'vulcanoPedas' && jmlVulcanoPedas > 0) {
+    jmlVulcanoPedas--;
+    document.getElementById('vulcanoPedas').innerText = jmlVulcanoPedas;
+  }
+  hitungTotal();
+}
+
+function hitungTotal() {
+  var total = (jmlCoklatMocarella * 15000) + (jmlCoklatKeju * 15000) + (jmlParty * 33000) + (jmlVulcanoNon * 18000) + (jmlVulcanoPedas * 18000);
+  document.getElementById('total').innerText = 'Rp ' + total.toLocaleString('id-ID');
+}
+
+function kirimWA() {
+  if(jmlCoklatMocarella + jmlCoklatKeju + jmlParty + jmlVulcanoNon + jmlVulcanoPedas == 0) {
+    alert('Pilih menu dulu bro!');
+    return;
+  }
+
+  var teks = 'Halo Pizza Malakue, saya mau pesan:%0A%0A';
+  if(jmlCoklatMocarella > 0) teks += '- Pizza Coklat Mozarella x' + jmlCoklatMocarella + ' = Rp ' + (jmlCoklatMocarella*15000).toLocaleString('id-ID') + '%0A';
+  if(jmlCoklatKeju > 0) teks += '- Pizza Coklat Keju Cedar x' + jmlCoklatKeju + ' = Rp ' + (jmlCoklatKeju*15000).toLocaleString('id-ID') + '%0A';
+  if(jmlParty > 0) teks += '- Pizza Party x' + jmlParty + ' = Rp ' + (jmlParty*33000).toLocaleString('id-ID') + '%0A';
+  if(jmlVulcanoNon > 0) teks += '- Pizza Vulcano Non Pedas x' + jmlVulcanoNon + ' = Rp ' + (jmlVulcanoNon*18000).toLocaleString('id-ID') + '%0A';
+  if(jmlVulcanoPedas > 0) teks += '- Pizza Vulcano Pedas x' + jmlVulcanoPedas + ' = Rp ' + (jmlVulcanoPedas*18000).toLocaleString('id-ID') + '%0A';
+
+  var total = (jmlCoklatMocarella * 15000) + (jmlCoklatKeju * 15000) + (jmlParty * 33000) + (jmlVulcanoNon * 18000) + (jmlVulcanoPedas * 18000);
+  teks += '%0ATotal: Rp ' + total.toLocaleString('id-ID');
+
+  window.open('https://wa.me/6282193795771?text=' + teks, '_blank');
+  
+  setTimeout(function() {
+    document.getElementById('popupThanks').style.display = 'flex';
+  }, 1000);
+}
+
+function qrisMuncul() {
+  document.getElementById('popupQris').style.display = 'flex';
+}
+
+function qrisTutup() {
+  document.getElementById('popupQris').style.display = 'none';
+}
+
+function thanksTutup() {
+  document.getElementById('popupThanks').style.display = 'none';
+}
+</script>
+</body>
+</html>
