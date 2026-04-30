@@ -31,7 +31,7 @@
       </a>
     </div>
 
-    <!-- HALAMAN 2: MENU + 5 FOTO - NAMA UDAH 100% SAMA KAYAK GITHUB LU -->
+    <!-- HALAMAN 2: MENU + 5 FOTO BARU LU -->
     <div id="page2" style="display:none;">
       <header class="text-center py-4">
         <button onclick="balikAwal()" class="float-left text-[#E65100] font-bold">← Kembali</button>
@@ -42,9 +42,9 @@
       <h2 class="text-xl font-bold text-[#5D4037] text-center my-4">Pilih Menu Favoritmu</h2>
 
       <div class="grid grid-cols-2 gap-3 my-6">
-        <!-- MENU 1: pizza-coklat-mocsrella.jpg -->
+        <!-- MENU 1: pizza-coklat-mozarella.jpg -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <img src="pizza-coklat-mocarella.jpg" alt="Pizza Coklat Mocarella" class="w-full h-24 object-cover rounded-lg mb-2">
+          <img src="pizza-coklat-mozarella.jpg" alt="Pizza Coklat Mozarella" class="w-full h-24 object-cover rounded-lg mb-2">
           <h3 class="font-bold text-[#5D4037] text-sm">Coklat Mozarella</h3>
           <p class="text-lg font-bold text-[#E65100] my-1">15rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
@@ -54,7 +54,7 @@
           </div>
         </div>
 
-        <!-- MENU 2: pizza-coklat-keju-ceedar.jpg -->
+        <!-- MENU 2: pizza-coklat-keju-cedar.jpg -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
           <img src="pizza-coklat-keju-cedar.jpg" alt="Pizza Coklat Keju Cedar" class="w-full h-24 object-cover rounded-lg mb-2">
           <h3 class="font-bold text-[#5D4037] text-sm">Coklat Keju Cedar</h3>
@@ -78,10 +78,10 @@
           </div>
         </div>
 
-        <!-- MENU 4: pizza-vulcano-non-spicy.jpg -->
+        <!-- MENU 4: pizza-vulcano-non-pedas.jpg -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <img src="pizza-vulcano-non-spicy.jpg" alt="Pizza Vulcano Non Spicy" class="w-full h-24 object-cover rounded-lg mb-2">
-          <h3 class="font-bold text-[#5D4037] text-sm">Vulcano Non Spicy</h3>
+          <img src="pizza-vulcano-non-pedas.jpg" alt="Pizza Vulcano Non Pedas" class="w-full h-24 object-cover rounded-lg mb-2">
+          <h3 class="font-bold text-[#5D4037] text-sm">Vulcano Non Pedas</h3>
           <p class="text-lg font-bold text-[#E65100] my-1">18rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
             <button onclick="kurang('vulcanoNon')" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
@@ -90,9 +90,9 @@
           </div>
         </div>
 
-        <!-- MENU 5: pizza-vulcano-spicy.jpg -->
+        <!-- MENU 5: pizza-vulcano-pedas.jpg -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <img src="pizza-vulcano-spicy.jpg" alt="Pizza Vulcano Pedas" class="w-full h-24 object-cover rounded-lg mb-2">
+          <img src="pizza-vulcano-pedas.jpg" alt="Pizza Vulcano Pedas" class="w-full h-24 object-cover rounded-lg mb-2">
           <h3 class="font-bold text-[#5D4037] text-sm">Vulcano Pedas</h3>
           <p class="text-lg font-bold text-[#E65100] my-1">18rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
@@ -180,78 +180,4 @@ function tambah(menu) {
   }
   if(menu == 'vulcanoNon') {
     jmlVulcanoNon++;
-    document.getElementById('vulcanoNon').innerText = jmlVulcanoNon;
-  }
-  if(menu == 'vulcanoPedas') {
-    jmlVulcanoPedas++;
-    document.getElementById('vulcanoPedas').innerText = jmlVulcanoPedas;
-  }
-  hitungTotal();
-}
-
-function kurang(menu) {
-  if(menu == 'coklatMocarella' && jmlCoklatMocarella > 0) {
-    jmlCoklatMocarella--;
-    document.getElementById('coklatMocarella').innerText = jmlCoklatMocarella;
-  }
-  if(menu == 'coklatKeju' && jmlCoklatKeju > 0) {
-    jmlCoklatKeju--;
-    document.getElementById('coklatKeju').innerText = jmlCoklatKeju;
-  }
-  if(menu == 'party' && jmlParty > 0) {
-    jmlParty--;
-    document.getElementById('party').innerText = jmlParty;
-  }
-  if(menu == 'vulcanoNon' && jmlVulcanoNon > 0) {
-    jmlVulcanoNon--;
-    document.getElementById('vulcanoNon').innerText = jmlVulcanoNon;
-  }
-  if(menu == 'vulcanoPedas' && jmlVulcanoPedas > 0) {
-    jmlVulcanoPedas--;
-    document.getElementById('vulcanoPedas').innerText = jmlVulcanoPedas;
-  }
-  hitungTotal();
-}
-
-function hitungTotal() {
-  var total = (jmlCoklatMocarella * 15000) + (jmlCoklatKeju * 15000) + (jmlParty * 33000) + (jmlVulcanoNon * 18000) + (jmlVulcanoPedas * 18000);
-  document.getElementById('total').innerText = 'Rp ' + total.toLocaleString('id-ID');
-}
-
-function kirimWA() {
-  if(jmlCoklatMocarella + jmlCoklatKeju + jmlParty + jmlVulcanoNon + jmlVulcanoPedas == 0) {
-    alert('Pilih menu dulu bro!');
-    return;
-  }
-
-  var teks = 'Halo Pizza Malakue, saya mau pesan:%0A%0A';
-  if(jmlCoklatMocarella > 0) teks += '- Pizza Coklat Mocarella x' + jmlCoklatMocarella + ' = Rp ' + (jmlCoklatMocarella*15000).toLocaleString('id-ID') + '%0A';
-  if(jmlCoklatKeju > 0) teks += '- Pizza Coklat Keju Cedar x' + jmlCoklatKeju + ' = Rp ' + (jmlCoklatKeju*15000).toLocaleString('id-ID') + '%0A';
-  if(jmlParty > 0) teks += '- Pizza Party x' + jmlParty + ' = Rp ' + (jmlParty*33000).toLocaleString('id-ID') + '%0A';
-  if(jmlVulcanoNon > 0) teks += '- Pizza Vulcano Non Spicy x' + jmlVulcanoNon + ' = Rp ' + (jmlVulcanoNon*18000).toLocaleString('id-ID') + '%0A';
-  if(jmlVulcanoPedas > 0) teks += '- Pizza Vulcano Pedas x' + jmlVulcanoPedas + ' = Rp ' + (jmlVulcanoPedas*18000).toLocaleString('id-ID') + '%0A';
-
-  var total = (jmlCoklatMocarella * 15000) + (jmlCoklatKeju * 15000) + (jmlParty * 33000) + (jmlVulcanoNon * 18000) + (jmlVulcanoPedas * 18000);
-  teks += '%0ATotal: Rp ' + total.toLocaleString('id-ID');
-
-  window.open('https://wa.me/6282193795771?text=' + teks, '_blank');
-  
-  setTimeout(function() {
-    document.getElementById('popupThanks').style.display = 'flex';
-  }, 1000);
-}
-
-function qrisMuncul() {
-  document.getElementById('popupQris').style.display = 'flex';
-}
-
-function qrisTutup() {
-  document.getElementById('popupQris').style.display = 'none';
-}
-
-function thanksTutup() {
-  document.getElementById('popupThanks').style.display = 'none';
-}
-</script>
-</body>
-</html>
+    document.getElementById('vulcano
