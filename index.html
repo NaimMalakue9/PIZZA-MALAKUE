@@ -3,7 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pizza Malakue</title>
+  <title>Pizza Malakue - Homemade Fresh From The Oven</title>
+  
+  <!-- FAVICON + META BUAT SHARE WA JADI CAKEP -->
+  <link rel="icon" href="pizza-coklat-mozarella.jpg">
+  <meta property="og:title" content="Pizza Malakue - Homemade Fresh From The Oven">
+  <meta property="og:description" content="Pesan pizza homemade enak cuma 15rb-33rb di Polewali Mandar! Klik buat order langsung.">
+  <meta property="og:image" content="pizza-party.jpg">
+  <meta name="theme-color" content="#E65100">
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body { 
@@ -20,13 +28,16 @@
       <p class="text-[#5D4037] text-sm mb-2">Terima kasih sudah klik Link Tautannya</p>
       <h1 class="text-3xl font-bold text-black mb-1">WELCOME!!!</h1>
       <h2 class="text-lg text-[#5D4037] mb-1">PIZZA MALAKUE</h2>
-      <p class="text-sm text-[#5D4037] mb-8">Homemade, Fresh From The Oven</p>
+      <p class="text-sm text-[#5D4037] mb-2">Homemade, Fresh From The Oven</p>
+      
+      <!-- STATUS BUKA/TUTUP OTOMATIS -->
+      <p id="statusToko" class="text-xs font-bold mb-6"></p>
 
       <button onclick="bukaMenu()" class="w-full max-w-xs bg-[#E65100] text-white py-4 rounded-xl font-bold text-lg mb-4 shadow-md hover:bg-[#D84315]">
         🍕 Buat Pesanan Anda Disini
       </button>
 
-      <a href="LINK_TIKTOK_LU" target="_blank" class="w-full max-w-xs bg-[#E65100] text-white py-4 rounded-xl font-bold text-lg text-center shadow-md hover:bg-[#D84315]">
+      <a href="https://tiktok.com/@username_lu" target="_blank" class="w-full max-w-xs bg-[#E65100] text-white py-4 rounded-xl font-bold text-lg text-center shadow-md hover:bg-[#D84315]">
         TikTok
       </a>
     </div>
@@ -37,6 +48,7 @@
         <button onclick="balikAwal()" class="float-left text-[#E65100] font-bold">← Kembali</button>
         <h1 class="text-3xl font-bold text-[#E65100]">Pizza Malakue</h1>
         <p class="text-sm text-[#5D4037]">Homemade, Fresh From The Oven</p>
+        <p id="statusToko2" class="text-xs font-bold mt-1"></p>
       </header>
 
       <h2 class="text-xl font-bold text-[#5D4037] text-center my-4">Pilih Menu Favoritmu</h2>
@@ -122,7 +134,7 @@
       </div>
     </div>
 
-    <!-- POP-UP TERIMA KASIH - VERSI ASLI -->
+    <!-- POP-UP TERIMA KASIH -->
     <div id="popupThanks" style="display:none;" class="fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4" onclick="thanksTutup()">
       <div class="bg-white rounded-2xl p-6 max-w-sm w-full text-center" onclick="event.stopPropagation()">
         <div class="text-5xl mb-4">🎉</div>
@@ -135,13 +147,22 @@
       </div>
     </div>
 
-    <!-- FOOTER INFO -->
+    <!-- FOOTER INFO + TOMBOL TAMBAHAN -->
     <footer id="footer" style="display:none;" class="text-center mt-12 p-6 bg-white rounded-2xl shadow-lg">
       <h4 class="font-bold text-[#E65100] text-lg">Info Pemesanan</h4>
       <p class="mt-2 text-[#5D4037]">📱 WhatsApp: <a href="https://wa.me/6282193795771" class="text-[#E65100] font-bold">0821-9379-5771</a></p>
       <p class="text-[#5D4037]">📍 BTN GRIYA BUMI REZKITA Blok E/5, UGI BARU, MAPILLI, POLEWALI MANDAR</p>
       <p class="text-[#5D4037]">💳 GOPAY: 085398999795 a.n. MUHAMMAD NAIM MU'MIN</p>
-      <p class="text-sm text-gray-500 mt-4">© 2025 Pizza Malakue</p>
+      <p class="text-sm text-[#5D4037] mt-2">⏱️ Estimasi: 20-30 menit</p>
+      <p class="text-sm text-[#5D4037]">📦 Area: Polewali Mandar & sekitarnya</p>
+      
+      <!-- TOMBOL TELEPON + MAPS -->
+      <div class="flex gap-2 mt-4">
+        <a href="tel:082193795771" class="flex-1 bg-blue-500 text-white py-2 rounded-lg text-sm font-bold">📞 Telepon</a>
+        <a href="https://maps.google.com/?q=BTN+GRIYA+BUMI+REZKITA+Polewali+Mandar" target="_blank" class="flex-1 bg-gray-600 text-white py-2 rounded-lg text-sm font-bold">📍 Lokasi</a>
+      </div>
+      
+      <p class="text-xs text-gray-500 mt-4">© 2025 Pizza Malakue</p>
     </footer>
 
   </div>
@@ -153,10 +174,29 @@ var jmlParty = 0;
 var jmlVulcanoNon = 0;
 var jmlVulcanoPedas = 0;
 
+// CEK JAM BUKA/TUTUP OTOMATIS - WITA
+function cekJamBuka() {
+  var jam = new Date().getHours();
+  var status = '';
+  if (jam >= 10 && jam < 21) {
+    status = '🟢 BUKA - 10.00 s/d 21.00 WITA';
+    document.getElementById('statusToko').style.color = '#16a34a';
+    if(document.getElementById('statusToko2')) document.getElementById('statusToko2').style.color = '#16a34a';
+  } else {
+    status = '🔴 TUTUP - Buka jam 10.00 WITA';
+    document.getElementById('statusToko').style.color = '#dc2626';
+    if(document.getElementById('statusToko2')) document.getElementById('statusToko2').style.color = '#dc2626';
+  }
+  document.getElementById('statusToko').innerText = status;
+  if(document.getElementById('statusToko2')) document.getElementById('statusToko2').innerText = status;
+}
+cekJamBuka();
+
 function bukaMenu() {
   document.getElementById('page1').style.display = 'none';
   document.getElementById('page2').style.display = 'block';
   document.getElementById('footer').style.display = 'block';
+  cekJamBuka();
 }
 
 function balikAwal() {
@@ -238,6 +278,14 @@ function kirimWA() {
   
   setTimeout(function() {
     document.getElementById('popupThanks').style.display = 'flex';
+    // AUTO RESET KERANJANG SETELAH PESAN
+    jmlCoklatMocarella = jmlCoklatKeju = jmlParty = jmlVulcanoNon = jmlVulcanoPedas = 0;
+    document.getElementById('coklatMocarella').innerText = 0;
+    document.getElementById('coklatKeju').innerText = 0;
+    document.getElementById('party').innerText = 0;
+    document.getElementById('vulcanoNon').innerText = 0;
+    document.getElementById('vulcanoPedas').innerText = 0;
+    hitungTotal();
   }, 1000);
 }
 
