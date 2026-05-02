@@ -122,7 +122,7 @@
       </div>
     </div>
 
-    <!-- POP-UP TERIMA KASIH + TOMBOL KIRIM KE WA PEMBELI -->
+    <!-- POP-UP TERIMA KASIH - VERSI ASLI -->
     <div id="popupThanks" style="display:none;" class="fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4" onclick="thanksTutup()">
       <div class="bg-white rounded-2xl p-6 max-w-sm w-full text-center" onclick="event.stopPropagation()">
         <div class="text-5xl mb-4">🎉</div>
@@ -131,8 +131,7 @@
           Terima Kasih sudah melakukan pembelian di Pizza Malakue<br><br>
           <strong>Sehat Selalu, Murah Rejeki, Panjang Umur serta dimudahkan selalu urusannya !!!</strong>
         </p>
-        <button onclick="kirimUcapanKePembeli()" class="bg-green-500 text-white px-6 py-3 rounded-lg font-bold mt-4 w-full mb-2">📲 Simpan Ucapan ke WA Saya</button>
-        <button onclick="thanksTutup()" class="bg-[#E65100] text-white px-8 py-3 rounded-lg font-bold w-full">Aamiin 🤲</button>
+        <button onclick="thanksTutup()" class="bg-[#E65100] text-white px-8 py-3 rounded-lg font-bold mt-6">Aamiin 🤲</button>
       </div>
     </div>
 
@@ -153,7 +152,6 @@ var jmlCoklatKeju = 0;
 var jmlParty = 0;
 var jmlVulcanoNon = 0;
 var jmlVulcanoPedas = 0;
-var teksPesanan = '';
 
 function bukaMenu() {
   document.getElementById('page1').style.display = 'none';
@@ -226,27 +224,21 @@ function kirimWA() {
     return;
   }
 
-  teksPesanan = 'Halo Pizza Malakue, saya mau pesan:%0A%0A';
-  if(jmlCoklatMocarella > 0) teksPesanan += '- Pizza Coklat Mocarella x' + jmlCoklatMocarella + ' = Rp ' + (jmlCoklatMocarella*15000).toLocaleString('id-ID') + '%0A';
-  if(jmlCoklatKeju > 0) teksPesanan += '- Pizza Coklat Keju Cedar x' + jmlCoklatKeju + ' = Rp ' + (jmlCoklatKeju*15000).toLocaleString('id-ID') + '%0A';
-  if(jmlParty > 0) teksPesanan += '- Pizza Party x' + jmlParty + ' = Rp ' + (jmlParty*33000).toLocaleString('id-ID') + '%0A';
-  if(jmlVulcanoNon > 0) teksPesanan += '- Pizza Vulcano Non Pedas x' + jmlVulcanoNon + ' = Rp ' + (jmlVulcanoNon*18000).toLocaleString('id-ID') + '%0A';
-  if(jmlVulcanoPedas > 0) teksPesanan += '- Pizza Vulcano Pedas x' + jmlVulcanoPedas + ' = Rp ' + (jmlVulcanoPedas*18000).toLocaleString('id-ID') + '%0A';
+  var teks = 'Halo Pizza Malakue, saya mau pesan:%0A%0A';
+  if(jmlCoklatMocarella > 0) teks += '- Pizza Coklat Mocarella x' + jmlCoklatMocarella + ' = Rp ' + (jmlCoklatMocarella*15000).toLocaleString('id-ID') + '%0A';
+  if(jmlCoklatKeju > 0) teks += '- Pizza Coklat Keju Cedar x' + jmlCoklatKeju + ' = Rp ' + (jmlCoklatKeju*15000).toLocaleString('id-ID') + '%0A';
+  if(jmlParty > 0) teks += '- Pizza Party x' + jmlParty + ' = Rp ' + (jmlParty*33000).toLocaleString('id-ID') + '%0A';
+  if(jmlVulcanoNon > 0) teks += '- Pizza Vulcano Non Pedas x' + jmlVulcanoNon + ' = Rp ' + (jmlVulcanoNon*18000).toLocaleString('id-ID') + '%0A';
+  if(jmlVulcanoPedas > 0) teks += '- Pizza Vulcano Pedas x' + jmlVulcanoPedas + ' = Rp ' + (jmlVulcanoPedas*18000).toLocaleString('id-ID') + '%0A';
 
   var total = (jmlCoklatMocarella * 15000) + (jmlCoklatKeju * 15000) + (jmlParty * 33000) + (jmlVulcanoNon * 18000) + (jmlVulcanoPedas * 18000);
-  teksPesanan += '%0ATotal: Rp ' + total.toLocaleString('id-ID');
+  teks += '%0ATotal: Rp ' + total.toLocaleString('id-ID');
 
-  window.open('https://wa.me/6282193795771?text=' + teksPesanan, '_blank');
+  window.open('https://wa.me/6282193795771?text=' + teks, '_blank');
   
   setTimeout(function() {
     document.getElementById('popupThanks').style.display = 'flex';
   }, 1000);
-}
-
-// FUNGSI BARU: KIRIM UCAPAN KE WA PEMBELI
-function kirimUcapanKePembeli() {
-  var ucapan = '🎉 *Pesanan Berhasil!* 🎉%0A%0ATerima Kasih sudah melakukan pembelian di *Pizza Malakue*%0A%0A*Sehat Selalu, Murah Rejeki, Panjang Umur serta dimudahkan selalu urusannya !!!*%0A%0A_Pizza Malakue - Homemade, Fresh From The Oven_';
-  window.open('https://wa.me/?text=' + ucapan, '_blank');
 }
 
 function qrisMuncul() {
