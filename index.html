@@ -255,12 +255,12 @@ function kurang(menu) {
 }
 
 function hitungTotal() {
-  var total = (jmlCoklatMozarella * 33000) + (jmlCoklatKeju * 28000) + (jmlParty * 85000) + (jmlVulcanoNon * 45000) + (jmlVulcanoPedas * 45000);
+  var total = (jmlCoklatMocarella * 33000) + (jmlCoklatKeju * 28000) + (jmlParty * 85000) + (jmlVulcanoNon * 45000) + (jmlVulcanoPedas * 45000);
   document.getElementById('total').innerText = 'Rp ' + total.toLocaleString('id-ID');
 }
 
 function kirimWA() {
-  if(jmlCoklatMozarella + jmlCoklatKeju + jmlParty + jmlVulcanoNon + jmlVulcanoPedas == 0) {
+  if(jmlCoklatMocarella + jmlCoklatKeju + jmlParty + jmlVulcanoNon + jmlVulcanoPedas == 0) {
     alert('Pilih menu dulu bro!');
     return;
   }
