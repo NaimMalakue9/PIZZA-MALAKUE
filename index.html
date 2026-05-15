@@ -4,7 +4,7 @@
   <link rel="manifest" href="manifest.json">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>Pizza Malakue - Homemade Fresh From The Oven</title>
   
   <link rel="icon" href="pizza-coklat-mozarella.jpg">
@@ -18,6 +18,17 @@
     body { 
       font-family: sans-serif; 
       background-color: #FFF8F0;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .img-clickable {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-user-drag: none;
+      touch-action: manipulation;
     }
   </style>
 </head>
@@ -33,11 +44,11 @@
       
       <p id="statusToko" class="text-xs font-bold mb-6"></p>
 
-      <button onclick="bukaMenu()" class="w-full max-w-xs bg-[#E65100] text-white py-4 rounded-xl font-bold text-lg mb-4 shadow-md hover:bg-[#D84315]">
+      <button onclick="bukaMenu()" class="w-full max-w-xs bg-[#E65100] text-white py-4 rounded-xl font-bold text-lg mb-4 shadow-md">
         🍕 Buat Pesanan Anda Disini
       </button>
 
-      <a href="https://tiktok.com/@malakue_pizza" target="_blank" class="w-full max-w-xs bg-[#E65100] text-white py-4 rounded-xl font-bold text-lg text-center shadow-md hover:bg-[#D84315]">
+      <a href="https://tiktok.com/@malakue_pizza" target="_blank" class="w-full max-w-xs bg-[#E65100] text-white py-4 rounded-xl font-bold text-lg text-center shadow-md">
         TikTok
       </a>
     </div>
@@ -56,15 +67,11 @@
       <div class="grid grid-cols-2 gap-3 my-6">
         <!-- MENU 1 -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <button type="button" 
-                  class="w-full p-0 border-0 bg-transparent" 
-                  style="-webkit-touch-callout:none; user-select:none; touch-action:manipulation;"
-                  ontouchstart="bukaGambar('pizza-coklat-mozarella.jpg', 'Pizza Coklat Mozarella')"
-                  onclick="bukaGambar('pizza-coklat-mozarella.jpg', 'Pizza Coklat Mozarella')">
+          <a href="#" class="img-clickable block" onclick="return false" 
+             onpointerdown="bukaGambar('pizza-coklat-mozarella.jpg', 'Pizza Coklat Mozarella')">
             <img src="pizza-coklat-mozarella.jpg" alt="Pizza Coklat Mozarella" 
-                 class="w-full h-24 object-cover rounded-lg mb-2 pointer-events-none"
-                 style="-webkit-user-drag:none; user-drag:none;">
-          </button>
+                 class="w-full h-24 object-cover rounded-lg mb-2 pointer-events-none">
+          </a>
           <h3 class="font-bold text-[#5D4037] text-sm">Coklat Mozarella</h3>
           <p class="text-lg font-bold text-[#E65100] my-1">33rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
@@ -76,15 +83,11 @@
 
         <!-- MENU 2 -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <button type="button" 
-                  class="w-full p-0 border-0 bg-transparent" 
-                  style="-webkit-touch-callout:none; user-select:none; touch-action:manipulation;"
-                  ontouchstart="bukaGambar('pizza-coklat-keju-cedar.jpg', 'Pizza Coklat Keju Cedar')"
-                  onclick="bukaGambar('pizza-coklat-keju-cedar.jpg', 'Pizza Coklat Keju Cedar')">
+          <a href="#" class="img-clickable block" onclick="return false" 
+             onpointerdown="bukaGambar('pizza-coklat-keju-cedar.jpg', 'Pizza Coklat Keju Cedar')">
             <img src="pizza-coklat-keju-cedar.jpg" alt="Pizza Coklat Keju Cedar" 
-                 class="w-full h-24 object-cover rounded-lg mb-2 pointer-events-none"
-                 style="-webkit-user-drag:none; user-drag:none;">
-          </button>
+                 class="w-full h-24 object-cover rounded-lg mb-2 pointer-events-none">
+          </a>
           <h3 class="font-bold text-[#5D4037] text-sm">Coklat Keju Cedar</h3>
           <p class="text-lg font-bold text-[#E65100] my-1">28rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
@@ -96,15 +99,11 @@
 
         <!-- MENU 3 -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <button type="button" 
-                  class="w-full p-0 border-0 bg-transparent" 
-                  style="-webkit-touch-callout:none; user-select:none; touch-action:manipulation;"
-                  ontouchstart="bukaGambar('pizza-party.jpg', 'Pizza Party')"
-                  onclick="bukaGambar('pizza-party.jpg', 'Pizza Party')">
+          <a href="#" class="img-clickable block" onclick="return false" 
+             onpointerdown="bukaGambar('pizza-party.jpg', 'Pizza Party')">
             <img src="pizza-party.jpg" alt="Pizza Party" 
-                 class="w-full h-24 object-cover rounded-lg mb-2 pointer-events-none"
-                 style="-webkit-user-drag:none; user-drag:none;">
-          </button>
+                 class="w-full h-24 object-cover rounded-lg mb-2 pointer-events-none">
+          </a>
           <h3 class="font-bold text-[#5D4037] text-sm">Party</h3>
           <p class="text-lg font-bold text-[#E65100] my-1">85rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
@@ -116,15 +115,11 @@
 
         <!-- MENU 4 -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <button type="button" 
-                  class="w-full p-0 border-0 bg-transparent" 
-                  style="-webkit-touch-callout:none; user-select:none; touch-action:manipulation;"
-                  ontouchstart="bukaGambar('pizza-vulcano-non-pedas.jpg', 'Pizza Vulcano Non Pedas')"
-                  onclick="bukaGambar('pizza-vulcano-non-pedas.jpg', 'Pizza Vulcano Non Pedas')">
+          <a href="#" class="img-clickable block" onclick="return false" 
+             onpointerdown="bukaGambar('pizza-vulcano-non-pedas.jpg', 'Pizza Vulcano Non Pedas')">
             <img src="pizza-vulcano-non-pedas.jpg" alt="Pizza Vulcano Non Pedas" 
-                 class="w-full h-24 object-cover rounded-lg mb-2 pointer-events-none"
-                 style="-webkit-user-drag:none; user-drag:none;">
-          </button>
+                 class="w-full h-24 object-cover rounded-lg mb-2 pointer-events-none">
+          </a>
           <h3 class="font-bold text-[#5D4037] text-sm">Vulcano Non Pedas</h3>
           <p class="text-lg font-bold text-[#E65100] my-1">45rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
@@ -136,15 +131,11 @@
 
         <!-- MENU 5 -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <button type="button" 
-                  class="w-full p-0 border-0 bg-transparent" 
-                  style="-webkit-touch-callout:none; user-select:none; touch-action:manipulation;"
-                  ontouchstart="bukaGambar('pizza-vulcano-pedas.jpg', 'Pizza Vulcano Pedas')"
-                  onclick="bukaGambar('pizza-vulcano-pedas.jpg', 'Pizza Vulcano Pedas')">
+          <a href="#" class="img-clickable block" onclick="return false" 
+             onpointerdown="bukaGambar('pizza-vulcano-pedas.jpg', 'Pizza Vulcano Pedas')">
             <img src="pizza-vulcano-pedas.jpg" alt="Pizza Vulcano Pedas" 
-                 class="w-full h-24 object-cover rounded-lg mb-2 pointer-events-none"
-                 style="-webkit-user-drag:none; user-drag:none;">
-          </button>
+                 class="w-full h-24 object-cover rounded-lg mb-2 pointer-events-none">
+          </a>
           <h3 class="font-bold text-[#5D4037] text-sm">Vulcano Pedas</h3>
           <p class="text-lg font-bold text-[#E65100] my-1">45rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
@@ -155,7 +146,7 @@
         </div>
       </div>
 
-      <button onclick="kirimWA()" class="w-full bg-[#E65100] text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:bg-[#D84315] mb-4">
+      <button onclick="kirimWA()" class="w-full bg-[#E65100] text-white py-4 rounded-xl font-bold text-lg shadow-lg mb-4">
         🛒 Kirim Pesanan - <span id="total">Rp 0</span>
       </button>
 
@@ -215,7 +206,7 @@
   </div>
 
 <script>
-// FUNCTION GAMBAR - TARUH PALING ATAS
+// FUNCTION GAMBAR
 function bukaGambar(src, alt) {
   document.getElementById('gambarBesar').src = src;
   document.getElementById('gambarBesar').alt = alt;
@@ -232,7 +223,6 @@ var jmlParty = 0;
 var jmlVulcanoNon = 0;
 var jmlVulcanoPedas = 0;
 
-// CEK JAM BUKA/TUTUP - WITA
 function cekJamBuka() {
   var jam = new Date().getHours();
   var status = '';
@@ -364,7 +354,6 @@ function thanksTutup() {
   document.getElementById('popupThanks').style.display = 'none';
 }
 
-// DAFTARIN SERVICE WORKER
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/sw.js');
 }
