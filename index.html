@@ -17,14 +17,14 @@
   <style>
     body { 
       font-family: sans-serif; 
-      background-color: #FFF8ED;
+      background-color: #FFF8F0;
     }
   </style>
 </head>
 <body class="min-h-screen">
   <div class="max-w-md mx-auto p-4">
 
-    <!-- HALAMAN 1: TAMPILAN AWAL -->
+    <!-- HALAMAN 1: WELCOME -->
     <div id="page1" class="min-h-screen flex-col justify-center items-center text-center">
       <p class="text-[#5D4037] text-sm mb-2">Terima kasih sudah klik Link Tautannya</p>
       <h1 class="text-3xl font-bold text-black mb-1">WELCOME!!!</h1>
@@ -42,7 +42,7 @@
       </a>
     </div>
 
-    <!-- HALAMAN 2: MENU + 5 FOTO -->
+    <!-- HALAMAN 2: MENU -->
     <div id="page2" style="display:none;">
       <header class="text-center py-4">
         <button onclick="balikAwal()" class="float-left text-[#E65100] font-bold">← Kembali</button>
@@ -56,9 +56,10 @@
       <div class="grid grid-cols-2 gap-3 my-6">
         <!-- MENU 1 -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <img src="pizza-coklat-mozarella.jpg" alt="Pizza Coklat Mozarella" 
-               class="w-full h-24 object-cover rounded-lg mb-2 cursor-pointer hover:opacity-80"
-               onclick="bukaGambar('pizza-coklat-mozarella.jpg', 'Pizza Coklat Mozarella')">
+          <button type="button" class="w-full p-0 border-0 bg-transparent" onclick="bukaGambar('pizza-coklat-mozarella.jpg', 'Pizza Coklat Mozarella')">
+            <img src="pizza-coklat-mozarella.jpg" alt="Pizza Coklat Mozarella" 
+                 class="w-full h-24 object-cover rounded-lg mb-2 hover:opacity-80 pointer-events-none">
+          </button>
           <h3 class="font-bold text-[#5D4037] text-sm">Coklat Mozarella</h3>
           <p class="text-lg font-bold text-[#E65100] my-1">33rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
@@ -70,9 +71,10 @@
 
         <!-- MENU 2 -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <img src="pizza-coklat-keju-cedar.jpg" alt="Pizza Coklat Keju Cedar" 
-               class="w-full h-24 object-cover rounded-lg mb-2 cursor-pointer hover:opacity-80"
-               onclick="bukaGambar('pizza-coklat-keju-cedar.jpg', 'Pizza Coklat Keju Cedar')">
+          <button type="button" class="w-full p-0 border-0 bg-transparent" onclick="bukaGambar('pizza-coklat-keju-cedar.jpg', 'Pizza Coklat Keju Cedar')">
+            <img src="pizza-coklat-keju-cedar.jpg" alt="Pizza Coklat Keju Cedar" 
+                 class="w-full h-24 object-cover rounded-lg mb-2 hover:opacity-80 pointer-events-none">
+          </button>
           <h3 class="font-bold text-[#5D4037] text-sm">Coklat Keju Cedar</h3>
           <p class="text-lg font-bold text-[#E65100] my-1">28rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
@@ -84,9 +86,10 @@
 
         <!-- MENU 3 -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <img src="pizza-party.jpg" alt="Pizza Party" 
-               class="w-full h-24 object-cover rounded-lg mb-2 cursor-pointer hover:opacity-80"
-               onclick="bukaGambar('pizza-party.jpg', 'Pizza Party')">
+          <button type="button" class="w-full p-0 border-0 bg-transparent" onclick="bukaGambar('pizza-party.jpg', 'Pizza Party')">
+            <img src="pizza-party.jpg" alt="Pizza Party" 
+                 class="w-full h-24 object-cover rounded-lg mb-2 hover:opacity-80 pointer-events-none">
+          </button>
           <h3 class="font-bold text-[#5D4037] text-sm">Party</h3>
           <p class="text-lg font-bold text-[#E65100] my-1">85rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
@@ -98,9 +101,10 @@
 
         <!-- MENU 4 -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <img src="pizza-vulcano-non-pedas.jpg" alt="Pizza Vulcano Non Pedas" 
-               class="w-full h-24 object-cover rounded-lg mb-2 cursor-pointer hover:opacity-80"
-               onclick="bukaGambar('pizza-vulcano-non-pedas.jpg', 'Pizza Vulcano Non Pedas')">
+          <button type="button" class="w-full p-0 border-0 bg-transparent" onclick="bukaGambar('pizza-vulcano-non-pedas.jpg', 'Pizza Vulcano Non Pedas')">
+            <img src="pizza-vulcano-non-pedas.jpg" alt="Pizza Vulcano Non Pedas" 
+                 class="w-full h-24 object-cover rounded-lg mb-2 hover:opacity-80 pointer-events-none">
+          </button>
           <h3 class="font-bold text-[#5D4037] text-sm">Vulcano Non Pedas</h3>
           <p class="text-lg font-bold text-[#E65100] my-1">45rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
@@ -112,9 +116,10 @@
 
         <!-- MENU 5 -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <img src="pizza-vulcano-pedas.jpg" alt="Pizza Vulcano Pedas" 
-               class="w-full h-24 object-cover rounded-lg mb-2 cursor-pointer hover:opacity-80"
-               onclick="bukaGambar('pizza-vulcano-pedas.jpg', 'Pizza Vulcano Pedas')">
+          <button type="button" class="w-full p-0 border-0 bg-transparent" onclick="bukaGambar('pizza-vulcano-pedas.jpg', 'Pizza Vulcano Pedas')">
+            <img src="pizza-vulcano-pedas.jpg" alt="Pizza Vulcano Pedas" 
+                 class="w-full h-24 object-cover rounded-lg mb-2 hover:opacity-80 pointer-events-none">
+          </button>
           <h3 class="font-bold text-[#5D4037] text-sm">Vulcano Pedas</h3>
           <p class="text-lg font-bold text-[#E65100] my-1">45rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
@@ -150,7 +155,7 @@
         <div class="text-5xl mb-4">🎉</div>
         <h3 class="text-xl font-bold text-[#E65100] mb-3">Pesanan Terkirim!</h3>
         <p class="text-[#5D4037] leading-relaxed">
-          Terima Kasih sudah melakukan pembelian di Pizza Malakue<br><br>
+          Terima Kasih sudah order di Pizza Malakue<br><br>
           <strong>Sehat Selalu, Murah Rejeki, Panjang Umur serta dimudahkan selalu urusannya !!!</strong>
         </p>
         <button onclick="thanksTutup()" class="bg-[#E65100] text-white px-8 py-3 rounded-lg font-bold mt-6">Aamiin 🤲</button>
@@ -165,12 +170,12 @@
       </div>
     </div>
 
-    <!-- FOOTER INFO -->
+    <!-- FOOTER -->
     <footer id="footer" style="display:none;" class="text-center mt-12 p-6 bg-white rounded-2xl shadow-lg">
       <h4 class="font-bold text-[#E65100] text-lg">Info Pemesanan</h4>
       <p class="mt-2 text-[#5D4037]">📱 WhatsApp: <a href="https://wa.me/6282193795771" target="_blank" class="text-[#E65100] font-bold">0821-9379-5771</a></p>
-      <p class="text-[#5D4037]">📍 BTN GRIYA BUMI REZKITA Blok E/5, UGI BARU, MAPILLI, POLEWALI MANDAR</p>
-      <p class="text-[#5D4037]">💳 GOPAY: 085398999795 a.n. MUHAMMAD NAIM MU'MIN</p>
+      <p class="text-[#5D4037]">📍 BTN Griya Bumi Rezki Blok E/5, Ugi Baru, Mapilli, Polman</p>
+      <p class="text-[#5D4037]">💳 GOPAY: 085398999795 a.n. MUHAMMAD NAIM MUMIN</p>
       <p class="text-sm text-[#5D4037] mt-2">⏱️ Estimasi: 5-10 menit</p>
       <p class="text-sm text-[#5D4037]">📦 Area: Wonomulyo & sekitarnya</p>
       
@@ -185,9 +190,8 @@
   </div>
 
 <script>
-// FUNCTION GAMBAR HARUS PALING ATAS BIAR KEBACA DULUAN
+// FUNCTION GAMBAR - TARUH PALING ATAS BIAR KEBACA DULUAN
 function bukaGambar(src, alt) {
-  console.log('Gambar diklik:', src);
   document.getElementById('gambarBesar').src = src;
   document.getElementById('gambarBesar').alt = alt;
   document.getElementById('popupGambar').style.display = 'flex';
@@ -203,6 +207,7 @@ var jmlParty = 0;
 var jmlVulcanoNon = 0;
 var jmlVulcanoPedas = 0;
 
+// CEK JAM BUKA/TUTUP - WITA
 function cekJamBuka() {
   var jam = new Date().getHours();
   var status = '';
@@ -299,7 +304,7 @@ function kirimWA() {
   }
 
   var teks = 'Halo Pizza Malakue, saya mau pesan:%0A%0A';
-  if(jmlCoklatMocarella > 0) teks += '- Pizza Coklat Mozarella x' + jmlCoklatMocarella + ' = Rp ' + (jmlCoklatMocarella*33000).toLocaleString('id-ID') + '%0A';
+  if(jmlCoklatMocarella > 0) teks += '- Pizza Coklat Mocarella x' + jmlCoklatMocarella + ' = Rp ' + (jmlCoklatMocarella*33000).toLocaleString('id-ID') + '%0A';
   if(jmlCoklatKeju > 0) teks += '- Pizza Coklat Keju Cedar x' + jmlCoklatKeju + ' = Rp ' + (jmlCoklatKeju*28000).toLocaleString('id-ID') + '%0A';
   if(jmlParty > 0) teks += '- Pizza Party x' + jmlParty + ' = Rp ' + (jmlParty*85000).toLocaleString('id-ID') + '%0A';
   if(jmlVulcanoNon > 0) teks += '- Pizza Vulcano Non Pedas x' + jmlVulcanoNon + ' = Rp ' + (jmlVulcanoNon*45000).toLocaleString('id-ID') + '%0A';
@@ -334,6 +339,7 @@ function thanksTutup() {
   document.getElementById('popupThanks').style.display = 'none';
 }
 
+// DAFTARIN SERVICE WORKER
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/sw.js');
 }
