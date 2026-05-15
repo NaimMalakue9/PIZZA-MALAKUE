@@ -6,25 +6,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>Pizza Malakue - Homemade Fresh From The Oven</title>
-  
-  <link rel="icon" href="pizza-coklat-mozarella.jpg">
-  <meta name="theme-color" content="#E65100">
-  
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body { 
       font-family: sans-serif; 
       background-color: #FFF8F0;
     }
-    .img-link {
-      display: block;
-      -webkit-touch-callout: none;
-      -webkit-user-select: none;
-      user-select: none;
-      touch-action: manipulation;
-    }
-    .img-link img {
-      pointer-events: none;
+    .pizza-btn {
+      width: 100%;
+      height: 96px;
+      border-radius: 12px;
+      background-size: cover;
+      background-position: center;
+      border: none;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
     }
   </style>
 </head>
@@ -36,297 +32,122 @@
       <p class="text-[#5D4037] text-sm mb-2">Terima kasih sudah klik Link Tautannya</p>
       <h1 class="text-3xl font-bold text-black mb-1">WELCOME!!!</h1>
       <h2 class="text-lg text-[#5D4037] mb-1">PIZZA MALAKUE</h2>
-      <p class="text-sm text-[#5D4037] mb-2">Homemade, Fresh From The Oven</p>
-      
-      <p id="statusToko" class="text-xs font-bold mb-6"></p>
-
-      <button id="btnBukaMenu" class="w-full max-w-xs bg-[#E65100] text-white py-4 rounded-xl font-bold text-lg mb-4 shadow-md">
+      <button id="btnBukaMenu" class="w-full max-w-xs bg-[#E65100] text-white py-4 rounded-xl font-bold text-lg mb-4">
         🍕 Buat Pesanan Anda Disini
       </button>
-
-      <a href="https://tiktok.com/@malakue_pizza" target="_blank" class="w-full max-w-xs bg-[#E65100] text-white py-4 rounded-xl font-bold text-lg text-center shadow-md">
-        TikTok
-      </a>
     </div>
 
-    <!-- HALAMAN 2: MENU -->
+    <!-- HALAMAN 2 -->
     <div id="page2" style="display:none;">
       <header class="text-center py-4">
         <button id="btnBalikAwal" class="float-left text-[#E65100] font-bold">← Kembali</button>
         <h1 class="text-3xl font-bold text-[#E65100]">Pizza Malakue</h1>
-        <p class="text-sm text-[#5D4037]">Homemade, Fresh From The Oven</p>
-        <p id="statusToko2" class="text-xs font-bold mt-1"></p>
       </header>
-
-      <h2 class="text-xl font-bold text-[#5D4037] text-center my-4">Pilih Menu Favoritmu</h2>
 
       <div class="grid grid-cols-2 gap-3 my-6">
         <!-- MENU 1 -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <a href="pizza-coklat-mozarella.jpg" target="_blank" class="img-link">
-            <img src="pizza-coklat-mozarella.jpg" alt="Pizza Coklat Mozarella" 
-                 class="w-full h-24 object-cover rounded-lg mb-2">
-          </a>
-          <h3 class="font-bold text-[#5D4037] text-sm">Coklat Mozarella</h3>
+          <button class="pizza-btn" style="background-image: url('pizza-coklat-mozarella.jpg');" 
+                  onclick="alert('Pizza Coklat Mozarella')"></button>
+          <h3 class="font-bold text-[#5D4037] text-sm mt-2">Coklat Mozarella</h3>
           <p class="text-lg font-bold text-[#E65100] my-1">33rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
             <button id="btnMinus1" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
-            <span id="coklatMocarella" class="font-bold w-4 text-[#5D4037]">0</span>
+            <span id="coklatMocarella">0</span>
             <button id="btnPlus1" class="bg-[#E65100] text-white w-7 h-7 rounded-full font-bold">+</button>
           </div>
         </div>
 
         <!-- MENU 2 -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <a href="pizza-coklat-keju-cedar.jpg" target="_blank" class="img-link">
-            <img src="pizza-coklat-keju-cedar.jpg" alt="Pizza Coklat Keju Cedar" 
-                 class="w-full h-24 object-cover rounded-lg mb-2">
-          </a>
-          <h3 class="font-bold text-[#5D4037] text-sm">Coklat Keju Cedar</h3>
+          <button class="pizza-btn" style="background-image: url('pizza-coklat-keju-cedar.jpg');" 
+                  onclick="alert('Pizza Coklat Keju Cedar')"></button>
+          <h3 class="font-bold text-[#5D4037] text-sm mt-2">Coklat Keju Cedar</h3>
           <p class="text-lg font-bold text-[#E65100] my-1">28rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
             <button id="btnMinus2" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
-            <span id="coklatKeju" class="font-bold w-4 text-[#5D4037]">0</span>
+            <span id="coklatKeju">0</span>
             <button id="btnPlus2" class="bg-[#E65100] text-white w-7 h-7 rounded-full font-bold">+</button>
           </div>
         </div>
 
         <!-- MENU 3 -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <a href="pizza-party.jpg" target="_blank" class="img-link">
-            <img src="pizza-party.jpg" alt="Pizza Party" 
-                 class="w-full h-24 object-cover rounded-lg mb-2">
-          </a>
-          <h3 class="font-bold text-[#5D4037] text-sm">Party</h3>
+          <button class="pizza-btn" style="background-image: url('pizza-party.jpg');" 
+                  onclick="alert('Pizza Party')"></button>
+          <h3 class="font-bold text-[#5D4037] text-sm mt-2">Party</h3>
           <p class="text-lg font-bold text-[#E65100] my-1">85rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
             <button id="btnMinus3" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
-            <span id="party" class="font-bold w-4 text-[#5D4037]">0</span>
+            <span id="party">0</span>
             <button id="btnPlus3" class="bg-[#E65100] text-white w-7 h-7 rounded-full font-bold">+</button>
           </div>
         </div>
 
         <!-- MENU 4 -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <a href="pizza-vulcano-non-pedas.jpg" target="_blank" class="img-link">
-            <img src="pizza-vulcano-non-pedas.jpg" alt="Pizza Vulcano Non Pedas" 
-                 class="w-full h-24 object-cover rounded-lg mb-2">
-          </a>
-          <h3 class="font-bold text-[#5D4037] text-sm">Vulcano Non Pedas</h3>
+          <button class="pizza-btn" style="background-image: url('pizza-vulcano-non-pedas.jpg');" 
+                  onclick="alert('Pizza Vulcano Non Pedas')"></button>
+          <h3 class="font-bold text-[#5D4037] text-sm mt-2">Vulcano Non Pedas</h3>
           <p class="text-lg font-bold text-[#E65100] my-1">45rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
             <button id="btnMinus4" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
-            <span id="vulcanoNon" class="font-bold w-4 text-[#5D4037]">0</span>
+            <span id="vulcanoNon">0</span>
             <button id="btnPlus4" class="bg-[#E65100] text-white w-7 h-7 rounded-full font-bold">+</button>
           </div>
         </div>
 
         <!-- MENU 5 -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <a href="pizza-vulcano-pedas.jpg" target="_blank" class="img-link">
-            <img src="pizza-vulcano-pedas.jpg" alt="Pizza Vulcano Pedas" 
-                 class="w-full h-24 object-cover rounded-lg mb-2">
-          </a>
-          <h3 class="font-bold text-[#5D4037] text-sm">Vulcano Pedas</h3>
+          <button class="pizza-btn" style="background-image: url('pizza-vulcano-pedas.jpg');" 
+                  onclick="alert('Pizza Vulcano Pedas')"></button>
+          <h3 class="font-bold text-[#5D4037] text-sm mt-2">Vulcano Pedas</h3>
           <p class="text-lg font-bold text-[#E65100] my-1">45rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
             <button id="btnMinus5" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
-            <span id="vulcanoPedas" class="font-bold w-4 text-[#5D4037]">0</span>
+            <span id="vulcanoPedas">0</span>
             <button id="btnPlus5" class="bg-[#E65100] text-white w-7 h-7 rounded-full font-bold">+</button>
           </div>
         </div>
       </div>
 
-      <button id="btnKirimWA" class="w-full bg-[#E65100] text-white py-4 rounded-xl font-bold text-lg shadow-lg mb-4">
-        🛒 Kirim Pesanan - <span id="total">Rp 0</span>
-      </button>
-
-      <button id="btnQris" class="w-full bg-green-500 text-white py-3 rounded-xl font-bold text-lg mb-4">
-        💳 Bayar Pakai QRIS
+      <button id="btnKirimWA" class="w-full bg-[#E65100] text-white py-4 rounded-xl font-bold text-lg">
+        🛒 Kirim Pesanan
       </button>
     </div>
-
-    <!-- POP-UP QRIS -->
-    <div id="popupQris" style="display:none;" class="fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4">
-      <div class="bg-white rounded-2xl p-6 max-w-sm w-full text-center">
-        <h3 class="text-xl font-bold text-[#E65100] mb-4">Scan QRIS Pizza Malakue</h3>
-        <img src="qris-pizza-malakue.jpg" alt="QRIS" class="w-full rounded-xl shadow-md mb-4">
-        <p class="text-sm text-gray-600 mb-4">a.n. Pizza Malakue</p>
-        <button id="btnTutupQris" class="bg-[#E65100] text-white px-6 py-2 rounded-lg font-bold">Tutup</button>
-      </div>
-    </div>
-
-    <!-- POP-UP TERIMA KASIH -->
-    <div id="popupThanks" style="display:none;" class="fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4">
-      <div class="bg-white rounded-2xl p-6 max-w-sm w-full text-center">
-        <div class="text-5xl mb-4">🎉</div>
-        <h3 class="text-xl font-bold text-[#E65100] mb-3">Pesanan Terkirim!</h3>
-        <p class="text-[#5D4037] leading-relaxed">
-          Terima Kasih sudah order di Pizza Malakue<br><br>
-          <strong>Sehat Selalu, Murah Rejeki, Panjang Umur serta dimudahkan selalu urusannya !!!</strong>
-        </p>
-        <button id="btnTutupThanks" class="bg-[#E65100] text-white px-8 py-3 rounded-lg font-bold mt-6">Aamiin 🤲</button>
-      </div>
-    </div>
-
-    <!-- FOOTER -->
-    <footer id="footer" style="display:none;" class="text-center mt-12 p-6 bg-white rounded-2xl shadow-lg">
-      <h4 class="font-bold text-[#E65100] text-lg">Info Pemesanan</h4>
-      <p class="mt-2 text-[#5D4037]">📱 WhatsApp: <a href="https://wa.me/6282193795771" target="_blank" class="text-[#E65100] font-bold">0821-9379-5771</a></p>
-      <p class="text-[#5D4037]">📍 BTN Griya Bumi Rezki Blok E/5, Ugi Baru, Mapilli, Polman</p>
-      <p class="text-[#5D4037]">💳 GOPAY: 085398999795 a.n. MUHAMMAD NAIM MUMIN</p>
-      <p class="text-sm text-[#5D4037] mt-2">⏱️ Estimasi: 5-10 menit</p>
-      <p class="text-sm text-[#5D4037]">📦 Area: Wonomulyo & sekitarnya</p>
-      
-      <div class="flex gap-2 mt-4">
-        <a href="tel:082193795771" class="flex-1 bg-blue-500 text-white py-2 rounded-lg text-sm font-bold">📞 Telepon</a>
-        <a href="https://maps.app.goo.gl/fHgCzCRDfJqXfZ57A" target="_blank" class="flex-1 bg-gray-600 text-white py-2 rounded-lg text-sm font-bold">📍 Lokasi</a>
-      </div>
-      
-      <p class="text-xs text-gray-500 mt-4">© 2025 Pizza Malakue</p>
-    </footer>
 
   </div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('btnBukaMenu').addEventListener('click', function() {
+    document.getElementById('page1').style.display = 'none';
+    document.getElementById('page2').style.display = 'block';
+  });
   
-  document.getElementById('btnBukaMenu').addEventListener('click', bukaMenu);
-  document.getElementById('btnBalikAwal').addEventListener('click', balikAwal);
+  document.getElementById('btnBalikAwal').addEventListener('click', function() {
+    document.getElementById('page2').style.display = 'none';
+    document.getElementById('page1').style.display = 'flex';
+  });
 
-  document.getElementById('btnPlus1').addEventListener('click', function(){ tambah('coklatMocarella'); });
-  document.getElementById('btnMinus1').addEventListener('click', function(){ kurang('coklatMocarella'); });
-  document.getElementById('btnPlus2').addEventListener('click', function(){ tambah('coklatKeju'); });
-  document.getElementById('btnMinus2').addEventListener('click', function(){ kurang('coklatKeju'); });
-  document.getElementById('btnPlus3').addEventListener('click', function(){ tambah('party'); });
-  document.getElementById('btnMinus3').addEventListener('click', function(){ kurang('party'); });
-  document.getElementById('btnPlus4').addEventListener('click', function(){ tambah('vulcanoNon'); });
-  document.getElementById('btnMinus4').addEventListener('click', function(){ kurang('vulcanoNon'); });
-  document.getElementById('btnPlus5').addEventListener('click', function(){ tambah('vulcanoPedas'); });
-  document.getElementById('btnMinus5').addEventListener('click', function(){ kurang('vulcanoPedas'); });
+  // Counter logic
+  let counts = {coklatMocarella:0, coklatKeju:0, party:0, vulcanoNon:0, vulcanoPedas:0};
+  
+  document.getElementById('btnPlus1').onclick = () => {counts.coklatMocarella++; document.getElementById('coklatMocarella').innerText = counts.coklatMocarella;}
+  document.getElementById('btnMinus1').onclick = () => {if(counts.coklatMocarella>0)counts.coklatMocarella--; document.getElementById('coklatMocarella').innerText = counts.coklatMocarella;}
+  document.getElementById('btnPlus2').onclick = () => {counts.coklatKeju++; document.getElementById('coklatKeju').innerText = counts.coklatKeju;}
+  document.getElementById('btnMinus2').onclick = () => {if(counts.coklatKeju>0)counts.coklatKeju--; document.getElementById('coklatKeju').innerText = counts.coklatKeju;}
+  document.getElementById('btnPlus3').onclick = () => {counts.party++; document.getElementById('party').innerText = counts.party;}
+  document.getElementById('btnMinus3').onclick = () => {if(counts.party>0)counts.party--; document.getElementById('party').innerText = counts.party;}
+  document.getElementById('btnPlus4').onclick = () => {counts.vulcanoNon++; document.getElementById('vulcanoNon').innerText = counts.vulcanoNon;}
+  document.getElementById('btnMinus4').onclick = () => {if(counts.vulcanoNon>0)counts.vulcanoNon--; document.getElementById('vulcanoNon').innerText = counts.vulcanoNon;}
+  document.getElementById('btnPlus5').onclick = () => {counts.vulcanoPedas++; document.getElementById('vulcanoPedas').innerText = counts.vulcanoPedas;}
+  document.getElementById('btnMinus5').onclick = () => {if(counts.vulcanoPedas>0)counts.vulcanoPedas--; document.getElementById('vulcanoPedas').innerText = counts.vulcanoPedas;}
 
-  document.getElementById('btnKirimWA').addEventListener('click', kirimWA);
-  document.getElementById('btnQris').addEventListener('click', qrisMuncul);
-  document.getElementById('btnTutupQris').addEventListener('click', qrisTutup);
-  document.getElementById('btnTutupThanks').addEventListener('click', thanksTutup);
-  document.getElementById('popupQris').addEventListener('click', qrisTutup);
-  document.getElementById('popupThanks').addEventListener('click', thanksTutup);
-
-  cekJamBuka();
+  document.getElementById('btnKirimWA').onclick = () => {
+    alert('Pesanan terkirim!');
+  }
 });
-
-var jmlCoklatMocarella = 0;
-var jmlCoklatKeju = 0;
-var jmlParty = 0;
-var jmlVulcanoNon = 0;
-var jmlVulcanoPedas = 0;
-
-function cekJamBuka() {
-  var jam = new Date().getHours();
-  var status = '';
-  var statusEl1 = document.getElementById('statusToko');
-  var statusEl2 = document.getElementById('statusToko2');
-  
-  if (jam >= 10 && jam < 21) {
-    status = '🟢 BUKA - 10.00 s/d 21.00 WITA';
-    if(statusEl1) statusEl1.style.color = '#16a34a';
-    if(statusEl2) statusEl2.style.color = '#16a34a';
-  } else {
-    status = '🔴 TUTUP - Buka jam 10.00 WITA';
-    if(statusEl1) statusEl1.style.color = '#dc2626';
-    if(statusEl2) statusEl2.style.color = '#dc2626';
-  }
-  if(statusEl1) statusEl1.innerText = status;
-  if(statusEl2) statusEl2.innerText = status;
-}
-
-function bukaMenu() {
-  document.getElementById('page1').style.display = 'none';
-  document.getElementById('page2').style.display = 'block';
-  document.getElementById('footer').style.display = 'block';
-  cekJamBuka();
-}
-
-function balikAwal() {
-  document.getElementById('page2').style.display = 'none';
-  document.getElementById('footer').style.display = 'none';
-  document.getElementById('page1').style.display = 'flex';
-}
-
-function tambah(menu) {
-  if(menu == 'coklatMocarella') jmlCoklatMocarella++;
-  if(menu == 'coklatKeju') jmlCoklatKeju++;
-  if(menu == 'party') jmlParty++;
-  if(menu == 'vulcanoNon') jmlVulcanoNon++;
-  if(menu == 'vulcanoPedas') jmlVulcanoPedas++;
-  updateCounter();
-  hitungTotal();
-}
-
-function kurang(menu) {
-  if(menu == 'coklatMocarella' && jmlCoklatMocarella > 0) jmlCoklatMocarella--;
-  if(menu == 'coklatKeju' && jmlCoklatKeju > 0) jmlCoklatKeju--;
-  if(menu == 'party' && jmlParty > 0) jmlParty--;
-  if(menu == 'vulcanoNon' && jmlVulcanoNon > 0) jmlVulcanoNon--;
-  if(menu == 'vulcanoPedas' && jmlVulcanoPedas > 0) jmlVulcanoPedas--;
-  updateCounter();
-  hitungTotal();
-}
-
-function updateCounter() {
-  document.getElementById('coklatMocarella').innerText = jmlCoklatMocarella;
-  document.getElementById('coklatKeju').innerText = jmlCoklatKeju;
-  document.getElementById('party').innerText = jmlParty;
-  document.getElementById('vulcanoNon').innerText = jmlVulcanoNon;
-  document.getElementById('vulcanoPedas').innerText = jmlVulcanoPedas;
-}
-
-function hitungTotal() {
-  var total = (jmlCoklatMocarella * 33000) + (jmlCoklatKeju * 28000) + (jmlParty * 85000) + (jmlVulcanoNon * 45000) + (jmlVulcanoPedas * 45000);
-  document.getElementById('total').innerText = 'Rp ' + total.toLocaleString('id-ID');
-}
-
-function kirimWA() {
-  if(jmlCoklatMocarella + jmlCoklatKeju + jmlParty + jmlVulcanoNon + jmlVulcanoPedas == 0) {
-    alert('Pilih menu dulu bro!');
-    return;
-  }
-
-  var teks = 'Halo Pizza Malakue, saya mau pesan:%0A%0A';
-  if(jmlCoklatMocarella > 0) teks += '- Pizza Coklat Mocarella x' + jmlCoklatMocarella + ' = Rp ' + (jmlCoklatMocarella*33000).toLocaleString('id-ID') + '%0A';
-  if(jmlCoklatKeju > 0) teks += '- Pizza Coklat Keju Cedar x' + jmlCoklatKeju + ' = Rp ' + (jmlCoklatKeju*28000).toLocaleString('id-ID') + '%0A';
-  if(jmlParty > 0) teks += '- Pizza Party x' + jmlParty + ' = Rp ' + (jmlParty*85000).toLocaleString('id-ID') + '%0A';
-  if(jmlVulcanoNon > 0) teks += '- Pizza Vulcano Non Pedas x' + jmlVulcanoNon + ' = Rp ' + (jmlVulcanoNon*45000).toLocaleString('id-ID') + '%0A';
-  if(jmlVulcanoPedas > 0) teks += '- Pizza Vulcano Pedas x' + jmlVulcanoPedas + ' = Rp ' + (jmlVulcanoPedas*45000).toLocaleString('id-ID') + '%0A';
-
-  var total = (jmlCoklatMocarella * 33000) + (jmlCoklatKeju * 28000) + (jmlParty * 85000) + (jmlVulcanoNon * 45000) + (jmlVulcanoPedas * 45000);
-  teks += '%0ATotal: Rp ' + total.toLocaleString('id-ID');
-
-  window.open('https://wa.me/6282193795771?text=' + teks, '_blank');
-  
-  setTimeout(function() {
-    document.getElementById('popupThanks').style.display = 'flex';
-    jmlCoklatMocarella = jmlCoklatKeju = jmlParty = jmlVulcanoNon = jmlVulcanoPedas = 0;
-    updateCounter();
-    hitungTotal();
-  }, 1000);
-}
-
-function qrisMuncul() {
-  document.getElementById('popupQris').style.display = 'flex';
-}
-
-function qrisTutup() {
-  document.getElementById('popupQris').style.display = 'none';
-}
-
-function thanksTutup() {
-  document.getElementById('popupThanks').style.display = 'none';
-}
-
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js');
-}
 </script>
 </body>
 </html>
