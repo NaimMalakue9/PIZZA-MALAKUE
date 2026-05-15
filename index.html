@@ -26,7 +26,7 @@
   <div class="max-w-md mx-auto p-4">
 
     <!-- HALAMAN AWAL -->
-    <div id="page1" class="min-h-screen flex-col justify-center items-center text-center gap-3">
+    <div id="page1" class="min-h-screen flex flex-col justify-center items-center text-center gap-3">
       <h1 class="text-3xl font-bold text-black mb-2">WELCOME!!!</h1>
       <p class="text-lg font-semibold text-gray-800">PIZZA MALAKUE</p>
       <p class="text-sm text-gray-600 mb-2">Homemade, Fresh From The Oven</p>
@@ -51,47 +51,31 @@
       <h2 class="text-xl font-bold text-[#5D4037] text-center mb-4">Pilih Menu Favoritmu</h2>
 
       <div class="grid grid-cols-2 gap-3">
-        
-        <!-- MENU 1 -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <input type="image" src="pizza-coklat-mozarella.jpg" 
-                 onclick="alert('Pizza Coklat Mozarella')" />
+          <input type="image" src="pizza-coklat-mozarella.jpg" onclick="alert('Pizza Coklat Mozarella')" />
           <h3 class="font-bold text-[#5D4037] text-sm mt-2">Coklat Mozarella</h3>
           <p class="text-lg font-bold text-[#E65100]">33rb</p>
         </div>
-
-        <!-- MENU 2 -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <input type="image" src="pizza-coklat-keju-cedar.jpg" 
-                 onclick="alert('Pizza Coklat Keju Cedar')" />
+          <input type="image" src="pizza-coklat-keju-cedar.jpg" onclick="alert('Pizza Coklat Keju Cedar')" />
           <h3 class="font-bold text-[#5D4037] text-sm mt-2">Coklat Keju Cedar</h3>
           <p class="text-lg font-bold text-[#E65100]">28rb</p>
         </div>
-
-        <!-- MENU 3 -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <input type="image" src="pizza-party.jpg" 
-                 onclick="alert('Pizza Party')" />
+          <input type="image" src="pizza-party.jpg" onclick="alert('Pizza Party')" />
           <h3 class="font-bold text-[#5D4037] text-sm mt-2">Party</h3>
           <p class="text-lg font-bold text-[#E65100]">85rb</p>
         </div>
-
-        <!-- MENU 4 -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <input type="image" src="pizza-vulcano-non-pedas.jpg" 
-                 onclick="alert('Pizza Vulcano Non Pedas')" />
+          <input type="image" src="pizza-vulcano-non-pedas.jpg" onclick="alert('Pizza Vulcano Non Pedas')" />
           <h3 class="font-bold text-[#5D4037] text-sm mt-2">Vulcano Non Pedas</h3>
           <p class="text-lg font-bold text-[#E65100]">45rb</p>
         </div>
-
-        <!-- MENU 5 -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <input type="image" src="pizza-vulcano-pedas.jpg" 
-                 onclick="alert('Pizza Vulcano Pedas')" />
+          <input type="image" src="pizza-vulcano-pedas.jpg" onclick="alert('Pizza Vulcano Pedas')" />
           <h3 class="font-bold text-[#5D4037] text-sm mt-2">Vulcano Pedas</h3>
           <p class="text-lg font-bold text-[#E65100]">45rb</p>
         </div>
-
       </div>
     </div>
 
@@ -102,7 +86,6 @@ document.getElementById('btnBukaMenu').onclick = function() {
   document.getElementById('page1').style.display = 'none';
   document.getElementById('page2').style.display = 'block';
 };
-
 document.getElementById('btnBalikAwal').onclick = function() {
   document.getElementById('page2').style.display = 'none';
   document.getElementById('page1').style.display = 'flex';
