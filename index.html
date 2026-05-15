@@ -165,7 +165,7 @@
       </div>
     </div>
 
-    <!-- FOOTER INFO + TOMBOL TAMBAHAN -->
+    <!-- FOOTER INFO -->
     <footer id="footer" style="display:none;" class="text-center mt-12 p-6 bg-white rounded-2xl shadow-lg">
       <h4 class="font-bold text-[#E65100] text-lg">Info Pemesanan</h4>
       <p class="mt-2 text-[#5D4037]">📱 WhatsApp: <a href="https://wa.me/6282193795771" target="_blank" class="text-[#E65100] font-bold">0821-9379-5771</a></p>
@@ -185,13 +185,24 @@
   </div>
 
 <script>
+// FUNCTION GAMBAR HARUS PALING ATAS BIAR KEBACA DULUAN
+function bukaGambar(src, alt) {
+  console.log('Gambar diklik:', src);
+  document.getElementById('gambarBesar').src = src;
+  document.getElementById('gambarBesar').alt = alt;
+  document.getElementById('popupGambar').style.display = 'flex';
+}
+
+function tutupGambar() {
+  document.getElementById('popupGambar').style.display = 'none';
+}
+
 var jmlCoklatMocarella = 0;
 var jmlCoklatKeju = 0;
 var jmlParty = 0;
 var jmlVulcanoNon = 0;
 var jmlVulcanoPedas = 0;
 
-// CEK JAM BUKA/TUTUP OTOMATIS - WITA
 function cekJamBuka() {
   var jam = new Date().getHours();
   var status = '';
@@ -323,18 +334,6 @@ function thanksTutup() {
   document.getElementById('popupThanks').style.display = 'none';
 }
 
-// FUNCTION BUAT ZOOM GAMBAR
-function bukaGambar(src, alt) {
-  document.getElementById('gambarBesar').src = src;
-  document.getElementById('gambarBesar').alt = alt;
-  document.getElementById('popupGambar').style.display = 'flex';
-}
-
-function tutupGambar() {
-  document.getElementById('popupGambar').style.display = 'none';
-}
-
-// DAFTARIN SERVICE WORKER PALING AKHIR
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/sw.js');
 }
