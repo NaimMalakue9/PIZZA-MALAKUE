@@ -8,9 +8,6 @@
   <title>Pizza Malakue - Homemade Fresh From The Oven</title>
   
   <link rel="icon" href="pizza-coklat-mozarella.jpg">
-  <meta property="og:title" content="Pizza Malakue - Homemade Fresh From The Oven">
-  <meta property="og:description" content="Pesan pizza homemade enak cuma 19rb-85rb di Polewali Mandar! Klik buat order langsung.">
-  <meta property="og:image" content="pizza-party.jpg">
   <meta name="theme-color" content="#E65100">
   
   <script src="https://cdn.tailwindcss.com"></script>
@@ -23,19 +20,17 @@
     .img-clickable {
       -webkit-touch-callout: none;
       -webkit-user-select: none;
-      -khtml-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
       user-select: none;
       -webkit-user-drag: none;
       touch-action: manipulation;
+      cursor: pointer;
     }
   </style>
 </head>
 <body class="min-h-screen">
   <div class="max-w-md mx-auto p-4">
 
-    <!-- HALAMAN 1: WELCOME -->
+    <!-- HALAMAN 1 -->
     <div id="page1" class="min-h-screen flex-col justify-center items-center text-center">
       <p class="text-[#5D4037] text-sm mb-2">Terima kasih sudah klik Link Tautannya</p>
       <h1 class="text-3xl font-bold text-black mb-1">WELCOME!!!</h1>
@@ -44,7 +39,7 @@
       
       <p id="statusToko" class="text-xs font-bold mb-6"></p>
 
-      <button onclick="bukaMenu()" class="w-full max-w-xs bg-[#E65100] text-white py-4 rounded-xl font-bold text-lg mb-4 shadow-md">
+      <button id="btnBukaMenu" class="w-full max-w-xs bg-[#E65100] text-white py-4 rounded-xl font-bold text-lg mb-4 shadow-md">
         🍕 Buat Pesanan Anda Disini
       </button>
 
@@ -56,7 +51,7 @@
     <!-- HALAMAN 2: MENU -->
     <div id="page2" style="display:none;">
       <header class="text-center py-4">
-        <button onclick="balikAwal()" class="float-left text-[#E65100] font-bold">← Kembali</button>
+        <button id="btnBalikAwal" class="float-left text-[#E65100] font-bold">← Kembali</button>
         <h1 class="text-3xl font-bold text-[#E65100]">Pizza Malakue</h1>
         <p class="text-sm text-[#5D4037]">Homemade, Fresh From The Oven</p>
         <p id="statusToko2" class="text-xs font-bold mt-1"></p>
@@ -67,122 +62,117 @@
       <div class="grid grid-cols-2 gap-3 my-6">
         <!-- MENU 1 -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <a href="#" class="img-clickable block" onclick="return false" 
-             onpointerdown="bukaGambar('pizza-coklat-mozarella.jpg', 'Pizza Coklat Mozarella')">
+          <div id="img1" class="img-clickable">
             <img src="pizza-coklat-mozarella.jpg" alt="Pizza Coklat Mozarella" 
                  class="w-full h-24 object-cover rounded-lg mb-2 pointer-events-none">
-          </a>
+          </div>
           <h3 class="font-bold text-[#5D4037] text-sm">Coklat Mozarella</h3>
           <p class="text-lg font-bold text-[#E65100] my-1">33rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
-            <button onclick="kurang('coklatMocarella')" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
+            <button id="btnMinus1" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
             <span id="coklatMocarella" class="font-bold w-4 text-[#5D4037]">0</span>
-            <button onclick="tambah('coklatMocarella')" class="bg-[#E65100] text-white w-7 h-7 rounded-full font-bold">+</button>
+            <button id="btnPlus1" class="bg-[#E65100] text-white w-7 h-7 rounded-full font-bold">+</button>
           </div>
         </div>
 
         <!-- MENU 2 -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <a href="#" class="img-clickable block" onclick="return false" 
-             onpointerdown="bukaGambar('pizza-coklat-keju-cedar.jpg', 'Pizza Coklat Keju Cedar')">
+          <div id="img2" class="img-clickable">
             <img src="pizza-coklat-keju-cedar.jpg" alt="Pizza Coklat Keju Cedar" 
                  class="w-full h-24 object-cover rounded-lg mb-2 pointer-events-none">
-          </a>
+          </div>
           <h3 class="font-bold text-[#5D4037] text-sm">Coklat Keju Cedar</h3>
           <p class="text-lg font-bold text-[#E65100] my-1">28rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
-            <button onclick="kurang('coklatKeju')" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
+            <button id="btnMinus2" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
             <span id="coklatKeju" class="font-bold w-4 text-[#5D4037]">0</span>
-            <button onclick="tambah('coklatKeju')" class="bg-[#E65100] text-white w-7 h-7 rounded-full font-bold">+</button>
+            <button id="btnPlus2" class="bg-[#E65100] text-white w-7 h-7 rounded-full font-bold">+</button>
           </div>
         </div>
 
         <!-- MENU 3 -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <a href="#" class="img-clickable block" onclick="return false" 
-             onpointerdown="bukaGambar('pizza-party.jpg', 'Pizza Party')">
+          <div id="img3" class="img-clickable">
             <img src="pizza-party.jpg" alt="Pizza Party" 
                  class="w-full h-24 object-cover rounded-lg mb-2 pointer-events-none">
-          </a>
+          </div>
           <h3 class="font-bold text-[#5D4037] text-sm">Party</h3>
           <p class="text-lg font-bold text-[#E65100] my-1">85rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
-            <button onclick="kurang('party')" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
+            <button id="btnMinus3" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
             <span id="party" class="font-bold w-4 text-[#5D4037]">0</span>
-            <button onclick="tambah('party')" class="bg-[#E65100] text-white w-7 h-7 rounded-full font-bold">+</button>
+            <button id="btnPlus3" class="bg-[#E65100] text-white w-7 h-7 rounded-full font-bold">+</button>
           </div>
         </div>
 
         <!-- MENU 4 -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <a href="#" class="img-clickable block" onclick="return false" 
-             onpointerdown="bukaGambar('pizza-vulcano-non-pedas.jpg', 'Pizza Vulcano Non Pedas')">
+          <div id="img4" class="img-clickable">
             <img src="pizza-vulcano-non-pedas.jpg" alt="Pizza Vulcano Non Pedas" 
                  class="w-full h-24 object-cover rounded-lg mb-2 pointer-events-none">
-          </a>
+          </div>
           <h3 class="font-bold text-[#5D4037] text-sm">Vulcano Non Pedas</h3>
           <p class="text-lg font-bold text-[#E65100] my-1">45rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
-            <button onclick="kurang('vulcanoNon')" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
+            <button id="btnMinus4" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
             <span id="vulcanoNon" class="font-bold w-4 text-[#5D4037]">0</span>
-            <button onclick="tambah('vulcanoNon')" class="bg-[#E65100] text-white w-7 h-7 rounded-full font-bold">+</button>
+            <button id="btnPlus4" class="bg-[#E65100] text-white w-7 h-7 rounded-full font-bold">+</button>
           </div>
         </div>
 
         <!-- MENU 5 -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <a href="#" class="img-clickable block" onclick="return false" 
-             onpointerdown="bukaGambar('pizza-vulcano-pedas.jpg', 'Pizza Vulcano Pedas')">
+          <div id="img5" class="img-clickable">
             <img src="pizza-vulcano-pedas.jpg" alt="Pizza Vulcano Pedas" 
                  class="w-full h-24 object-cover rounded-lg mb-2 pointer-events-none">
-          </a>
+          </div>
           <h3 class="font-bold text-[#5D4037] text-sm">Vulcano Pedas</h3>
           <p class="text-lg font-bold text-[#E65100] my-1">45rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
-            <button onclick="kurang('vulcanoPedas')" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
+            <button id="btnMinus5" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
             <span id="vulcanoPedas" class="font-bold w-4 text-[#5D4037]">0</span>
-            <button onclick="tambah('vulcanoPedas')" class="bg-[#E65100] text-white w-7 h-7 rounded-full font-bold">+</button>
+            <button id="btnPlus5" class="bg-[#E65100] text-white w-7 h-7 rounded-full font-bold">+</button>
           </div>
         </div>
       </div>
 
-      <button onclick="kirimWA()" class="w-full bg-[#E65100] text-white py-4 rounded-xl font-bold text-lg shadow-lg mb-4">
+      <button id="btnKirimWA" class="w-full bg-[#E65100] text-white py-4 rounded-xl font-bold text-lg shadow-lg mb-4">
         🛒 Kirim Pesanan - <span id="total">Rp 0</span>
       </button>
 
-      <button onclick="qrisMuncul()" class="w-full bg-green-500 text-white py-3 rounded-xl font-bold text-lg mb-4">
+      <button id="btnQris" class="w-full bg-green-500 text-white py-3 rounded-xl font-bold text-lg mb-4">
         💳 Bayar Pakai QRIS
       </button>
     </div>
 
     <!-- POP-UP QRIS -->
-    <div id="popupQris" style="display:none;" class="fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4" onclick="qrisTutup()">
-      <div class="bg-white rounded-2xl p-6 max-w-sm w-full text-center" onclick="event.stopPropagation()">
+    <div id="popupQris" style="display:none;" class="fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4">
+      <div class="bg-white rounded-2xl p-6 max-w-sm w-full text-center">
         <h3 class="text-xl font-bold text-[#E65100] mb-4">Scan QRIS Pizza Malakue</h3>
         <img src="qris-pizza-malakue.jpg" alt="QRIS" class="w-full rounded-xl shadow-md mb-4">
         <p class="text-sm text-gray-600 mb-4">a.n. Pizza Malakue</p>
-        <button onclick="qrisTutup()" class="bg-[#E65100] text-white px-6 py-2 rounded-lg font-bold">Tutup</button>
+        <button id="btnTutupQris" class="bg-[#E65100] text-white px-6 py-2 rounded-lg font-bold">Tutup</button>
       </div>
     </div>
 
     <!-- POP-UP TERIMA KASIH -->
-    <div id="popupThanks" style="display:none;" class="fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4" onclick="thanksTutup()">
-      <div class="bg-white rounded-2xl p-6 max-w-sm w-full text-center" onclick="event.stopPropagation()">
+    <div id="popupThanks" style="display:none;" class="fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4">
+      <div class="bg-white rounded-2xl p-6 max-w-sm w-full text-center">
         <div class="text-5xl mb-4">🎉</div>
         <h3 class="text-xl font-bold text-[#E65100] mb-3">Pesanan Terkirim!</h3>
         <p class="text-[#5D4037] leading-relaxed">
           Terima Kasih sudah order di Pizza Malakue<br><br>
           <strong>Sehat Selalu, Murah Rejeki, Panjang Umur serta dimudahkan selalu urusannya !!!</strong>
         </p>
-        <button onclick="thanksTutup()" class="bg-[#E65100] text-white px-8 py-3 rounded-lg font-bold mt-6">Aamiin 🤲</button>
+        <button id="btnTutupThanks" class="bg-[#E65100] text-white px-8 py-3 rounded-lg font-bold mt-6">Aamiin 🤲</button>
       </div>
     </div>
 
     <!-- POP-UP GAMBAR BESAR -->
-    <div id="popupGambar" style="display:none;" class="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4" onclick="tutupGambar()">
-      <div class="relative max-w-lg w-full" onclick="event.stopPropagation()">
+    <div id="popupGambar" style="display:none;" class="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4">
+      <div class="relative max-w-lg w-full">
         <img id="gambarBesar" src="" alt="" class="w-full rounded-xl">
-        <button onclick="tutupGambar()" class="absolute top-2 right-2 bg-white text-black w-8 h-8 rounded-full font-bold text-xl">×</button>
+        <button id="btnTutupGambar" class="absolute top-2 right-2 bg-white text-black w-8 h-8 rounded-full font-bold text-xl">×</button>
       </div>
     </div>
 
@@ -206,16 +196,64 @@
   </div>
 
 <script>
-// FUNCTION GAMBAR
-function bukaGambar(src, alt) {
-  document.getElementById('gambarBesar').src = src;
-  document.getElementById('gambarBesar').alt = alt;
-  document.getElementById('popupGambar').style.display = 'flex';
-}
+// SEMUA EVENT DIPASANG DI SINI, BUKAN INLINE
+document.addEventListener('DOMContentLoaded', function() {
+  
+  // Fungsi gambar
+  function bukaGambar(src, alt) {
+    document.getElementById('gambarBesar').src = src;
+    document.getElementById('gambarBesar').alt = alt;
+    document.getElementById('popupGambar').style.display = 'flex';
+  }
 
-function tutupGambar() {
-  document.getElementById('popupGambar').style.display = 'none';
-}
+  function tutupGambar() {
+    document.getElementById('popupGambar').style.display = 'none';
+  }
+
+  // Pasang event ke semua gambar
+  document.getElementById('img1').addEventListener('pointerdown', function() {
+    bukaGambar('pizza-coklat-mozarella.jpg', 'Pizza Coklat Mozarella');
+  });
+  document.getElementById('img2').addEventListener('pointerdown', function() {
+    bukaGambar('pizza-coklat-keju-cedar.jpg', 'Pizza Coklat Keju Cedar');
+  });
+  document.getElementById('img3').addEventListener('pointerdown', function() {
+    bukaGambar('pizza-party.jpg', 'Pizza Party');
+  });
+  document.getElementById('img4').addEventListener('pointerdown', function() {
+    bukaGambar('pizza-vulcano-non-pedas.jpg', 'Pizza Vulcano Non Pedas');
+  });
+  document.getElementById('img5').addEventListener('pointerdown', function() {
+    bukaGambar('pizza-vulcano-pedas.jpg', 'Pizza Vulcano Pedas');
+  });
+
+  // Event lain
+  document.getElementById('btnTutupGambar').addEventListener('click', tutupGambar);
+  document.getElementById('popupGambar').addEventListener('click', tutupGambar);
+
+  document.getElementById('btnBukaMenu').addEventListener('click', bukaMenu);
+  document.getElementById('btnBalikAwal').addEventListener('click', balikAwal);
+
+  document.getElementById('btnPlus1').addEventListener('click', function(){ tambah('coklatMocarella'); });
+  document.getElementById('btnMinus1').addEventListener('click', function(){ kurang('coklatMocarella'); });
+  document.getElementById('btnPlus2').addEventListener('click', function(){ tambah('coklatKeju'); });
+  document.getElementById('btnMinus2').addEventListener('click', function(){ kurang('coklatKeju'); });
+  document.getElementById('btnPlus3').addEventListener('click', function(){ tambah('party'); });
+  document.getElementById('btnMinus3').addEventListener('click', function(){ kurang('party'); });
+  document.getElementById('btnPlus4').addEventListener('click', function(){ tambah('vulcanoNon'); });
+  document.getElementById('btnMinus4').addEventListener('click', function(){ kurang('vulcanoNon'); });
+  document.getElementById('btnPlus5').addEventListener('click', function(){ tambah('vulcanoPedas'); });
+  document.getElementById('btnMinus5').addEventListener('click', function(){ kurang('vulcanoPedas'); });
+
+  document.getElementById('btnKirimWA').addEventListener('click', kirimWA);
+  document.getElementById('btnQris').addEventListener('click', qrisMuncul);
+  document.getElementById('btnTutupQris').addEventListener('click', qrisTutup);
+  document.getElementById('btnTutupThanks').addEventListener('click', thanksTutup);
+  document.getElementById('popupQris').addEventListener('click', qrisTutup);
+  document.getElementById('popupThanks').addEventListener('click', thanksTutup);
+
+  cekJamBuka();
+});
 
 var jmlCoklatMocarella = 0;
 var jmlCoklatKeju = 0;
@@ -242,10 +280,6 @@ function cekJamBuka() {
   if(statusEl2) statusEl2.innerText = status;
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-  cekJamBuka();
-});
-
 function bukaMenu() {
   document.getElementById('page1').style.display = 'none';
   document.getElementById('page2').style.display = 'block';
@@ -260,51 +294,31 @@ function balikAwal() {
 }
 
 function tambah(menu) {
-  if(menu == 'coklatMocarella') {
-    jmlCoklatMocarella++;
-    document.getElementById('coklatMocarella').innerText = jmlCoklatMocarella;
-  }
-  if(menu == 'coklatKeju') {
-    jmlCoklatKeju++;
-    document.getElementById('coklatKeju').innerText = jmlCoklatKeju;
-  }
-  if(menu == 'party') {
-    jmlParty++;
-    document.getElementById('party').innerText = jmlParty;
-  }
-  if(menu == 'vulcanoNon') {
-    jmlVulcanoNon++;
-    document.getElementById('vulcanoNon').innerText = jmlVulcanoNon;
-  }
-  if(menu == 'vulcanoPedas') {
-    jmlVulcanoPedas++;
-    document.getElementById('vulcanoPedas').innerText = jmlVulcanoPedas;
-  }
+  if(menu == 'coklatMocarella') jmlCoklatMocarella++;
+  if(menu == 'coklatKeju') jmlCoklatKeju++;
+  if(menu == 'party') jmlParty++;
+  if(menu == 'vulcanoNon') jmlVulcanoNon++;
+  if(menu == 'vulcanoPedas') jmlVulcanoPedas++;
+  updateCounter();
   hitungTotal();
 }
 
 function kurang(menu) {
-  if(menu == 'coklatMocarella' && jmlCoklatMocarella > 0) {
-    jmlCoklatMocarella--;
-    document.getElementById('coklatMocarella').innerText = jmlCoklatMocarella;
-  }
-  if(menu == 'coklatKeju' && jmlCoklatKeju > 0) {
-    jmlCoklatKeju--;
-    document.getElementById('coklatKeju').innerText = jmlCoklatKeju;
-  }
-  if(menu == 'party' && jmlParty > 0) {
-    jmlParty--;
-    document.getElementById('party').innerText = jmlParty;
-  }
-  if(menu == 'vulcanoNon' && jmlVulcanoNon > 0) {
-    jmlVulcanoNon--;
-    document.getElementById('vulcanoNon').innerText = jmlVulcanoNon;
-  }
-  if(menu == 'vulcanoPedas' && jmlVulcanoPedas > 0) {
-    jmlVulcanoPedas--;
-    document.getElementById('vulcanoPedas').innerText = jmlVulcanoPedas;
-  }
+  if(menu == 'coklatMocarella' && jmlCoklatMocarella > 0) jmlCoklatMocarella--;
+  if(menu == 'coklatKeju' && jmlCoklatKeju > 0) jmlCoklatKeju--;
+  if(menu == 'party' && jmlParty > 0) jmlParty--;
+  if(menu == 'vulcanoNon' && jmlVulcanoNon > 0) jmlVulcanoNon--;
+  if(menu == 'vulcanoPedas' && jmlVulcanoPedas > 0) jmlVulcanoPedas--;
+  updateCounter();
   hitungTotal();
+}
+
+function updateCounter() {
+  document.getElementById('coklatMocarella').innerText = jmlCoklatMocarella;
+  document.getElementById('coklatKeju').innerText = jmlCoklatKeju;
+  document.getElementById('party').innerText = jmlParty;
+  document.getElementById('vulcanoNon').innerText = jmlVulcanoNon;
+  document.getElementById('vulcanoPedas').innerText = jmlVulcanoPedas;
 }
 
 function hitungTotal() {
@@ -333,11 +347,7 @@ function kirimWA() {
   setTimeout(function() {
     document.getElementById('popupThanks').style.display = 'flex';
     jmlCoklatMocarella = jmlCoklatKeju = jmlParty = jmlVulcanoNon = jmlVulcanoPedas = 0;
-    document.getElementById('coklatMocarella').innerText = 0;
-    document.getElementById('coklatKeju').innerText = 0;
-    document.getElementById('party').innerText = 0;
-    document.getElementById('vulcanoNon').innerText = 0;
-    document.getElementById('vulcanoPedas').innerText = 0;
+    updateCounter();
     hitungTotal();
   }, 1000);
 }
