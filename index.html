@@ -25,7 +25,7 @@
   <div class="max-w-md mx-auto p-4">
 
     <!-- HALAMAN 1: TAMPILAN AWAL -->
-    <div id="page1" class="min-h-screen flex flex-col justify-center items-center text-center">
+    <div id="page1" class="min-h-screen flex-col justify-center items-center text-center">
       <p class="text-[#5D4037] text-sm mb-2">Terima kasih sudah klik Link Tautannya</p>
       <h1 class="text-3xl font-bold text-black mb-1">WELCOME!!!</h1>
       <h2 class="text-lg text-[#5D4037] mb-1">PIZZA MALAKUE</h2>
@@ -56,7 +56,9 @@
       <div class="grid grid-cols-2 gap-3 my-6">
         <!-- MENU 1 -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <img src="pizza-coklat-mozarella.jpg" alt="Pizza Coklat Mozarella" class="w-full h-24 object-cover rounded-lg mb-2">
+          <img src="pizza-coklat-mozarella.jpg" alt="Pizza Coklat Mozarella" 
+               class="w-full h-24 object-cover rounded-lg mb-2 cursor-pointer hover:opacity-80"
+               onclick="bukaGambar('pizza-coklat-mozarella.jpg', 'Pizza Coklat Mozarella')">
           <h3 class="font-bold text-[#5D4037] text-sm">Coklat Mozarella</h3>
           <p class="text-lg font-bold text-[#E65100] my-1">33rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
@@ -68,7 +70,9 @@
 
         <!-- MENU 2 -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <img src="pizza-coklat-keju-cedar.jpg" alt="Pizza Coklat Keju Cedar" class="w-full h-24 object-cover rounded-lg mb-2">
+          <img src="pizza-coklat-keju-cedar.jpg" alt="Pizza Coklat Keju Cedar" 
+               class="w-full h-24 object-cover rounded-lg mb-2 cursor-pointer hover:opacity-80"
+               onclick="bukaGambar('pizza-coklat-keju-cedar.jpg', 'Pizza Coklat Keju Cedar')">
           <h3 class="font-bold text-[#5D4037] text-sm">Coklat Keju Cedar</h3>
           <p class="text-lg font-bold text-[#E65100] my-1">28rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
@@ -80,7 +84,9 @@
 
         <!-- MENU 3 -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <img src="pizza-party.jpg" alt="Pizza Party" class="w-full h-24 object-cover rounded-lg mb-2">
+          <img src="pizza-party.jpg" alt="Pizza Party" 
+               class="w-full h-24 object-cover rounded-lg mb-2 cursor-pointer hover:opacity-80"
+               onclick="bukaGambar('pizza-party.jpg', 'Pizza Party')">
           <h3 class="font-bold text-[#5D4037] text-sm">Party</h3>
           <p class="text-lg font-bold text-[#E65100] my-1">85rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
@@ -92,7 +98,9 @@
 
         <!-- MENU 4 -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <img src="pizza-vulcano-non-pedas.jpg" alt="Pizza Vulcano Non Pedas" class="w-full h-24 object-cover rounded-lg mb-2">
+          <img src="pizza-vulcano-non-pedas.jpg" alt="Pizza Vulcano Non Pedas" 
+               class="w-full h-24 object-cover rounded-lg mb-2 cursor-pointer hover:opacity-80"
+               onclick="bukaGambar('pizza-vulcano-non-pedas.jpg', 'Pizza Vulcano Non Pedas')">
           <h3 class="font-bold text-[#5D4037] text-sm">Vulcano Non Pedas</h3>
           <p class="text-lg font-bold text-[#E65100] my-1">45rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
@@ -104,7 +112,9 @@
 
         <!-- MENU 5 -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <img src="pizza-vulcano-pedas.jpg" alt="Pizza Vulcano Pedas" class="w-full h-24 object-cover rounded-lg mb-2">
+          <img src="pizza-vulcano-pedas.jpg" alt="Pizza Vulcano Pedas" 
+               class="w-full h-24 object-cover rounded-lg mb-2 cursor-pointer hover:opacity-80"
+               onclick="bukaGambar('pizza-vulcano-pedas.jpg', 'Pizza Vulcano Pedas')">
           <h3 class="font-bold text-[#5D4037] text-sm">Vulcano Pedas</h3>
           <p class="text-lg font-bold text-[#E65100] my-1">45rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
@@ -144,6 +154,14 @@
           <strong>Sehat Selalu, Murah Rejeki, Panjang Umur serta dimudahkan selalu urusannya !!!</strong>
         </p>
         <button onclick="thanksTutup()" class="bg-[#E65100] text-white px-8 py-3 rounded-lg font-bold mt-6">Aamiin 🤲</button>
+      </div>
+    </div>
+
+    <!-- POP-UP GAMBAR BESAR -->
+    <div id="popupGambar" style="display:none;" class="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4" onclick="tutupGambar()">
+      <div class="relative max-w-lg w-full" onclick="event.stopPropagation()">
+        <img id="gambarBesar" src="" alt="" class="w-full rounded-xl">
+        <button onclick="tutupGambar()" class="absolute top-2 right-2 bg-white text-black w-8 h-8 rounded-full font-bold text-xl">×</button>
       </div>
     </div>
 
@@ -193,7 +211,6 @@ function cekJamBuka() {
   if(statusEl2) statusEl2.innerText = status;
 }
 
-// JALANKAN PAS HALAMAN SELESAI LOAD
 document.addEventListener('DOMContentLoaded', function() {
   cekJamBuka();
 });
@@ -306,7 +323,18 @@ function thanksTutup() {
   document.getElementById('popupThanks').style.display = 'none';
 }
 
-// DAFTARIN SERVICE WORKER PALING AKHIR BIAR NGGAK GANGGU
+// FUNCTION BUAT ZOOM GAMBAR
+function bukaGambar(src, alt) {
+  document.getElementById('gambarBesar').src = src;
+  document.getElementById('gambarBesar').alt = alt;
+  document.getElementById('popupGambar').style.display = 'flex';
+}
+
+function tutupGambar() {
+  document.getElementById('popupGambar').style.display = 'none';
+}
+
+// DAFTARIN SERVICE WORKER PALING AKHIR
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/sw.js');
 }
