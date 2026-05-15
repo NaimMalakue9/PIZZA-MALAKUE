@@ -15,15 +15,16 @@
     body { 
       font-family: sans-serif; 
       background-color: #FFF8F0;
-      -webkit-tap-highlight-color: transparent;
     }
-    .img-clickable {
+    .img-link {
+      display: block;
       -webkit-touch-callout: none;
       -webkit-user-select: none;
       user-select: none;
-      -webkit-user-drag: none;
       touch-action: manipulation;
-      cursor: pointer;
+    }
+    .img-link img {
+      pointer-events: none;
     }
   </style>
 </head>
@@ -62,10 +63,10 @@
       <div class="grid grid-cols-2 gap-3 my-6">
         <!-- MENU 1 -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <div id="img1" class="img-clickable">
+          <a href="pizza-coklat-mozarella.jpg" target="_blank" class="img-link">
             <img src="pizza-coklat-mozarella.jpg" alt="Pizza Coklat Mozarella" 
-                 class="w-full h-24 object-cover rounded-lg mb-2 pointer-events-none">
-          </div>
+                 class="w-full h-24 object-cover rounded-lg mb-2">
+          </a>
           <h3 class="font-bold text-[#5D4037] text-sm">Coklat Mozarella</h3>
           <p class="text-lg font-bold text-[#E65100] my-1">33rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
@@ -77,10 +78,10 @@
 
         <!-- MENU 2 -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <div id="img2" class="img-clickable">
+          <a href="pizza-coklat-keju-cedar.jpg" target="_blank" class="img-link">
             <img src="pizza-coklat-keju-cedar.jpg" alt="Pizza Coklat Keju Cedar" 
-                 class="w-full h-24 object-cover rounded-lg mb-2 pointer-events-none">
-          </div>
+                 class="w-full h-24 object-cover rounded-lg mb-2">
+          </a>
           <h3 class="font-bold text-[#5D4037] text-sm">Coklat Keju Cedar</h3>
           <p class="text-lg font-bold text-[#E65100] my-1">28rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
@@ -92,10 +93,10 @@
 
         <!-- MENU 3 -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <div id="img3" class="img-clickable">
+          <a href="pizza-party.jpg" target="_blank" class="img-link">
             <img src="pizza-party.jpg" alt="Pizza Party" 
-                 class="w-full h-24 object-cover rounded-lg mb-2 pointer-events-none">
-          </div>
+                 class="w-full h-24 object-cover rounded-lg mb-2">
+          </a>
           <h3 class="font-bold text-[#5D4037] text-sm">Party</h3>
           <p class="text-lg font-bold text-[#E65100] my-1">85rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
@@ -107,10 +108,10 @@
 
         <!-- MENU 4 -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <div id="img4" class="img-clickable">
+          <a href="pizza-vulcano-non-pedas.jpg" target="_blank" class="img-link">
             <img src="pizza-vulcano-non-pedas.jpg" alt="Pizza Vulcano Non Pedas" 
-                 class="w-full h-24 object-cover rounded-lg mb-2 pointer-events-none">
-          </div>
+                 class="w-full h-24 object-cover rounded-lg mb-2">
+          </a>
           <h3 class="font-bold text-[#5D4037] text-sm">Vulcano Non Pedas</h3>
           <p class="text-lg font-bold text-[#E65100] my-1">45rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
@@ -122,10 +123,10 @@
 
         <!-- MENU 5 -->
         <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <div id="img5" class="img-clickable">
+          <a href="pizza-vulcano-pedas.jpg" target="_blank" class="img-link">
             <img src="pizza-vulcano-pedas.jpg" alt="Pizza Vulcano Pedas" 
-                 class="w-full h-24 object-cover rounded-lg mb-2 pointer-events-none">
-          </div>
+                 class="w-full h-24 object-cover rounded-lg mb-2">
+          </a>
           <h3 class="font-bold text-[#5D4037] text-sm">Vulcano Pedas</h3>
           <p class="text-lg font-bold text-[#E65100] my-1">45rb</p>
           <div class="flex items-center justify-center gap-2 mt-2">
@@ -168,14 +169,6 @@
       </div>
     </div>
 
-    <!-- POP-UP GAMBAR BESAR -->
-    <div id="popupGambar" style="display:none;" class="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4">
-      <div class="relative max-w-lg w-full">
-        <img id="gambarBesar" src="" alt="" class="w-full rounded-xl">
-        <button id="btnTutupGambar" class="absolute top-2 right-2 bg-white text-black w-8 h-8 rounded-full font-bold text-xl">×</button>
-      </div>
-    </div>
-
     <!-- FOOTER -->
     <footer id="footer" style="display:none;" class="text-center mt-12 p-6 bg-white rounded-2xl shadow-lg">
       <h4 class="font-bold text-[#E65100] text-lg">Info Pemesanan</h4>
@@ -196,41 +189,8 @@
   </div>
 
 <script>
-// SEMUA EVENT DIPASANG DI SINI, BUKAN INLINE
 document.addEventListener('DOMContentLoaded', function() {
   
-  // Fungsi gambar
-  function bukaGambar(src, alt) {
-    document.getElementById('gambarBesar').src = src;
-    document.getElementById('gambarBesar').alt = alt;
-    document.getElementById('popupGambar').style.display = 'flex';
-  }
-
-  function tutupGambar() {
-    document.getElementById('popupGambar').style.display = 'none';
-  }
-
-  // Pasang event ke semua gambar
-  document.getElementById('img1').addEventListener('pointerdown', function() {
-    bukaGambar('pizza-coklat-mozarella.jpg', 'Pizza Coklat Mozarella');
-  });
-  document.getElementById('img2').addEventListener('pointerdown', function() {
-    bukaGambar('pizza-coklat-keju-cedar.jpg', 'Pizza Coklat Keju Cedar');
-  });
-  document.getElementById('img3').addEventListener('pointerdown', function() {
-    bukaGambar('pizza-party.jpg', 'Pizza Party');
-  });
-  document.getElementById('img4').addEventListener('pointerdown', function() {
-    bukaGambar('pizza-vulcano-non-pedas.jpg', 'Pizza Vulcano Non Pedas');
-  });
-  document.getElementById('img5').addEventListener('pointerdown', function() {
-    bukaGambar('pizza-vulcano-pedas.jpg', 'Pizza Vulcano Pedas');
-  });
-
-  // Event lain
-  document.getElementById('btnTutupGambar').addEventListener('click', tutupGambar);
-  document.getElementById('popupGambar').addEventListener('click', tutupGambar);
-
   document.getElementById('btnBukaMenu').addEventListener('click', bukaMenu);
   document.getElementById('btnBalikAwal').addEventListener('click', balikAwal);
 
