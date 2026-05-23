@@ -553,29 +553,27 @@ function kirimWA() {
     (jmlSosisBesar * 25000) +
     (jmlSosisKecil * 20000);
 
-  var teks = 'Halo Pizza Malakue, saya mau pesan:%0A%0A';
+  var teks = 'Halo Pizza Malakue, saya mau pesan:'\n';
  
-  if(jmlCoklatMocarella > 0) teks += '- Pizza Coklat Mocarella x' + jmlCoklatMocarella + ' = Rp ' + (jmlCoklatMocarella*33000).toLocaleString('id-ID') + '%0A';
-  if(jmlCoklatKeju > 0) teks += '- Pizza Coklat Keju Cedar x' + jmlCoklatKeju + ' = Rp ' + (jmlCoklatKeju*28000).toLocaleString('id-ID') + '%0A';
-  if(jmlParty > 0) teks += '- Pizza Party x' + jmlParty + ' = Rp ' + (jmlParty*85000).toLocaleString('id-ID') + '%0A';
-  if(jmlVulcanoNon > 0) teks += '- Pizza Vulcano Non Pedas x' + jmlVulcanoNon + ' = Rp ' + (jmlVulcanoNon*45000).toLocaleString('id-ID') + '%0A';
-  if(jmlVulcanoPedas > 0) teks += '- Pizza Vulcano Pedas x' + jmlVulcanoPedas + ' = Rp ' + (jmlVulcanoPedas*45000).toLocaleString('id-ID') + '%0A';
-  if(jmlChicken > 0) teks += '- Pizza Chicken x' + jmlChicken + ' = Rp ' + (jmlChicken*27000).toLocaleString('id-ID') + '%0A';
-  if(jmlCorncheese > 0) teks += '- Pizza Corn Cheese x' + jmlCorncheese + ' = Rp ' + (jmlCorncheese*26000).toLocaleString('id-ID') + '%0A';
-  if(jmlBeefSlice > 0) teks += '- Pizza Beef Slice x' + jmlBeefSlice + ' = Rp ' + (jmlBeefSlice*22000).toLocaleString('id-ID') + '%0A';
-  if(jmlBeef > 0) teks += '- Pizza Beef x' + jmlBeef + ' = Rp ' + (jmlBeef*30000).toLocaleString('id-ID') + '%0A';
-  if(jmlMixTopping > 0) teks += '- Pizza Mix Topping x' + jmlMixTopping + ' = Rp ' + (jmlMixTopping*35000).toLocaleString('id-ID') + '%0A';
-  if(jmlSosisJamur > 0) teks += '- Pizza Sosis Jamur x' + jmlSosisJamur + ' = Rp ' + (jmlSosisJamur*26000).toLocaleString('id-ID') + '%0A';
-  if(jmlKejuLovers > 0) teks += '- Pizza Keju Lovers x' + jmlKejuLovers + ' = Rp ' + (jmlKejuLovers*40000).toLocaleString('id-ID') + '%0A';
-  if(jmlSosisBesar > 0) teks += '- Pizza Sosis Besar x' + jmlSosisBesar + ' = Rp ' + (jmlSosisBesar*25000).toLocaleString('id-ID') + '%0A';
-  if(jmlSosisKecil > 0) teks += '- Pizza Sosis Kecil x' + jmlSosisKecil + ' = Rp ' + (jmlSosisKecil*20000).toLocaleString('id-ID') + '%0A';
+  if(jmlCoklatMocarella > 0) teks += '- Pizza Coklat Mocarella x' + jmlCoklatMocarella + ' = Rp ' + (jmlCoklatMocarella*33000).toLocaleString('id-ID') + '\n';
+  if(jmlCoklatKeju > 0) teks += '- Pizza Coklat Keju Cedar x' + jmlCoklatKeju + ' = Rp ' + (jmlCoklatKeju*28000).toLocaleString('id-ID') + '\n';
+  if(jmlParty > 0) teks += '- Pizza Party x' + jmlParty + ' = Rp ' + (jmlParty*85000).toLocaleString('id-ID') + '\n';
+  if(jmlVulcanoNon > 0) teks += '- Pizza Vulcano Non Pedas x' + jmlVulcanoNon + ' = Rp ' + (jmlVulcanoNon*45000).toLocaleString('id-ID') + '\n';
+  if(jmlVulcanoPedas > 0) teks += '- Pizza Vulcano Pedas x' + jmlVulcanoPedas + ' = Rp ' + (jmlVulcanoPedas*45000).toLocaleString('id-ID') + '\n';
+  if(jmlChicken > 0) teks += '- Pizza Chicken x' + jmlChicken + ' = Rp ' + (jmlChicken*27000).toLocaleString('id-ID') + '\n';
+  if(jmlCorncheese > 0) teks += '- Pizza Corn Cheese x' + jmlCorncheese + ' = Rp ' + (jmlCorncheese*26000).toLocaleString('id-ID') + '\n';
+  if(jmlBeefSlice > 0) teks += '- Pizza Beef Slice x' + jmlBeefSlice + ' = Rp ' + (jmlBeefSlice*22000).toLocaleString('id-ID') + '\n';
+  if(jmlBeef > 0) teks += '- Pizza Beef x' + jmlBeef + ' = Rp ' + (jmlBeef*30000).toLocaleString('id-ID') + '\n';
+  if(jmlMixTopping > 0) teks += '- Pizza Mix Topping x' + jmlMixTopping + ' = Rp ' + (jmlMixTopping*35000).toLocaleString('id-ID') + '\n';
+  if(jmlSosisJamur > 0) teks += '- Pizza Sosis Jamur x' + jmlSosisJamur + ' = Rp ' + (jmlSosisJamur*26000).toLocaleString('id-ID') + '\n';
+  if(jmlKejuLovers > 0) teks += '- Pizza Keju Lovers x' + jmlKejuLovers + ' = Rp ' + (jmlKejuLovers*40000).toLocaleString('id-ID') + '\n';
+  if(jmlSosisBesar > 0) teks += '- Pizza Sosis Besar x' + jmlSosisBesar + ' = Rp ' + (jmlSosisBesar*25000).toLocaleString('id-ID') + '\n';
+  if(jmlSosisKecil > 0) teks += '- Pizza Sosis Kecil x' + jmlSosisKecil + ' = Rp ' + (jmlSosisKecil*20000).toLocaleString('id-ID') + '\n';
 
-  teks += '%0AArea: ' + areaText + '%0A';
-  if(alamat!== '') {
-    teks += 'Alamat: ' + alamat + '%0A';
-  }
-  teks += 'Ongkir: Rp ' + ongkir.toLocaleString('id-ID') + '%0A';
-  teks += '%0ATotal Bayar: Rp ' + (subtotal + ongkir).toLocaleString('id-ID');
+  teks += '\nArea: ' + areaText + '\n';
+teks += 'Alamat: ' + alamat + '\n';
+teks += 'Ongkir: Rp ' + ongkir.toLocaleString('id-ID') + '\n';
+teks += '\nTotal Bayar: Rp ' + (subtotal + ongkir).toLocaleString('id-ID');
   
    var nomorWA = '+6282193795771'; // Ganti nomor WA lo di sini
   window.open('https://wa.me/' + nomorWA + '?text=' + encodeURIComponent(teks), '_blank'); 
