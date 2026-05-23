@@ -159,8 +159,7 @@
         TikTok
       </a>
     </div>
-
-    <div id="page2" style="display:none;">
+<div id="page2" style="display:none; flex-direction:column; min-height:100vh; padding-bottom:120px;">
       <header style="text-align: center; padding: 16px 0;">
         <button onclick="balikAwal()" style="float: left; background: none; border: none; color: #8B0000; font-weight: bold; cursor: pointer;">← Kembali</button>
         <h1 style="font-size: 28px;">Pizza Malakue</h1>
@@ -327,153 +326,89 @@
         </div>
 
       </div>
+	  
 
-      <div style="margin: 20px 0;">
-        <label style="font-weight: bold; font-size: 14px;">Pilih Area Pengiriman:</label>
-        <select id="areaPengiriman" onchange="hitungTotal()">
-          <option value="0">Ambil Sendiri - Gratis</option>
-          <option value="5000">Wonomulyo Kota - Rp 5.000</option>
-          <option value="8000">Mapilli - Rp 8.000</option>
-          <option value="10000">Polewali Kota - Rp 10.000</option>
-          <option value="15000">Luar Kota - Rp 15.000</option>
-        </select>
-      </div>
+<div style="margin: 20px 0;">
+  <label style="font-weight: bold; font-size: 14px;">Pilih Metode Pengambilan:</label>
+  
+  <select id="areaPengiriman" onchange="toggleAlamat()" style="width: 100%; padding: 10px; margin-top: 8px; border-radius: 8px; border: 1px solid #ddd;">
+    <option value="0|Ambil Sendiri">Ambil Sendiri - Gratis</option>
+    <option value="0|Jemput Kurir">Jemput Kurir - Gratis</option>
+  </select>
 
-      <button onclick="kirimWA()" class="btn-primary">
-        🛒 Kirim Pesanan - <span id="total">Rp 0</span>
-      </button>
+  <!-- Input alamat, disembunyikan default -->
+  <input type="text" id="inputAlamat" placeholder="Masukkan alamat lengkap..."
+    style="display: none; width: 100%; margin-top: 10px; padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+</div>
 
-      <button onclick="qrisMuncul()" class="btn-secondary" style="width: 100%; margin-top: 12px;">
-        💳 Bayar Pakai QRIS
-      </button>
-    </div>
+<button onclick="kirimWA()" class="btn-primary">
+  🛒 Kirim Pesanan - <span id="total">Rp 0</span>
+</button>
 
-    <div id="popupQris" class="popup" onclick="qrisTutup()">
-      <div class="popup-content" onclick="event.stopPropagation()">
-        <h3 style="font-size: 20px; margin-bottom: 16px;">Scan QRIS Pizza Malakue</h3>
-        <img src="qris-pizza-malakue.jpg" alt="QRIS" style="width: 100%; border-radius: 12px; margin-bottom: 16px;">
-        <p style="font-size: 14px; color: #666; margin-bottom: 16px;">a.n. Pizza Malakue</p>
-        <button onclick="qrisTutup()" class="btn-primary">Tutup</button>
-      </div>
-    </div>
-
-    <div id="popupThanks" class="popup" onclick="thanksTutup()">
-      <div class="popup-content" onclick="event.stopPropagation()">
-        <div style="font-size: 48px; margin-bottom: 16px;">🎉</div>
-        <h3 style="font-size: 20px; margin-bottom: 12px;">Pesanan Terkirim!</h3>
-        <p class="text-brown" style="line-height: 1.6;">
-          Terima Kasih sudah melakukan pembelian di Pizza Malakue<br><br>
-          <strong>Sehat Selalu, Murah Rejeki, Panjang Umur serta dimudahkan selalu urusannya !!!</strong>
-        </p>
-        <button onclick="thanksTutup()" class="btn-primary" style="margin-top: 24px;">Aamiin 🤲</button>
-      </div>
-    </div>
-
-    <footer id="footer" style="display:none; text-align: center; margin-top: 48px; padding: 24px; background: white; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
-      <h4 style="font-size: 18px; margin-bottom: 12px;">Info Pemesanan</h4>
-      <p class="text-brown">📱 WhatsApp: <a href="https://wa.me/6282193795771" style="color: #8B0000; font-weight: bold;">0821-9379-5771</a></p>
-      <p class="text-brown">📍 BTN GRIYA BUMI REZKITA Blok E/5, UGI BARU, MAPILLI, POLEWALI MANDAR</p>
-      <p class="text-brown">💳 GOPAY: 085398999795 a.n. MUHAMMAD NAIM MU'MIN</p>
-      <p class="text-brown" style="font-size: 14px; margin-top: 8px;">⏱️ Estimasi: 5-10 menit</p>
-      
-      <div style="display: flex; gap: 8px; margin-top: 16px;">
-        <a href="tel:082193795771" style="flex: 1; background: #2563EB; color: white; padding: 10px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 14px;">📞 Telepon</a>
-        <a href="https://maps.app.goo.gl/FuAFfmwXhaq8dSj37" target="_blank" style="flex: 1; background: #4B5563; color: white; padding: 10px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 14px;">📍 Lokasi</a>
-      </div>
-      
-      <p style="font-size: 12px; color: #999; margin-top: 16px;">© 2025 Pizza Malakue</p>
-    </footer>
-
+<button onclick="qrisMuncul()" class="btn-secondary" style="width: 100%; margin-top: 12px;">
+  📱 Bayar Pakai QRIS
+</button>
+</div>  <!-- ini nutup div container utama -->
+<div style="text-align:center; padding:30px 20px; margin-top:10px;">
+  <h3 style="color:#d9534f;">Info Pemesanan</h3>
+  <p>📱 WhatsApp: <b style="color:#d9534f;">0821-9379-5771</b></p>
+  <p>📍 BTN GRIYA BUMI REZKITA Blok E/5, UGI BARU, MAPILLI, POLEWALI MANDAR</p>
+  <p>💳 GOPAY 085398999795 a.n. MUHAMMAD NAIM MU'MIN</p>
+  <p>⏱️ Estimasi: 5-10 menit</p>
+  <p>📦 Area: Wonomulyo & sekitarnya</p>
+  <div style="display:flex; gap:10px; justify-content:center; margin-top:15px;">
+    <a href="tel:082193795771" style="padding:10px 20px; background:#007bff; color:white; border-radius:8px; text-decoration:none;">📞 Telepon</a>
+    <a href="#" style="padding:10px 20px; background:#555; color:white; border-radius:8px; text-decoration:none;">📍 Lokasi</a>
   </div>
+  <p style="margin-top:20px; font-size:12px; color:#888;">© 2025 Pizza Malakue</p>
+</div>
+</div>
+<div id="popupQris" class="popup" onclick="qrisTutup()" style="display:none !important;">
+  <div class="popup-content" onclick="event.stopPropagation()">
+    <h3 style="font-size: 20px; margin-bottom: 16px;">Scan QRIS Pizza Malakue</h3>
+    <img src="qris-pizza-malakue.png" alt="QRIS" style="width: 100%; border-radius: 12px; margin-bottom: 16px;">
+    <p style="font-size: 14px; color: #666;">Scan kode QRIS di atas pakai aplikasi DANA, OVO, GoPay, atau Mobile Banking</p>
+    <button onclick="qrisTutup()" style="margin-top: 16px; width: 100%;">Tutup</button>
+  </div>
+</div>
 
 <script>
-var jmlCoklatMocarella = 0;
-var jmlCoklatKeju = 0;
-var jmlParty = 0;
-var jmlVulcanoNon = 0;
-var jmlVulcanoPedas = 0;
-var jmlChicken = 0;
-var jmlCorncheese = 0;
-var jmlBeefSlice = 0;
-var jmlBeef = 0;
-var jmlMixTopping = 0;
-var jmlSosisJamur = 0;
-var jmlKejuLovers = 0;
-var jmlSosisBesar = 0;
-var jmlSosisKecil = 0;
+function tambah(item) {
+  var el = document.getElementById(item);
+  el.innerText = parseInt(el.innerText) + 1;
+  hitungTotal();
+}
 
-function cekJamBuka() {
-  var jam = new Date().getHours();
-  var status = '';
-  if (jam >= 10 && jam < 21) {
-    status = '🟢 BUKA - 10.00 s/d 21.00 WITA';
-    document.getElementById('statusToko').style.color = '#16a34a';
-    if(document.getElementById('statusToko2')) document.getElementById('statusToko2').style.color = '#16a34a';
-  } else {
-    status = '🔴 TUTUP - Buka jam 10.00 WITA';
-    document.getElementById('statusToko').style.color = '#dc2626';
-    if(document.getElementById('statusToko2')) document.getElementById('statusToko2').style.color = '#dc2626';
+function kurang(item) {
+  var el = document.getElementById(item);
+  var val = parseInt(el.innerText);
+  if(val > 0) {
+    el.innerText = val - 1;
+    hitungTotal();
   }
-  document.getElementById('statusToko').innerText = status;
-  if(document.getElementById('statusToko2')) document.getElementById('statusToko2').innerText = status;
-}
-cekJamBuka();
-
-function bukaMenu() {
-  document.getElementById('page1').style.display = 'none';
-  document.getElementById('page2').style.display = 'block';
-  document.getElementById('footer').style.display = 'block';
-  cekJamBuka();
-}
-
-function balikAwal() {
-  document.getElementById('page2').style.display = 'none';
-  document.getElementById('footer').style.display = 'none';
-  document.getElementById('page1').style.display = 'flex';
-}
-
-function tambah(menu) {
-  if(menu == 'coklatMocarella') { jmlCoklatMocarella++; document.getElementById('coklatMocarella').innerText = jmlCoklatMocarella; }
-  if(menu == 'coklatKeju') { jmlCoklatKeju++; document.getElementById('coklatKeju').innerText = jmlCoklatKeju; }
-  if(menu == 'party') { jmlParty++; document.getElementById('party').innerText = jmlParty; }
-  if(menu == 'vulcanoNon') { jmlVulcanoNon++; document.getElementById('vulcanoNon').innerText = jmlVulcanoNon; }
-  if(menu == 'vulcanoPedas') { jmlVulcanoPedas++; document.getElementById('vulcanoPedas').innerText = jmlVulcanoPedas; }
-  if(menu == 'chicken') { jmlChicken++; document.getElementById('chicken').innerText = jmlChicken; }
-  if(menu == 'corncheese') { jmlCorncheese++; document.getElementById('corncheese').innerText = jmlCorncheese; }
-  if(menu == 'beefSlice') { jmlBeefSlice++; document.getElementById('beefSlice').innerText = jmlBeefSlice; }
-  if(menu == 'beef') { jmlBeef++; document.getElementById('beef').innerText = jmlBeef; }
-  if(menu == 'mixTopping') { jmlMixTopping++; document.getElementById('mixTopping').innerText = jmlMixTopping; }
-  if(menu == 'sosisJamur') { jmlSosisJamur++; document.getElementById('sosisJamur').innerText = jmlSosisJamur; }
-  if(menu == 'kejuLovers') { jmlKejuLovers++; document.getElementById('kejuLovers').innerText = jmlKejuLovers; }
-  if(menu == 'sosisBesar') { jmlSosisBesar++; document.getElementById('sosisBesar').innerText = jmlSosisBesar; }
-  if(menu == 'sosisKecil') { jmlSosisKecil++; document.getElementById('sosisKecil').innerText = jmlSosisKecil; }
-  hitungTotal();
-}
-
-function kurang(menu) {
-  if(menu == 'coklatMocarella' && jmlCoklatMocarella > 0) { jmlCoklatMocarella--; document.getElementById('coklatMocarella').innerText = jmlCoklatMocarella; }
-  if(menu == 'coklatKeju' && jmlCoklatKeju > 0) { jmlCoklatKeju--; document.getElementById('coklatKeju').innerText = jmlCoklatKeju; }
-  if(menu == 'party' && jmlParty > 0) { jmlParty--; document.getElementById('party').innerText = jmlParty; }
-  if(menu == 'vulcanoNon' && jmlVulcanoNon > 0) { jmlVulcanoNon--; document.getElementById('vulcanoNon').innerText = jmlVulcanoNon; }
-  if(menu == 'vulcanoPedas' && jmlVulcanoPedas > 0) { jmlVulcanoPedas--; document.getElementById('vulcanoPedas').innerText = jmlVulcanoPedas; }
-  if(menu == 'chicken' && jmlChicken > 0) { jmlChicken--; document.getElementById('chicken').innerText = jmlChicken; }
-  if(menu == 'corncheese' && jmlCorncheese > 0) { jmlCorncheese--; document.getElementById('corncheese').innerText = jmlCorncheese; }
-  if(menu == 'beefSlice' && jmlBeefSlice > 0) { jmlBeefSlice--; document.getElementById('beefSlice').innerText = jmlBeefSlice; }
-  if(menu == 'beef' && jmlBeef > 0) { jmlBeef--; document.getElementById('beef').innerText = jmlBeef; }
-  if(menu == 'mixTopping' && jmlMixTopping > 0) { jmlMixTopping--; document.getElementById('mixTopping').innerText = jmlMixTopping; }
-  if(menu == 'sosisJamur' && jmlSosisJamur > 0) { jmlSosisJamur--; document.getElementById('sosisJamur').innerText = jmlSosisJamur; }
-  if(menu == 'kejuLovers' && jmlKejuLovers > 0) { jmlKejuLovers--; document.getElementById('kejuLovers').innerText = jmlKejuLovers; }
-  if(menu == 'sosisBesar' && jmlSosisBesar > 0) { jmlSosisBesar--; document.getElementById('sosisBesar').innerText = jmlSosisBesar; }
-  if(menu == 'sosisKecil' && jmlSosisKecil > 0) { jmlSosisKecil--; document.getElementById('sosisKecil').innerText = jmlSosisKecil; }
-  hitungTotal();
 }
 
 function hitungTotal() {
-  var subtotal = 
-    (jmlCoklatMocarella * 33000) + 
-    (jmlCoklatKeju * 28000) + 
-    (jmlParty * 85000) + 
-    (jmlVulcanoNon * 45000) + 
+  var jmlCoklatMocarella = parseInt(document.getElementById('coklatMocarella').innerText);
+  var jmlCoklatKeju = parseInt(document.getElementById('coklatKeju').innerText);
+  var jmlParty = parseInt(document.getElementById('party').innerText);
+  var jmlVulcanoNon = parseInt(document.getElementById('vulcanoNon').innerText);
+  var jmlVulcanoPedas = parseInt(document.getElementById('vulcanoPedas').innerText);
+  var jmlChicken = parseInt(document.getElementById('chicken').innerText);
+  var jmlCorncheese = parseInt(document.getElementById('corncheese').innerText);
+  var jmlBeefSlice = parseInt(document.getElementById('beefSlice').innerText);
+  var jmlBeef = parseInt(document.getElementById('beef').innerText);
+  var jmlMixTopping = parseInt(document.getElementById('mixTopping').innerText);
+  var jmlSosisJamur = parseInt(document.getElementById('sosisJamur').innerText);
+  var jmlKejuLovers = parseInt(document.getElementById('kejuLovers').innerText);
+  var jmlSosisBesar = parseInt(document.getElementById('sosisBesar').innerText);
+  var jmlSosisKecil = parseInt(document.getElementById('sosisKecil').innerText);
+
+  var subtotal =
+    (jmlCoklatMocarella * 33000) +
+    (jmlCoklatKeju * 28000) +
+    (jmlParty * 85000) +
+    (jmlVulcanoNon * 45000) +
     (jmlVulcanoPedas * 45000) +
     (jmlChicken * 27000) +
     (jmlCorncheese * 26000) +
@@ -484,91 +419,112 @@ function hitungTotal() {
     (jmlKejuLovers * 40000) +
     (jmlSosisBesar * 25000) +
     (jmlSosisKecil * 20000);
-    
-  var ongkir = parseInt(document.getElementById('areaPengiriman').value) || 0;
+
+  var selectVal = document.getElementById('areaPengiriman').value.split('|');
+  var ongkir = parseInt(selectVal[0]) || 0;
+
   var total = subtotal + ongkir;
-  
   document.getElementById('total').innerText = 'Rp ' + total.toLocaleString('id-ID');
 }
 
+function toggleAlamat() {
+  var val = document.getElementById('areaPengiriman').value;
+  var metode = val.split('|')[1];
+  var inputAlamat = document.getElementById('inputAlamat');
+
+  if(metode === 'Jemput Kurir') {
+    inputAlamat.style.display = 'block';
+    inputAlamat.setAttribute('required', 'true');
+  } else {
+    inputAlamat.style.display = 'none';
+    inputAlamat.removeAttribute('required');
+    inputAlamat.value = '';
+  }
+
+  hitungTotal();
+}
+
 function kirimWA() {
-  var totalItem = jmlCoklatMocarella + jmlCoklatKeju + jmlParty + jmlVulcanoNon + jmlVulcanoPedas + 
-                  jmlChicken + jmlCorncheese + jmlBeefSlice + jmlBeef + jmlMixTopping + 
+  var jmlCoklatMocarella = parseInt(document.getElementById('coklatMocarella').innerText);
+  var jmlCoklatKeju = parseInt(document.getElementById('coklatKeju').innerText);
+  var jmlParty = parseInt(document.getElementById('party').innerText);
+  var jmlVulcanoNon = parseInt(document.getElementById('vulcanoNon').innerText);
+  var jmlVulcanoPedas = parseInt(document.getElementById('vulcanoPedas').innerText);
+  var jmlChicken = parseInt(document.getElementById('chicken').innerText);
+  var jmlCorncheese = parseInt(document.getElementById('corncheese').innerText);
+  var jmlBeefSlice = parseInt(document.getElementById('beefSlice').innerText);
+  var jmlBeef = parseInt(document.getElementById('beef').innerText);
+  var jmlMixTopping = parseInt(document.getElementById('mixTopping').innerText);
+  var jmlSosisJamur = parseInt(document.getElementById('sosisJamur').innerText);
+  var jmlKejuLovers = parseInt(document.getElementById('kejuLovers').innerText);
+  var jmlSosisBesar = parseInt(document.getElementById('sosisBesar').innerText);
+  var jmlSosisKecil = parseInt(document.getElementById('sosisKecil').innerText);
+
+  var totalItem = jmlCoklatMocarella + jmlCoklatKeju + jmlParty + jmlVulcanoNon + jmlVulcanoPedas +
+                  jmlChicken + jmlCorncheese + jmlBeefSlice + jmlBeef + jmlMixTopping +
                   jmlSosisJamur + jmlKejuLovers + jmlSosisBesar + jmlSosisKecil;
-                  
-  if(totalItem == 0) {
+
+  if(totalItem === 0) {
     alert('Pilih menu dulu bro!');
     return;
   }
 
-  var areaText = document.getElementById('areaPengiriman').options[document.getElementById('areaPengiriman').selectedIndex].text;
-var ongkir = parseInt(document.getElementById('areaPengiriman').value) || 0;
+  var selectVal = document.getElementById('areaPengiriman').value.split('|');
+  var ongkir = parseInt(selectVal[0]) || 0;
+  var areaText = selectVal[1];
+  var alamat = document.getElementById('inputAlamat').value.trim();
 
-// Hitung subtotal dulu
-var subtotal = 
-  (jmlCoklatMocarella * 33000) + 
-  (jmlCoklatKeju * 28000) + 
-  (jmlParty * 85000) + 
-  (jmlVulcanoNon * 45000) + 
-  (jmlVulcanoPedas * 45000) +
-  (jmlChicken * 27000) +
-  (jmlCorncheese * 26000) +
-  (jmlBeefSlice * 22000) +
-  (jmlBeef * 30000) +
-  (jmlMixTopping * 35000) +
-  (jmlSosisJamur * 26000) +
-  (jmlKejuLovers * 40000) +
-  (jmlSosisBesar * 25000) +
-  (jmlSosisKecil * 20000);
+  if(areaText === 'Jemput Kurir' && alamat === '') {
+    alert('Mohon isi alamat pengantaran dulu!');
+    return;
+  }
 
-var teks = 'Halo Pizza Malakue, saya mau pesan:%0A%0A';
+  var subtotal =
+    (jmlCoklatMocarella * 33000) +
+    (jmlCoklatKeju * 28000) +
+    (jmlParty * 85000) +
+    (jmlVulcanoNon * 45000) +
+    (jmlVulcanoPedas * 45000) +
+    (jmlChicken * 27000) +
+    (jmlCorncheese * 26000) +
+    (jmlBeefSlice * 22000) +
+    (jmlBeef * 30000) +
+    (jmlMixTopping * 35000) +
+    (jmlSosisJamur * 26000) +
+    (jmlKejuLovers * 40000) +
+    (jmlSosisBesar * 25000) +
+    (jmlSosisKecil * 20000);
 
-if(jmlCoklatMocarella > 0) teks += '- Pizza Coklat Mocarella x' + jmlCoklatMocarella + ' = Rp ' + (jmlCoklatMocarella*33000).toLocaleString('id-ID') + '%0A';
-if(jmlCoklatKeju > 0) teks += '- Pizza Coklat Keju Cedar x' + jmlCoklatKeju + ' = Rp ' + (jmlCoklatKeju*28000).toLocaleString('id-ID') + '%0A';
-if(jmlParty > 0) teks += '- Pizza Party x' + jmlParty + ' = Rp ' + (jmlParty*85000).toLocaleString('id-ID') + '%0A';
-if(jmlVulcanoNon > 0) teks += '- Pizza Vulcano Non Pedas x' + jmlVulcanoNon + ' = Rp ' + (jmlVulcanoNon*45000).toLocaleString('id-ID') + '%0A';
-if(jmlVulcanoPedas > 0) teks += '- Pizza Vulcano Pedas x' + jmlVulcanoPedas + ' = Rp ' + (jmlVulcanoPedas*45000).toLocaleString('id-ID') + '%0A';
-if(jmlChicken > 0) teks += '- Pizza Chicken x' + jmlChicken + ' = Rp ' + (jmlChicken*27000).toLocaleString('id-ID') + '%0A';
-if(jmlCorncheese > 0) teks += '- Pizza Corn Cheese x' + jmlCorncheese + ' = Rp ' + (jmlCorncheese*26000).toLocaleString('id-ID') + '%0A';
-if(jmlBeefSlice > 0) teks += '- Pizza Beef Slice x' + jmlBeefSlice + ' = Rp ' + (jmlBeefSlice*22000).toLocaleString('id-ID') + '%0A';
-if(jmlBeef > 0) teks += '- Pizza Beef x' + jmlBeef + ' = Rp ' + (jmlBeef*30000).toLocaleString('id-ID') + '%0A';
-if(jmlMixTopping > 0) teks += '- Pizza Mix Topping x' + jmlMixTopping + ' = Rp ' + (jmlMixTopping*35000).toLocaleString('id-ID') + '%0A';
-if(jmlSosisJamur > 0) teks += '- Pizza Sosis Jamur x' + jmlSosisJamur + ' = Rp ' + (jmlSosisJamur*26000).toLocaleString('id-ID') + '%0A';
-if(jmlKejuLovers > 0) teks += '- Pizza Keju Lovers x' + jmlKejuLovers + ' = Rp ' + (jmlKejuLovers*40000).toLocaleString('id-ID') + '%0A';
-if(jmlSosisBesar > 0) teks += '- Pizza Sosis Besar x' + jmlSosisBesar + ' = Rp ' + (jmlSosisBesar*25000).toLocaleString('id-ID') + '%0A';
-if(jmlSosisKecil > 0) teks += '- Pizza Sosis Kecil x' + jmlSosisKecil + ' = Rp ' + (jmlSosisKecil*20000).toLocaleString('id-ID') + '%0A';
+  var teks = 'Halo Pizza Malakue, saya mau pesan:%0A%0A';
 
-teks += '%0AArea: ' + areaText + '%0A';
-teks += 'Ongkir: Rp ' + ongkir.toLocaleString('id-ID') + '%0A';
-teks += '%0ATotal Bayar: Rp ' + (subtotal + ongkir).toLocaleString('id-ID');
+  if(jmlCoklatMocarella > 0) teks += '- Pizza Coklat Mocarella x' + jmlCoklatMocarella + ' = Rp ' + (jmlCoklatMocarella*33000).toLocaleString('id-ID') + '%0A';
+  if(jmlCoklatKeju > 0) teks += '- Pizza Coklat Keju Cedar x' + jmlCoklatKeju + ' = Rp ' + (jmlCoklatKeju*28000).toLocaleString('id-ID') + '%0A';
+  if(jmlParty > 0) teks += '- Pizza Party x' + jmlParty + ' = Rp ' + (jmlParty*85000).toLocaleString('id-ID') + '%0A';
+  if(jmlVulcanoNon > 0) teks += '- Pizza Vulcano Non Pedas x' + jmlVulcanoNon + ' = Rp ' + (jmlVulcanoNon*45000).toLocaleString('id-ID') + '%0A';
+  if(jmlVulcanoPedas > 0) teks += '- Pizza Vulcano Pedas x' + jmlVulcanoPedas + ' = Rp ' + (jmlVulcanoPedas*45000).toLocaleString('id-ID') + '%0A';
+  if(jmlChicken > 0) teks += '- Pizza Chicken x' + jmlChicken + ' = Rp ' + (jmlChicken*27000).toLocaleString('id-ID') + '%0A';
+  if(jmlCorncheese > 0) teks += '- Pizza Corn Cheese x' + jmlCorncheese + ' = Rp ' + (jmlCorncheese*26000).toLocaleString('id-ID') + '%0A';
+  if(jmlBeefSlice > 0) teks += '- Pizza Beef Slice x' + jmlBeefSlice + ' = Rp ' + (jmlBeefSlice*22000).toLocaleString('id-ID') + '%0A';
+  if(jmlBeef > 0) teks += '- Pizza Beef x' + jmlBeef + ' = Rp ' + (jmlBeef*30000).toLocaleString('id-ID') + '%0A';
+  if(jmlMixTopping > 0) teks += '- Pizza Mix Topping x' + jmlMixTopping + ' = Rp ' + (jmlMixTopping*35000).toLocaleString('id-ID') + '%0A';
+  if(jmlSosisJamur > 0) teks += '- Pizza Sosis Jamur x' + jmlSosisJamur + ' = Rp ' + (jmlSosisJamur*26000).toLocaleString('id-ID') + '%0A';
+  if(jmlKejuLovers > 0) teks += '- Pizza Keju Lovers x' + jmlKejuLovers + ' = Rp ' + (jmlKejuLovers*40000).toLocaleString('id-ID') + '%0A';
+  if(jmlSosisBesar > 0) teks += '- Pizza Sosis Besar x' + jmlSosisBesar + ' = Rp ' + (jmlSosisBesar*25000).toLocaleString('id-ID') + '%0A';
+  if(jmlSosisKecil > 0) teks += '- Pizza Sosis Kecil x' + jmlSosisKecil + ' = Rp ' + (jmlSosisKecil*20000).toLocaleString('id-ID') + '%0A';
 
-  window.open('https://wa.me/6282193795771?text=' + teks, '_blank');
-  
-  setTimeout(function() {
-    document.getElementById('popupThanks').style.display = 'flex';
-    // AUTO RESET KERANJANG SETELAH PESAN
-    jmlCoklatMocarella = jmlCoklatKeju = jmlParty = jmlVulcanoNon = jmlVulcanoPedas = 0;
-    jmlChicken = jmlCorncheese = jmlBeefSlice = jmlBeef = jmlMixTopping = 0;
-    jmlSosisJamur = jmlKejuLovers = jmlSosisBesar = jmlSosisKecil = 0;
-    
-    document.getElementById('coklatMocarella').innerText = 0;
-    document.getElementById('coklatKeju').innerText = 0;
-    document.getElementById('party').innerText = 0;
-    document.getElementById('vulcanoNon').innerText = 0;
-    document.getElementById('vulcanoPedas').innerText = 0;
-    document.getElementById('chicken').innerText = 0;
-    document.getElementById('corncheese').innerText = 0;
-    document.getElementById('beefSlice').innerText = 0;
-    document.getElementById('beef').innerText = 0;
-    document.getElementById('mixTopping').innerText = 0;
-    document.getElementById('sosisJamur').innerText = 0;
-    document.getElementById('kejuLovers').innerText = 0;
-    document.getElementById('sosisBesar').innerText = 0;
-    document.getElementById('sosisKecil').innerText = 0;
-    
-    document.getElementById('areaPengiriman').selectedIndex = 0;
-    hitungTotal();
-  }, 1000);
+  teks += '%0AArea: ' + areaText + '%0A';
+  if(alamat!== '') {
+    teks += 'Alamat: ' + alamat + '%0A';
+  }
+  teks += 'Ongkir: Rp ' + ongkir.toLocaleString('id-ID') + '%0A';
+  teks += '%0ATotal Bayar: Rp ' + (subtotal + ongkir).toLocaleString('id-ID');
+
+  var nomorWA = '6281234567890'; // Ganti nomor WA lo di sini
+  window.open('https://wa.me/' + nomorWA + '?text=' + teks, '_blank');
+ }
+function bukaMenu() {
+  document.getElementById('page1').style.display = 'none';
+  document.getElementById('page2').style.display = 'flex';
 }
 
 function qrisMuncul() {
@@ -578,10 +534,7 @@ function qrisMuncul() {
 function qrisTutup() {
   document.getElementById('popupQris').style.display = 'none';
 }
-
-function thanksTutup() {
-  document.getElementById('popupThanks').style.display = 'none';
-}
 </script>
+
 </body>
 </html>
