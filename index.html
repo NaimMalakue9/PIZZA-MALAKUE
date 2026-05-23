@@ -161,7 +161,7 @@
     </div>
 <div id="page2" style="display:none; flex-direction:column; min-height:100vh; padding-bottom:120px;">
       <header style="text-align: center; padding: 16px 0;">
-        <button onclick="balikAwal()" style="float: left; background: none; border: none; color: #8B0000; font-weight: bold; cursor: pointer;">← Kembali</button>
+        <button onclick="balikawal()" style="position:absolute;left:450px; z-index:10; padding:8px 12px; border:1px solid #ddd; border-radius:6px; background:#fff;cursor:pointer;">← Kembali</button>
         <h1 style="font-size: 28px;">Pizza Malakue</h1>
         <p class="text-brown" style="font-size: 14px;">Home Made, Fresh From The Oven</p>
         <p id="statusToko2" style="font-size: 12px; font-weight: bold; margin-top: 4px;"></p>
@@ -348,8 +348,7 @@
 <button onclick="qrisMuncul()" class="btn-secondary" style="width: 100%; margin-top: 12px;">
   📱 Bayar Pakai QRIS
 </button>
-</div>  <!-- ini nutup div container utama -->
-<div style="text-align:center; padding:30px 20px; margin-top:10px;">
+<div style="text-align:center; padding:30px 20px; margin-top:25px;">
   <h3 style="color:#d9534f;">Info Pemesanan</h3>
   <p>📱 WhatsApp: <b style="color:#d9534f;">0821-9379-5771</b></p>
   <p>📍 BTN GRIYA BUMI REZKITA Blok E/5, UGI BARU, MAPILLI, POLEWALI MANDAR</p>
@@ -362,6 +361,7 @@
   </div>
   <p style="margin-top:20px; font-size:12px; color:#888;">© 2025 Pizza Malakue</p>
 </div>
+</div>  <!-- ini nutup div container utama -->
 </div>
 <div id="popupQris" class="popup" onclick="qrisTutup()" style="display:none !important;">
   <div class="popup-content" onclick="event.stopPropagation()">
