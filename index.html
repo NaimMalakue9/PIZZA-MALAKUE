@@ -157,6 +157,33 @@
     
     h1, h2, h3 { color: #8B0000; }
     .text-brown { color: #5D4037; }
+	.popup-overlay {
+  position: fixed; top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: none; justify-content: center; align-items: center;
+  z-index: 9999;
+}
+.popup-box {
+  background: white; padding: 30px 25px; border-radius: 15px;
+  text-align: center; max-width: 320px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  animation: popUp 0.3s ease;
+}
+.popup-icon { font-size: 50px; margin-bottom: 10px; }
+.popup-box h2 { color: #ff6b35; margin: 10px 0; font-size: 22px; }
+.popup-box p { color: #555; font-size: 15px; line-height: 1.5; }
+.popup-doa { font-weight: 600; color: #333 !important; margin: 15px 0 20px; }
+.popup-btn {
+  background: #ff6b35; color: white; border: none;
+  padding: 12px 30px; border-radius: 8px;
+  font-size: 16px; font-weight: bold; cursor: pointer; width: 100%;
+}
+.popup-btn:hover { background: #e55a2b; }
+@keyframes popUp {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
   </style>
 </head>
 <body>
@@ -550,18 +577,35 @@ function kirimWA() {
   teks += 'Ongkir: Rp ' + ongkir.toLocaleString('id-ID') + '%0A';
   teks += '%0ATotal Bayar: Rp ' + (subtotal + ongkir).toLocaleString('id-ID');
 
-  var nomorWA = '6282193795771'; // Ganti nomor WA lo di sini
-  window.open('https://wa.me/' + nomorWA + '?text=' + teks, '_blank');
- }
+  var nomorWA = '082193795771'; // Ganti nomor WA lo di sini
+  window.open('https://wa.me/' + nomorWA + '?text=' + teks, '_blank'); 
+tampilkanPopup(); // <-- tambahin ini
+// RESET SEMUA MENU KE 0
+document.getElementById('coklatMocarella').innerText = '0';
+document.getElementById('coklatKeju').innerText = '0';
+document.getElementById('party').innerText = '0';
+document.getElementById('vulcanoNon').innerText = '0';
+document.getElementById('vulcanoPedas').innerText = '0';
+document.getElementById('chicken').innerText = '0';
+document.getElementById('corncheese').innerText = '0';
+document.getElementById('beefSlice').innerText = '0';
+document.getElementById('beef').innerText = '0';
+document.getElementById('mixTopping').innerText = '0';
+document.getElementById('sosisJamur').innerText = '0';
+document.getElementById('kejuLovers').innerText = '0';
+document.getElementById('sosisBesar').innerText = '0';
+document.getElementById('sosisKecil').innerText = '0';
+
+// RESET INPUT ALAMAT, AREA, TOTAL
+document.getElementById('inputAlamat').value = '';
+document.getElementById('areaPengiriman').value = '';
+hitungTotal();
+}
  function balikAwal() {
   document.getElementById('page1').style.display = 'block';
   document.getElementById('page2').style.display = 'none';
 }
 
-function bukaMenu() {
-  document.getElementById('page1').style.display = 'none';
-  document.getElementById('page2').style.display = 'flex';
-}
 function bukaMenu() {
   document.getElementById('page1').style.display = 'none';
   document.getElementById('page2').style.display = 'flex';
@@ -596,7 +640,26 @@ function cekJamBuka() {
 }
 
 cekJamBuka();
+function tampilkanPopup() {
+  document.getElementById('popupSukses').style.display = 'flex';
+}
+
+function tutupPopup() {
+  document.getElementById('popupSukses').style.display = 'none';
+}
+
 </script>
+
+<!-- Popup Pesanan Terkirim -->
+<div id="popupSukses" class="popup-overlay">
+  <div class="popup-box">
+    <div class="popup-icon">🎉</div>
+    <h2>Pesanan Terkirim!</h2>
+    <p>Terima Kasih sudah melakukan pembelian di<br>Pizza Malakue</p>
+    <p class="popup-doa">Sehat Selalu, Murah Rejeki, Panjang Umur<br>serta dimudahkan selalu urusannya !!!</p>
+    <button class="popup-btn" onclick="tutupPopup()">Aamiin 🙏</button>
+  </div>
+</div>
 
 </body>
 </html>
