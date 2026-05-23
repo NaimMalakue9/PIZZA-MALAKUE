@@ -160,12 +160,21 @@
       </a>
     </div>
 <div id="page2" style="display:none; flex-direction:column; min-height:100vh; padding-bottom:120px;">
-      <header style="text-align: center; padding: 16px 0;">
-        <button onclick="balikawal()" style="position:absolute;left:15px; z-index:10; padding:8px 12px; border:1px solid #ddd; border-radius:6px; background:#fff;cursor:pointer;">← Kembali</button>
-        <h1 style="font-size: 28px;">Pizza Malakue</h1>
-        <p class="text-brown" style="font-size: 14px;">Home Made, Fresh From The Oven</p>
-        <p id="statusToko2" style="font-size: 12px; font-weight: bold; margin-top: 4px;"></p>
-      </header>
+      <header style="text-align:center; padding:16px 0; position:relative;">
+  
+  <button onclick="balikAwal()" 
+    style="position:absolute; left:10px; top:16px; z-index:10; padding:8px 12px; 
+    border:1px solid #ddd; border-radius:6px; background:#fff; cursor:pointer; pointer-events:auto;">
+    ← Kembali
+  </button>
+
+  <div style="pointer-events:none;">
+    <h1 style="font-size:28px;">Pizza Malakue</h1>
+    <p class="text-brown" style="font-size:14px;">Home Made, Fresh From The Oven</p>
+    <p id="statusToko2" style="font-size:12px; font-weight:bold; margin-top:4px;"></p>
+  </div>
+
+</header>
 
       <h2 style="font-size: 20px; text-align: center; margin: 16px 0;">Pilih Menu Favoritmu</h2>
 
@@ -519,7 +528,7 @@ function kirimWA() {
   teks += 'Ongkir: Rp ' + ongkir.toLocaleString('id-ID') + '%0A';
   teks += '%0ATotal Bayar: Rp ' + (subtotal + ongkir).toLocaleString('id-ID');
 
-  var nomorWA = '6281234567890'; // Ganti nomor WA lo di sini
+  var nomorWA = '6282193795771'; // Ganti nomor WA lo di sini
   window.open('https://wa.me/' + nomorWA + '?text=' + teks, '_blank');
  }
 function bukaMenu() {
