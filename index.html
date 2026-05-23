@@ -531,6 +531,15 @@ function kirimWA() {
   var nomorWA = '6282193795771'; // Ganti nomor WA lo di sini
   window.open('https://wa.me/' + nomorWA + '?text=' + teks, '_blank');
  }
+ function balikAwal() {
+  document.getElementById('page1').style.display = 'block';
+  document.getElementById('page2').style.display = 'none';
+}
+
+function bukaMenu() {
+  document.getElementById('page1').style.display = 'none';
+  document.getElementById('page2').style.display = 'flex';
+}
 function bukaMenu() {
   document.getElementById('page1').style.display = 'none';
   document.getElementById('page2').style.display = 'flex';
@@ -543,6 +552,28 @@ function qrisMuncul() {
 function qrisTutup() {
   document.getElementById('popupQris').style.display = 'none';
 }
+function cekJamBuka() {
+  var sekarang = new Date().getHours();
+  var status = '';
+  
+  if (sekarang >= 10 && sekarang < 21) {
+    status = '🟢 BUKA - 10.00 s/d 21.00 WITA';
+    document.getElementById('statusToko').style.color = '#16a34a';
+    if(document.getElementById('statusToko2')) 
+      document.getElementById('statusToko2').style.color = '#16a34a';
+  } else {
+    status = '🔴 TUTUP - Buka jam 10.00 WITA';
+    document.getElementById('statusToko').style.color = '#dc2626';
+    if(document.getElementById('statusToko2')) 
+      document.getElementById('statusToko2').style.color = '#dc2626';
+  }
+  
+  document.getElementById('statusToko').innerText = status;
+  if(document.getElementById('statusToko2')) 
+    document.getElementById('statusToko2').innerText = status;
+}
+
+cekJamBuka();
 </script>
 
 </body>
