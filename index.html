@@ -1,15 +1,37 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pizza Malakue - Home Made Fresh From The Oven</title>
-  
-  <link rel="icon" href="pizza-coklat-mozarella.jpg">
-  <meta property="og:title" content="Pizza Malakue - Pizza Home Made Fresh From The Oven">
-  <meta property="og:description" content="Pesan Pizza Home Made enak cuma 19rb-85rb di Wonomulyo Polewali Mandar!">
-  <meta property="og:image" content="pizza-party.jpg">
-  <meta name="theme-color" content="#8B0000">
+  <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pizza Enak di Wonomulyo Polewali Mandar | Pizza Malakue</title>
+
+<meta name="title" content="Pizza Enak di Wonomulyo Polewali Mandar">
+<meta name="description" content="Pesan Pizza Home Made enak, Fresh, Murah dan Cepat Saji cuma 19rb-85rb di Wonomulyo Polewali Mandar. Buka Tiap Hari Jam 10.00 - 21.00 WITA. Order via WhatsApp!">
+<meta name="keywords" content="pizza wonomulyo, pizza polewali mandar, pizza murah polman, pizza home made wonomulyo">
+<meta name="robots" content="index, follow">
+
+<link rel="icon" href="pizza-coklat-mossrella.jpg">
+<meta property="og:title" content="Pizza Malakue - Pizza Home Made Fresh From The Oven">
+<meta property="og:description" content="Pesan Pizza Home Made enak, Fresh, Murah dan Cepat Saji cuma 19rb-85rb di Wonomulyo Polewali Mandar. Buka Tiap Hari Jam 10.00 - 21.00 WITA. Order via WhatsApp!">
+<meta property="og:keywords" content="pizza home made, pizza murah wonomulyo,pizza murah polewali mandar">
+<meta name="theme-color" content="#8B0000">
+<!-- Open Graph untuk Facebook, WhatsApp, Telegram -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pizza-malakue.vercel.app/?v=3">
+<meta property="og:title" content="Pizza Enak di Wonomulyo Polewali Mandar | Pizza Malakue">
+<meta property="og:description" content="Pesan Pizza Home Made enak, Fresh, Murah cuma 19rb-85rb. Buka 10.00 - 21.00 WITA. Order via WhatsApp!">
+<meta property="og:image" content="https://pizza-malakue.vercel.app/?v=3">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="id_ID">
+
+<!-- Twitter Card untuk Twitter/X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pizza Enak di Wonomulyo Polewali Mandar | Pizza Malakue">
+<meta name="twitter:description" content="Pesan Pizza Home Made enak, Fresh, Murah cuma 19rb-85rb. Buka 10.00 - 21.00 WITA. Order via WhatsApp!">
+<meta name="twitter:image" content="https://pizza-malakue.vercel.app/?v=3">
   
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -163,7 +185,7 @@
       <header style="text-align:center; padding:16px 0; position:relative;">
   
   <button onclick="balikAwal()" 
-    style="position:absolute; left:5px; top:16px; z-index:10; padding:8px 12px; 
+    style="position:absolute; left:10px; top:16px; z-index:10; padding:8px 12px; 
     border:1px solid #ddd; border-radius:6px; background:#fff; cursor:pointer; pointer-events:auto;">
     ← Kembali
   </button>
@@ -366,7 +388,7 @@
   <p>📦 Area: Wonomulyo & sekitarnya</p>
   <div style="display:flex; gap:10px; justify-content:center; margin-top:15px;">
     <a href="tel:082193795771" style="padding:10px 20px; background:#007bff; color:white; border-radius:8px; text-decoration:none;">📞 Telepon</a>
-    <a href="#" style="padding:10px 20px; background:#555; color:white; border-radius:8px; text-decoration:none;">📍 Lokasi</a>
+    <a href="https://maps.app.goo.gl/UqLyJSTVuCpCWUB28" target="_blank" style="padding:10px 20px; background:#555; color:white; border-radius:8px; text-decoration:none;">📍 Lokasi</a>
   </div>
   <p style="margin-top:20px; font-size:12px; color:#888;">© 2025 Pizza Malakue</p>
 </div>
@@ -528,7 +550,7 @@ function kirimWA() {
   teks += 'Ongkir: Rp ' + ongkir.toLocaleString('id-ID') + '%0A';
   teks += '%0ATotal Bayar: Rp ' + (subtotal + ongkir).toLocaleString('id-ID');
 
-  var nomorWA = '6282193795771'; // Ganti nomor WA lo di sini
+  var nomorWA = '6281234567890'; // Ganti nomor WA lo di sini
   window.open('https://wa.me/' + nomorWA + '?text=' + teks, '_blank');
  }
  function balikAwal() {
