@@ -7,39 +7,152 @@
   
   <link rel="icon" href="pizza-coklat-mozarella.jpg">
   <meta property="og:title" content="Pizza Malakue - Pizza Home Made Fresh From The Oven">
-  <meta property="og:description" content="Pesan Pizza Home Made enak cuma 19rb-85rb di Wonomulyo Polewali Mandar! Klik buat order langsung.">
+  <meta property="og:description" content="Pesan Pizza Home Made enak cuma 19rb-85rb di Wonomulyo Polewali Mandar!">
   <meta property="og:image" content="pizza-party.jpg">
-  <meta name="theme-color" content="#E65100">
+  <meta name="theme-color" content="#8B0000">
   
-  <script src="https://cdn.tailwindcss.com"></script>
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
     body { 
-      font-family: sans-serif; 
-      background-color: #FFF8ED;
+      font-family: 'Segoe UI', Tahoma, sans-serif; 
+      background: linear-gradient(180deg, #FFF5F0 0%, #FFE4D6 100%);
+      color: #3D2B1F;
     }
+    
+    .container { max-width: 480px; margin: 0 auto; padding: 16px; }
+    
+    .btn-primary {
+      width: 100%;
+      background: linear-gradient(135deg, #8B0000 0%, #B22222 100%);
+      color: white;
+      padding: 16px;
+      border: none;
+      border-radius: 12px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(139, 0, 0, 0.3);
+      transition: transform 0.2s;
+    }
+    .btn-primary:active { transform: scale(0.98); }
+    
+    .btn-secondary {
+      background: #D4AF37;
+      color: #3D2B1F;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    
+    .card {
+      background: white;
+      border-radius: 14px;
+      padding: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+    
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    
+    .menu-img {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 8px;
+    }
+    
+    .price {
+      color: #8B0000;
+      font-size: 18px;
+      font-weight: bold;
+      margin: 6px 0;
+    }
+    
+    .qty-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .qty-minus { background: #FFE4D6; color: #8B0000; }
+    .qty-plus { background: #8B0000; color: white; }
+    
     .tiktok-btn {
       background: #000;
-      border: 2px solid;
-      border-image: linear-gradient(90deg, #25F4EE, #FE2C55) 1;
+      color: white;
+      padding: 16px;
+      border-radius: 12px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 2px solid transparent;
+      background-image: linear-gradient(#000, #000), linear-gradient(90deg, #25F4EE, #FE2C55);
+      background-origin: border-box;
+      background-clip: padding-box, border-box;
     }
+    
+    select {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: 2px solid #D4AF37;
+      background: white;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+    
+    .popup {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      z-index: 50;
+    }
+    
+    .popup-content {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      max-width: 360px;
+      width: 100%;
+      text-align: center;
+    }
+    
+    h1, h2, h3 { color: #8B0000; }
+    .text-brown { color: #5D4037; }
   </style>
 </head>
-<body class="min-h-screen">
-  <div class="max-w-md mx-auto p-4">
+<body>
+  <div class="container">
 
-    <div id="page1" class="min-h-screen flex-col justify-center items-center text-center gap-4">
-      <p class="text-[#5D4037] text-sm mb-2">Terima kasih sudah klik Link Tautannya</p>
-      <h1 class="text-3xl font-bold text-black mb-1">WELCOME!!!</h1>
-      <h2 class="text-lg text-[#5D4037] mb-1">PIZZA MALAKUE</h2>
-      <p class="text-sm text-[#5D4037] mb-2">Home Made, Fresh From The Oven</p>
+    <div id="page1" style="min-height: 100vh; display: flex; flex-direction: column; justify-content: center; text-align: center; gap: 16px;">
+      <p class="text-brown" style="font-size: 14px;">Terima kasih sudah klik Link Tautannya</p>
+      <h1 style="font-size: 32px; color: #1a1a1a;">WELCOME!!!</h1>
+      <h2 style="font-size: 20px;">PIZZA MALAKUE</h2>
+      <p class="text-brown" style="font-size: 14px;">Home Made, Fresh From The Oven</p>
       
-      <p id="statusToko" class="text-xs font-bold mb-6"></p>
+      <p id="statusToko" style="font-size: 12px; font-weight: bold;"></p>
 
-      <button onclick="bukaMenu()" class="w-full max-w-xs bg-[#E65100] text-white py-4 rounded-xl font-bold text-lg shadow-md hover:bg-[#D84315] mx-auto">
+      <button onclick="bukaMenu()" class="btn-primary">
         🍕 Buat Pesanan Anda Disini
       </button>
 
-      <a href="https://tiktok.com/@username_lu" target="_blank" class="w-full max-w-xs tiktok-btn text-white py-4 rounded-xl font-bold text-lg text-center shadow-md flex items-center justify-center gap-2 mx-auto">
+      <a href="https://tiktok.com/@username_lu" target="_blank" class="tiktok-btn">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
           <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.39 6.3-1.98.02.89.04 1.79.03 2.69-.77-.17-1.5-.28-2.29-.38-.46-.06-.89-.14-1.34-.21-.56.87-.94 1.92-.99 2.98-.1 1.84.93 3.59 2.6 4.4 1.04.52 2.18.79 3.28.93.86.1 1.72.07 2.58.02.8-.05 1.6-.13 2.37-.33.99-.24 1.95-.66 2.8-1.23.86-.58 1.63-1.31 2.21-2.11.58-.8 1.02-1.74 1.24-2.7.08-.4.12-.81.13-1.23.02-1.06-.01-2.12-.04-3.18-.02-1.36-.01-2.72-.03-4.08-.01-.17-.02-.34-.03-.51.27-.08.56-.13.84-.19.26-.06.52-.11.78-.17.17-.05.34-.09.51-.14.1-.04.2-.07.3-.11.22-.09.43-.18.64-.27.1-.05.2-.1.28-.15.07-.05.14-.1.21-.15.06-.05.12-.1.18-.15.02-.02.05-.03.07-.05z"/>
         </svg>
@@ -48,217 +161,227 @@
     </div>
 
     <div id="page2" style="display:none;">
-      <header class="text-center py-4">
-        <button onclick="balikAwal()" class="float-left text-[#E65100] font-bold">← Kembali</button>
-        <h1 class="text-3xl font-bold text-[#E65100]">Pizza Malakue</h1>
-        <p class="text-sm text-[#5D4037]">Home Made, Fresh From The Oven</p>
-        <p id="statusToko2" class="text-xs font-bold mt-1"></p>
+      <header style="text-align: center; padding: 16px 0;">
+        <button onclick="balikAwal()" style="float: left; background: none; border: none; color: #8B0000; font-weight: bold; cursor: pointer;">← Kembali</button>
+        <h1 style="font-size: 28px;">Pizza Malakue</h1>
+        <p class="text-brown" style="font-size: 14px;">Home Made, Fresh From The Oven</p>
+        <p id="statusToko2" style="font-size: 12px; font-weight: bold; margin-top: 4px;"></p>
       </header>
 
-      <h2 class="text-xl font-bold text-[#5D4037] text-center my-4">Pilih Menu Favoritmu</h2>
+      <h2 style="font-size: 20px; text-align: center; margin: 16px 0;">Pilih Menu Favoritmu</h2>
 
-      <div class="grid grid-cols-2 gap-3 my-6">
+      <div class="grid-2">
         
-        <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <img src="pizza-coklat-mozarella.jpg" alt="Pizza Coklat Mozarella" class="w-full h-24 object-cover rounded-lg mb-2">
-          <h3 class="font-bold text-[#5D4037] text-sm">Coklat Mozarella</h3>
-          <p class="text-lg font-bold text-[#E65100] my-1">33rb</p>
-          <div class="flex items-center justify-center gap-2 mt-2">
-            <button onclick="kurang('coklatMocarella')" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
-            <span id="coklatMocarella" class="font-bold w-4 text-[#5D4037]">0</span>
-            <button onclick="tambah('coklatMocarella')" class="bg-[#E65100] text-white w-7 h-7 rounded-full font-bold">+</button>
+        <div class="card">
+          <img src="pizza-coklat-mozarella.jpg" alt="Pizza Coklat Mozarella" class="menu-img" loading="lazy">
+          <h3 style="font-size: 14px;">Coklat Mozarella</h3>
+          <p class="price">33rb</p>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 8px;">
+            <button onclick="kurang('coklatMocarella')" class="qty-btn qty-minus">-</button>
+            <span id="coklatMocarella" style="font-weight: bold; width: 20px;">0</span>
+            <button onclick="tambah('coklatMocarella')" class="qty-btn qty-plus">+</button>
           </div>
         </div>
 
-        <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <img src="pizza-coklat-keju-cedar.jpg" alt="Pizza Coklat Keju Cedar" class="w-full h-24 object-cover rounded-lg mb-2">
-          <h3 class="font-bold text-[#5D4037] text-sm">Coklat Keju Cedar</h3>
-          <p class="text-lg font-bold text-[#E65100] my-1">28rb</p>
-          <div class="flex items-center justify-center gap-2 mt-2">
-            <button onclick="kurang('coklatKeju')" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
-            <span id="coklatKeju" class="font-bold w-4 text-[#5D4037]">0</span>
-            <button onclick="tambah('coklatKeju')" class="bg-[#E65100] text-white w-7 h-7 rounded-full font-bold">+</button>
+        <div class="card">
+          <img src="pizza-coklat-keju-cedar.jpg" alt="Pizza Coklat Keju Cedar" class="menu-img" loading="lazy">
+          <h3 style="font-size: 14px;">Coklat Keju Cedar</h3>
+          <p class="price">28rb</p>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 8px;">
+            <button onclick="kurang('coklatKeju')" class="qty-btn qty-minus">-</button>
+            <span id="coklatKeju" style="font-weight: bold; width: 20px;">0</span>
+            <button onclick="tambah('coklatKeju')" class="qty-btn qty-plus">+</button>
           </div>
         </div>
 
-        <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <img src="pizza-party.jpg" alt="Pizza Party" class="w-full h-24 object-cover rounded-lg mb-2">
-          <h3 class="font-bold text-[#5D4037] text-sm">Party</h3>
-          <p class="text-lg font-bold text-[#E65100] my-1">85rb</p>
-          <div class="flex items-center justify-center gap-2 mt-2">
-            <button onclick="kurang('party')" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
-            <span id="party" class="font-bold w-4 text-[#5D4037]">0</span>
-            <button onclick="tambah('party')" class="bg-[#E65100] text-white w-7 h-7 rounded-full font-bold">+</button>
+        <div class="card">
+          <img src="pizza-party.jpg" alt="Pizza Party" class="menu-img" loading="lazy">
+          <h3 style="font-size: 14px;">Party</h3>
+          <p class="price">85rb</p>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 8px;">
+            <button onclick="kurang('party')" class="qty-btn qty-minus">-</button>
+            <span id="party" style="font-weight: bold; width: 20px;">0</span>
+            <button onclick="tambah('party')" class="qty-btn qty-plus">+</button>
           </div>
         </div>
 
-        <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <img src="pizza-vulcano-non-pedas.jpg" alt="Pizza Vulcano Non Pedas" class="w-full h-24 object-cover rounded-lg mb-2">
-          <h3 class="font-bold text-[#5D4037] text-sm">Vulcano Non Pedas</h3>
-          <p class="text-lg font-bold text-[#E65100] my-1">45rb</p>
-          <div class="flex items-center justify-center gap-2 mt-2">
-            <button onclick="kurang('vulcanoNon')" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
-            <span id="vulcanoNon" class="font-bold w-4 text-[#5D4037]">0</span>
-            <button onclick="tambah('vulcanoNon')" class="bg-[#E65100] text-white w-7 h-7 rounded-full font-bold">+</button>
+        <div class="card">
+          <img src="pizza-vulcano-non-pedas.jpg" alt="Pizza Vulcano Non Pedas" class="menu-img" loading="lazy">
+          <h3 style="font-size: 14px;">Vulcano Non Pedas</h3>
+          <p class="price">45rb</p>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 8px;">
+            <button onclick="kurang('vulcanoNon')" class="qty-btn qty-minus">-</button>
+            <span id="vulcanoNon" style="font-weight: bold; width: 20px;">0</span>
+            <button onclick="tambah('vulcanoNon')" class="qty-btn qty-plus">+</button>
           </div>
         </div>
 
-        <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <img src="pizza-vulcano-pedas.jpg" alt="Pizza Vulcano Pedas" class="w-full h-24 object-cover rounded-lg mb-2">
-          <h3 class="font-bold text-[#5D4037] text-sm">Vulcano Pedas</h3>
-          <p class="text-lg font-bold text-[#E65100] my-1">45rb</p>
-          <div class="flex items-center justify-center gap-2 mt-2">
-            <button onclick="kurang('vulcanoPedas')" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
-            <span id="vulcanoPedas" class="font-bold w-4 text-[#5D4037]">0</span>
-            <button onclick="tambah('vulcanoPedas')" class="bg-[#E65100] text-white w-7 h-7 rounded-full font-bold">+</button>
+        <div class="card">
+          <img src="pizza-vulcano-pedas.jpg" alt="Pizza Vulcano Pedas" class="menu-img" loading="lazy">
+          <h3 style="font-size: 14px;">Vulcano Pedas</h3>
+          <p class="price">45rb</p>
+          <div style="display: flex; align-items: center; justify-center; gap: 8px; margin-top: 8px;">
+            <button onclick="kurang('vulcanoPedas')" class="qty-btn qty-minus">-</button>
+            <span id="vulcanoPedas" style="font-weight: bold; width: 20px;">0</span>
+            <button onclick="tambah('vulcanoPedas')" class="qty-btn qty-plus">+</button>
           </div>
         </div>
 
-        <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <img src="pizza-chicken.jpg" alt="Pizza Chicken" class="w-full h-24 object-cover rounded-lg mb-2">
-          <h3 class="font-bold text-[#5D4037] text-sm">Chicken</h3>
-          <p class="text-lg font-bold text-[#E65100] my-1">27rb</p>
-          <div class="flex items-center justify-center gap-2 mt-2">
-            <button onclick="kurang('chicken')" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
-            <span id="chicken" class="font-bold w-4 text-[#5D4037]">0</span>
-            <button onclick="tambah('chicken')" class="bg-[#E65100] text-white w-7 h-7 rounded-full font-bold">+</button>
+        <div class="card">
+          <img src="pizza-chicken.jpg" alt="Pizza Chicken" class="menu-img" loading="lazy">
+          <h3 style="font-size: 14px;">Chicken</h3>
+          <p class="price">27rb</p>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 8px;">
+            <button onclick="kurang('chicken')" class="qty-btn qty-minus">-</button>
+            <span id="chicken" style="font-weight: bold; width: 20px;">0</span>
+            <button onclick="tambah('chicken')" class="qty-btn qty-plus">+</button>
           </div>
         </div>
 
-        <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <img src="pizza-corncheese.jpg" alt="Pizza Corn Cheese" class="w-full h-24 object-cover rounded-lg mb-2">
-          <h3 class="font-bold text-[#5D4037] text-sm">Corn Cheese</h3>
-          <p class="text-lg font-bold text-[#E65100] my-1">26rb</p>
-          <div class="flex items-center justify-center gap-2 mt-2">
-            <button onclick="kurang('corncheese')" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
-            <span id="corncheese" class="font-bold w-4 text-[#5D4037]">0</span>
-            <button onclick="tambah('corncheese')" class="bg-[#E65100] text-white w-7 h-7 rounded-full font-bold">+</button>
+        <div class="card">
+          <img src="pizza-corncheese.jpg" alt="Pizza Corn Cheese" class="menu-img" loading="lazy">
+          <h3 style="font-size: 14px;">Corn Cheese</h3>
+          <p class="price">26rb</p>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 8px;">
+            <button onclick="kurang('corncheese')" class="qty-btn qty-minus">-</button>
+            <span id="corncheese" style="font-weight: bold; width: 20px;">0</span>
+            <button onclick="tambah('corncheese')" class="qty-btn qty-plus">+</button>
           </div>
         </div>
 
-        <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <img src="pizza-beef-slice.jpg" alt="Pizza Beef Slice" class="w-full h-24 object-cover rounded-lg mb-2">
-          <h3 class="font-bold text-[#5D4037] text-sm">Beef Slice</h3>
-          <p class="text-lg font-bold text-[#E65100] my-1">22rb</p>
-          <div class="flex items-center justify-center gap-2 mt-2">
-            <button onclick="kurang('beefSlice')" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
-            <span id="beefSlice" class="font-bold w-4 text-[#5D4037]">0</span>
-            <button onclick="tambah('beefSlice')" class="bg-[#E65100] text-white w-7 h-7 rounded-full font-bold">+</button>
+        <div class="card">
+          <img src="pizza-beef-slice.jpg" alt="Pizza Beef Slice" class="menu-img" loading="lazy">
+          <h3 style="font-size: 14px;">Beef Slice</h3>
+          <p class="price">22rb</p>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 8px;">
+            <button onclick="kurang('beefSlice')" class="qty-btn qty-minus">-</button>
+            <span id="beefSlice" style="font-weight: bold; width: 20px;">0</span>
+            <button onclick="tambah('beefSlice')" class="qty-btn qty-plus">+</button>
           </div>
         </div>
 
-        <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <img src="pizza-beef.jpg" alt="Pizza Beef" class="w-full h-24 object-cover rounded-lg mb-2">
-          <h3 class="font-bold text-[#5D4037] text-sm">Beef</h3>
-          <p class="text-lg font-bold text-[#E65100] my-1">30rb</p>
-          <div class="flex items-center justify-center gap-2 mt-2">
-            <button onclick="kurang('beef')" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
-            <span id="beef" class="font-bold w-4 text-[#5D4037]">0</span>
-            <button onclick="tambah('beef')" class="bg-[#E65100] text-white w-7 h-7 rounded-full font-bold">+</button>
+        <div class="card">
+          <img src="pizza-beef.jpg" alt="Pizza Beef" class="menu-img" loading="lazy">
+          <h3 style="font-size: 14px;">Beef</h3>
+          <p class="price">30rb</p>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 8px;">
+            <button onclick="kurang('beef')" class="qty-btn qty-minus">-</button>
+            <span id="beef" style="font-weight: bold; width: 20px;">0</span>
+            <button onclick="tambah('beef')" class="qty-btn qty-plus">+</button>
           </div>
         </div>
 
-        <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <img src="pizza-mix-toping.jpg" alt="Pizza Mix Topping" class="w-full h-24 object-cover rounded-lg mb-2">
-          <h3 class="font-bold text-[#5D4037] text-sm">Mix Topping</h3>
-          <p class="text-lg font-bold text-[#E65100] my-1">35rb</p>
-          <div class="flex items-center justify-center gap-2 mt-2">
-            <button onclick="kurang('mixTopping')" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
-            <span id="mixTopping" class="font-bold w-4 text-[#5D4037]">0</span>
-            <button onclick="tambah('mixTopping')" class="bg-[#E65100] text-white w-7 h-7 rounded-full font-bold">+</button>
+        <div class="card">
+          <img src="pizza-mix-toping.jpg" alt="Pizza Mix Topping" class="menu-img" loading="lazy">
+          <h3 style="font-size: 14px;">Mix Topping</h3>
+          <p class="price">35rb</p>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 8px;">
+            <button onclick="kurang('mixTopping')" class="qty-btn qty-minus">-</button>
+            <span id="mixTopping" style="font-weight: bold; width: 20px;">0</span>
+            <button onclick="tambah('mixTopping')" class="qty-btn qty-plus">+</button>
           </div>
         </div>
 
-        <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <img src="pizza-sosis-jamur.jpg" alt="Pizza Sosis Jamur" class="w-full h-24 object-cover rounded-lg mb-2">
-          <h3 class="font-bold text-[#5D4037] text-sm">Sosis Jamur</h3>
-          <p class="text-lg font-bold text-[#E65100] my-1">26rb</p>
-          <div class="flex items-center justify-center gap-2 mt-2">
-            <button onclick="kurang('sosisJamur')" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
-            <span id="sosisJamur" class="font-bold w-4 text-[#5D4037]">0</span>
-            <button onclick="tambah('sosisJamur')" class="bg-[#E65100] text-white w-7 h-7 rounded-full font-bold">+</button>
+        <div class="card">
+          <img src="pizza-sosis-jamur.jpg" alt="Pizza Sosis Jamur" class="menu-img" loading="lazy">
+          <h3 style="font-size: 14px;">Sosis Jamur</h3>
+          <p class="price">26rb</p>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 8px;">
+            <button onclick="kurang('sosisJamur')" class="qty-btn qty-minus">-</button>
+            <span id="sosisJamur" style="font-weight: bold; width: 20px;">0</span>
+            <button onclick="tambah('sosisJamur')" class="qty-btn qty-plus">+</button>
           </div>
         </div>
 
-        <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <img src="pizza-keju-lovers.jpg" alt="Pizza Keju Lovers" class="w-full h-24 object-cover rounded-lg mb-2">
-          <h3 class="font-bold text-[#5D4037] text-sm">Keju Lovers</h3>
-          <p class="text-lg font-bold text-[#E65100] my-1">40rb</p>
-          <div class="flex items-center justify-center gap-2 mt-2">
-            <button onclick="kurang('kejuLovers')" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
-            <span id="kejuLovers" class="font-bold w-4 text-[#5D4037]">0</span>
-            <button onclick="tambah('kejuLovers')" class="bg-[#E65100] text-white w-7 h-7 rounded-full font-bold">+</button>
+        <div class="card">
+          <img src="pizza-keju-lovers.jpg" alt="Pizza Keju Lovers" class="menu-img" loading="lazy">
+          <h3 style="font-size: 14px;">Keju Lovers</h3>
+          <p class="price">40rb</p>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 8px;">
+            <button onclick="kurang('kejuLovers')" class="qty-btn qty-minus">-</button>
+            <span id="kejuLovers" style="font-weight: bold; width: 20px;">0</span>
+            <button onclick="tambah('kejuLovers')" class="qty-btn qty-plus">+</button>
           </div>
         </div>
 
-        <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <img src="pizza-sosis-besar.jpg" alt="Pizza Sosis Besar" class="w-full h-24 object-cover rounded-lg mb-2">
-          <h3 class="font-bold text-[#5D4037] text-sm">Sosis Besar</h3>
-          <p class="text-lg font-bold text-[#E65100] my-1">25rb</p>
-          <div class="flex items-center justify-center gap-2 mt-2">
-            <button onclick="kurang('sosisBesar')" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
-            <span id="sosisBesar" class="font-bold w-4 text-[#5D4037]">0</span>
-            <button onclick="tambah('sosisBesar')" class="bg-[#E65100] text-white w-7 h-7 rounded-full font-bold">+</button>
+        <div class="card">
+          <img src="pizza-sosis-besar.jpg" alt="Pizza Sosis Besar" class="menu-img" loading="lazy">
+          <h3 style="font-size: 14px;">Sosis Besar</h3>
+          <p class="price">25rb</p>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 8px;">
+            <button onclick="kurang('sosisBesar')" class="qty-btn qty-minus">-</button>
+            <span id="sosisBesar" style="font-weight: bold; width: 20px;">0</span>
+            <button onclick="tambah('sosisBesar')" class="qty-btn qty-plus">+</button>
           </div>
         </div>
 
-        <div class="bg-white rounded-xl shadow-lg p-3 text-center">
-          <img src="pizza-sosis-kecil.jpg" alt="Pizza Sosis Kecil" class="w-full h-24 object-cover rounded-lg mb-2">
-          <h3 class="font-bold text-[#5D4037] text-sm">Sosis Kecil</h3>
-          <p class="text-lg font-bold text-[#E65100] my-1">20rb</p>
-          <div class="flex items-center justify-center gap-2 mt-2">
-            <button onclick="kurang('sosisKecil')" class="bg-orange-200 text-[#E65100] w-7 h-7 rounded-full font-bold">-</button>
-            <span id="sosisKecil" class="font-bold w-4 text-[#5D4037]">0</span>
-            <button onclick="tambah('sosisKecil')" class="bg-[#E65100] text-white w-7 h-7 rounded-full font-bold">+</button>
+        <div class="card">
+          <img src="pizza-sosis-kecil.jpg" alt="Pizza Sosis Kecil" class="menu-img" loading="lazy">
+          <h3 style="font-size: 14px;">Sosis Kecil</h3>
+          <p class="price">20rb</p>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 8px;">
+            <button onclick="kurang('sosisKecil')" class="qty-btn qty-minus">-</button>
+            <span id="sosisKecil" style="font-weight: bold; width: 20px;">0</span>
+            <button onclick="tambah('sosisKecil')" class="qty-btn qty-plus">+</button>
           </div>
         </div>
 
       </div>
 
-      <button onclick="kirimWA()" class="w-full bg-[#E65100] text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:bg-[#D84315] mb-4">
+      <div style="margin: 20px 0;">
+        <label style="font-weight: bold; font-size: 14px;">Pilih Area Pengiriman:</label>
+        <select id="areaPengiriman" onchange="hitungTotal()">
+          <option value="0">Ambil Sendiri - Gratis</option>
+          <option value="5000">Wonomulyo Kota - Rp 5.000</option>
+          <option value="8000">Mapilli - Rp 8.000</option>
+          <option value="10000">Polewali Kota - Rp 10.000</option>
+          <option value="15000">Luar Kota - Rp 15.000</option>
+        </select>
+      </div>
+
+      <button onclick="kirimWA()" class="btn-primary">
         🛒 Kirim Pesanan - <span id="total">Rp 0</span>
       </button>
 
-      <button onclick="qrisMuncul()" class="w-full bg-green-500 text-white py-3 rounded-xl font-bold text-lg mb-4">
+      <button onclick="qrisMuncul()" class="btn-secondary" style="width: 100%; margin-top: 12px;">
         💳 Bayar Pakai QRIS
       </button>
     </div>
 
-    <div id="popupQris" style="display:none;" class="fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4" onclick="qrisTutup()">
-      <div class="bg-white rounded-2xl p-6 max-w-sm w-full text-center" onclick="event.stopPropagation()">
-        <h3 class="text-xl font-bold text-[#E65100] mb-4">Scan QRIS Pizza Malakue</h3>
-        <img src="qris-pizza-malakue.jpg" alt="QRIS" class="w-full rounded-xl shadow-md mb-4">
-        <p class="text-sm text-gray-600 mb-4">a.n. Pizza Malakue</p>
-        <button onclick="qrisTutup()" class="bg-[#E65100] text-white px-6 py-2 rounded-lg font-bold">Tutup</button>
+    <div id="popupQris" class="popup" onclick="qrisTutup()">
+      <div class="popup-content" onclick="event.stopPropagation()">
+        <h3 style="font-size: 20px; margin-bottom: 16px;">Scan QRIS Pizza Malakue</h3>
+        <img src="qris-pizza-malakue.jpg" alt="QRIS" style="width: 100%; border-radius: 12px; margin-bottom: 16px;">
+        <p style="font-size: 14px; color: #666; margin-bottom: 16px;">a.n. Pizza Malakue</p>
+        <button onclick="qrisTutup()" class="btn-primary">Tutup</button>
       </div>
     </div>
 
-    <div id="popupThanks" style="display:none;" class="fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4" onclick="thanksTutup()">
-      <div class="bg-white rounded-2xl p-6 max-w-sm w-full text-center" onclick="event.stopPropagation()">
-        <div class="text-5xl mb-4">🎉</div>
-        <h3 class="text-xl font-bold text-[#E65100] mb-3">Pesanan Terkirim!</h3>
-        <p class="text-[#5D4037] leading-relaxed">
+    <div id="popupThanks" class="popup" onclick="thanksTutup()">
+      <div class="popup-content" onclick="event.stopPropagation()">
+        <div style="font-size: 48px; margin-bottom: 16px;">🎉</div>
+        <h3 style="font-size: 20px; margin-bottom: 12px;">Pesanan Terkirim!</h3>
+        <p class="text-brown" style="line-height: 1.6;">
           Terima Kasih sudah melakukan pembelian di Pizza Malakue<br><br>
           <strong>Sehat Selalu, Murah Rejeki, Panjang Umur serta dimudahkan selalu urusannya !!!</strong>
         </p>
-        <button onclick="thanksTutup()" class="bg-[#E65100] text-white px-8 py-3 rounded-lg font-bold mt-6">Aamiin 🤲</button>
+        <button onclick="thanksTutup()" class="btn-primary" style="margin-top: 24px;">Aamiin 🤲</button>
       </div>
     </div>
 
-    <footer id="footer" style="display:none;" class="text-center mt-12 p-6 bg-white rounded-2xl shadow-lg">
-      <h4 class="font-bold text-[#E65100] text-lg">Info Pemesanan</h4>
-      <p class="mt-2 text-[#5D4037]">📱 WhatsApp: <a href="https://wa.me/6282193795771" class="text-[#E65100] font-bold">0821-9379-5771</a></p>
-      <p class="text-[#5D4037]">📍 BTN GRIYA BUMI REZKITA Blok E/5, UGI BARU, MAPILLI, POLEWALI MANDAR</p>
-      <p class="text-[#5D4037]">💳 GOPAY: 085398999795 a.n. MUHAMMAD NAIM MU'MIN</p>
-      <p class="text-sm text-[#5D4037] mt-2">⏱️ Estimasi: 5-10 menit</p>
-      <p class="text-sm text-[#5D4037]">📦 Area: Wonomulyo & sekitarnya</p>
+    <footer id="footer" style="display:none; text-align: center; margin-top: 48px; padding: 24px; background: white; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+      <h4 style="font-size: 18px; margin-bottom: 12px;">Info Pemesanan</h4>
+      <p class="text-brown">📱 WhatsApp: <a href="https://wa.me/6282193795771" style="color: #8B0000; font-weight: bold;">0821-9379-5771</a></p>
+      <p class="text-brown">📍 BTN GRIYA BUMI REZKITA Blok E/5, UGI BARU, MAPILLI, POLEWALI MANDAR</p>
+      <p class="text-brown">💳 GOPAY: 085398999795 a.n. MUHAMMAD NAIM MU'MIN</p>
+      <p class="text-brown" style="font-size: 14px; margin-top: 8px;">⏱️ Estimasi: 5-10 menit</p>
       
-      <div class="flex gap-2 mt-4">
-        <a href="tel:082193795771" class="flex-1 bg-blue-500 text-white py-2 rounded-lg text-sm font-bold">📞 Telepon</a>
-        <a href="https://maps.app.goo.gl/FuAFfmwXhaq8dSj37" target="_blank" class="flex-1 bg-gray-600 text-white py-2 rounded-lg text-sm font-bold">📍 Lokasi</a>
+      <div style="display: flex; gap: 8px; margin-top: 16px;">
+        <a href="tel:082193795771" style="flex: 1; background: #2563EB; color: white; padding: 10px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 14px;">📞 Telepon</a>
+        <a href="https://maps.app.goo.gl/FuAFfmwXhaq8dSj37" target="_blank" style="flex: 1; background: #4B5563; color: white; padding: 10px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 14px;">📍 Lokasi</a>
       </div>
       
-      <p class="text-xs text-gray-500 mt-4">© 2025 Pizza Malakue</p>
+      <p style="font-size: 12px; color: #999; margin-top: 16px;">© 2025 Pizza Malakue</p>
     </footer>
 
   </div>
@@ -346,54 +469,7 @@ function kurang(menu) {
 }
 
 function hitungTotal() {
-  var total = 
-    (jmlCoklatMocarella * 33000) + 
-    (jmlCoklatKeju * 28000) + 
-    (jmlParty * 85000) + 
-    (jmlVulcanoNon * 45000) + 
-    (jmlVulcanoPedas * 45000) +
-    (jmlChicken * 27000) +
-    (jmlCorncheese * 26000) +
-    (jmlBeefSlice * 22000) +
-    (jmlBeef * 30000) +
-    (jmlMixTopping * 35000) +
-    (jmlSosisJamur * 26000) +
-    (jmlKejuLovers * 40000) +
-    (jmlSosisBesar * 25000) +
-    (jmlSosisKecil * 20000);
-  document.getElementById('total').innerText = 'Rp ' + total.toLocaleString('id-ID');
-}
-
-  function kirimWA() {
-  var totalItem = jmlCoklatMocarella + jmlCoklatKeju + jmlParty + jmlVulcanoNon + jmlVulcanoPedas + 
-                  jmlChicken + jmlCorncheese + jmlBeefSlice + jmlBeef + jmlMixTopping + 
-                  jmlSosisJamur + jmlKejuLovers + jmlSosisBesar + jmlSosisKecil;
-                  
-  if(totalItem == 0) {
-    alert('Pilih menu dulu bro!');
-    return;
-  }
-
-  var teks = 'Halo Pizza Malakue, saya mau pesan:%0A%0A';
-  
-  if(jmlCoklatMocarella > 0) teks += '- Pizza Coklat Mocarella x' + jmlCoklatMocarella + ' = Rp ' + (jmlCoklatMocarella*33000).toLocaleString('id-ID') + '%0A';
-  if(jmlCoklatKeju > 0) teks += '- Pizza Coklat Keju Cedar x' + jmlCoklatKeju + ' = Rp ' + (jmlCoklatKeju*28000).toLocaleString('id-ID') + '%0A';
-  if(jmlParty > 0) teks += '- Pizza Party x' + jmlParty + ' = Rp ' + (jmlParty*85000).toLocaleString('id-ID') + '%0A';
-  if(jmlVulcanoNon > 0) teks += '- Pizza Vulcano Non Pedas x' + jmlVulcanoNon + ' = Rp ' + (jmlVulcanoNon*45000).toLocaleString('id-ID') + '%0A';
-  if(jmlVulcanoPedas > 0) teks += '- Pizza Vulcano Pedas x' + jmlVulcanoPedas + ' = Rp ' + (jmlVulcanoPedas*45000).toLocaleString('id-ID') + '%0A';
-  
-  // Menu baru
-  if(jmlChicken > 0) teks += '- Pizza Chicken x' + jmlChicken + ' = Rp ' + (jmlChicken*27000).toLocaleString('id-ID') + '%0A';
-  if(jmlCorncheese > 0) teks += '- Pizza Corn Cheese x' + jmlCorncheese + ' = Rp ' + (jmlCorncheese*26000).toLocaleString('id-ID') + '%0A';
-  if(jmlBeefSlice > 0) teks += '- Pizza Beef Slice x' + jmlBeefSlice + ' = Rp ' + (jmlBeefSlice*22000).toLocaleString('id-ID') + '%0A';
-  if(jmlBeef > 0) teks += '- Pizza Beef x' + jmlBeef + ' = Rp ' + (jmlBeef*30000).toLocaleString('id-ID') + '%0A';
-  if(jmlMixTopping > 0) teks += '- Pizza Mix Topping x' + jmlMixTopping + ' = Rp ' + (jmlMixTopping*35000).toLocaleString('id-ID') + '%0A';
-  if(jmlSosisJamur > 0) teks += '- Pizza Sosis Jamur x' + jmlSosisJamur + ' = Rp ' + (jmlSosisJamur*26000).toLocaleString('id-ID') + '%0A';
-  if(jmlKejuLovers > 0) teks += '- Pizza Keju Lovers x' + jmlKejuLovers + ' = Rp ' + (jmlKejuLovers*40000).toLocaleString('id-ID') + '%0A';
-  if(jmlSosisBesar > 0) teks += '- Pizza Sosis Besar x' + jmlSosisBesar + ' = Rp ' + (jmlSosisBesar*25000).toLocaleString('id-ID') + '%0A';
-  if(jmlSosisKecil > 0) teks += '- Pizza Sosis Kecil x' + jmlSosisKecil + ' = Rp ' + (jmlSosisKecil*20000).toLocaleString('id-ID') + '%0A';
-
-  var total = 
+  var subtotal = 
     (jmlCoklatMocarella * 33000) + 
     (jmlCoklatKeju * 28000) + 
     (jmlParty * 85000) + 
@@ -409,7 +485,62 @@ function hitungTotal() {
     (jmlSosisBesar * 25000) +
     (jmlSosisKecil * 20000);
     
-  teks += '%0ATotal: Rp ' + total.toLocaleString('id-ID');
+  var ongkir = parseInt(document.getElementById('areaPengiriman').value) || 0;
+  var total = subtotal + ongkir;
+  
+  document.getElementById('total').innerText = 'Rp ' + total.toLocaleString('id-ID');
+}
+
+function kirimWA() {
+  var totalItem = jmlCoklatMocarella + jmlCoklatKeju + jmlParty + jmlVulcanoNon + jmlVulcanoPedas + 
+                  jmlChicken + jmlCorncheese + jmlBeefSlice + jmlBeef + jmlMixTopping + 
+                  jmlSosisJamur + jmlKejuLovers + jmlSosisBesar + jmlSosisKecil;
+                  
+  if(totalItem == 0) {
+    alert('Pilih menu dulu bro!');
+    return;
+  }
+
+  var areaText = document.getElementById('areaPengiriman').options[document.getElementById('areaPengiriman').selectedIndex].text;
+var ongkir = parseInt(document.getElementById('areaPengiriman').value) || 0;
+
+// Hitung subtotal dulu
+var subtotal = 
+  (jmlCoklatMocarella * 33000) + 
+  (jmlCoklatKeju * 28000) + 
+  (jmlParty * 85000) + 
+  (jmlVulcanoNon * 45000) + 
+  (jmlVulcanoPedas * 45000) +
+  (jmlChicken * 27000) +
+  (jmlCorncheese * 26000) +
+  (jmlBeefSlice * 22000) +
+  (jmlBeef * 30000) +
+  (jmlMixTopping * 35000) +
+  (jmlSosisJamur * 26000) +
+  (jmlKejuLovers * 40000) +
+  (jmlSosisBesar * 25000) +
+  (jmlSosisKecil * 20000);
+
+var teks = 'Halo Pizza Malakue, saya mau pesan:%0A%0A';
+
+if(jmlCoklatMocarella > 0) teks += '- Pizza Coklat Mocarella x' + jmlCoklatMocarella + ' = Rp ' + (jmlCoklatMocarella*33000).toLocaleString('id-ID') + '%0A';
+if(jmlCoklatKeju > 0) teks += '- Pizza Coklat Keju Cedar x' + jmlCoklatKeju + ' = Rp ' + (jmlCoklatKeju*28000).toLocaleString('id-ID') + '%0A';
+if(jmlParty > 0) teks += '- Pizza Party x' + jmlParty + ' = Rp ' + (jmlParty*85000).toLocaleString('id-ID') + '%0A';
+if(jmlVulcanoNon > 0) teks += '- Pizza Vulcano Non Pedas x' + jmlVulcanoNon + ' = Rp ' + (jmlVulcanoNon*45000).toLocaleString('id-ID') + '%0A';
+if(jmlVulcanoPedas > 0) teks += '- Pizza Vulcano Pedas x' + jmlVulcanoPedas + ' = Rp ' + (jmlVulcanoPedas*45000).toLocaleString('id-ID') + '%0A';
+if(jmlChicken > 0) teks += '- Pizza Chicken x' + jmlChicken + ' = Rp ' + (jmlChicken*27000).toLocaleString('id-ID') + '%0A';
+if(jmlCorncheese > 0) teks += '- Pizza Corn Cheese x' + jmlCorncheese + ' = Rp ' + (jmlCorncheese*26000).toLocaleString('id-ID') + '%0A';
+if(jmlBeefSlice > 0) teks += '- Pizza Beef Slice x' + jmlBeefSlice + ' = Rp ' + (jmlBeefSlice*22000).toLocaleString('id-ID') + '%0A';
+if(jmlBeef > 0) teks += '- Pizza Beef x' + jmlBeef + ' = Rp ' + (jmlBeef*30000).toLocaleString('id-ID') + '%0A';
+if(jmlMixTopping > 0) teks += '- Pizza Mix Topping x' + jmlMixTopping + ' = Rp ' + (jmlMixTopping*35000).toLocaleString('id-ID') + '%0A';
+if(jmlSosisJamur > 0) teks += '- Pizza Sosis Jamur x' + jmlSosisJamur + ' = Rp ' + (jmlSosisJamur*26000).toLocaleString('id-ID') + '%0A';
+if(jmlKejuLovers > 0) teks += '- Pizza Keju Lovers x' + jmlKejuLovers + ' = Rp ' + (jmlKejuLovers*40000).toLocaleString('id-ID') + '%0A';
+if(jmlSosisBesar > 0) teks += '- Pizza Sosis Besar x' + jmlSosisBesar + ' = Rp ' + (jmlSosisBesar*25000).toLocaleString('id-ID') + '%0A';
+if(jmlSosisKecil > 0) teks += '- Pizza Sosis Kecil x' + jmlSosisKecil + ' = Rp ' + (jmlSosisKecil*20000).toLocaleString('id-ID') + '%0A';
+
+teks += '%0AArea: ' + areaText + '%0A';
+teks += 'Ongkir: Rp ' + ongkir.toLocaleString('id-ID') + '%0A';
+teks += '%0ATotal Bayar: Rp ' + (subtotal + ongkir).toLocaleString('id-ID');
 
   window.open('https://wa.me/6282193795771?text=' + teks, '_blank');
   
@@ -435,6 +566,7 @@ function hitungTotal() {
     document.getElementById('sosisBesar').innerText = 0;
     document.getElementById('sosisKecil').innerText = 0;
     
+    document.getElementById('areaPengiriman').selectedIndex = 0;
     hitungTotal();
   }, 1000);
 }
