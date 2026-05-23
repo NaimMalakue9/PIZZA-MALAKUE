@@ -554,7 +554,7 @@ function kirimWA() {
     (jmlSosisKecil * 20000);
 
   var teks = 'Halo Pizza Malakue, saya mau pesan:%0A%0A';
-
+ 
   if(jmlCoklatMocarella > 0) teks += '- Pizza Coklat Mocarella x' + jmlCoklatMocarella + ' = Rp ' + (jmlCoklatMocarella*33000).toLocaleString('id-ID') + '%0A';
   if(jmlCoklatKeju > 0) teks += '- Pizza Coklat Keju Cedar x' + jmlCoklatKeju + ' = Rp ' + (jmlCoklatKeju*28000).toLocaleString('id-ID') + '%0A';
   if(jmlParty > 0) teks += '- Pizza Party x' + jmlParty + ' = Rp ' + (jmlParty*85000).toLocaleString('id-ID') + '%0A';
@@ -576,10 +576,11 @@ function kirimWA() {
   }
   teks += 'Ongkir: Rp ' + ongkir.toLocaleString('id-ID') + '%0A';
   teks += '%0ATotal Bayar: Rp ' + (subtotal + ongkir).toLocaleString('id-ID');
-
-  var nomorWA = '+6282193795771'; // Ganti nomor WA lo di sini
-  window.open('https://wa.me/' + nomorWA + '?text=' + teks, '_blank'); 
+  
+   var nomorWA = '+6282193795771'; // Ganti nomor WA lo di sini
+  window.open('https://wa.me/' + nomorWA + '?text=' + encodeURIComponent(teks), '_blank'); 
 tampilkanPopup(); // <-- tambahin ini
+
 // RESET SEMUA MENU KE 0
 document.getElementById('coklatMocarella').innerText = '0';
 document.getElementById('coklatKeju').innerText = '0';
