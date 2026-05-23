@@ -385,6 +385,10 @@
 
       </div>
 
+<div style="margin: 20px 0;">
+  <!-- Bagian metode pengambilan dihapus, langsung order aja -->
+</div>
+
 <button onclick="kirimWA()" class="btn-primary">
   🛒 Kirim Pesanan - <span id="total">Rp 0</span>
 </button>
@@ -464,28 +468,7 @@ function hitungTotal() {
     (jmlSosisBesar * 25000) +
     (jmlSosisKecil * 20000);
 
-  var selectVal = document.getElementById('areaPengiriman').value.split('|');
-  var ongkir = parseInt(selectVal[0]) || 0;
-
-  var total = subtotal + ongkir;
-  document.getElementById('total').innerText = 'Rp ' + total.toLocaleString('id-ID');
-}
-
-function toggleAlamat() {
-  var val = document.getElementById('areaPengiriman').value;
-  var metode = val.split('|')[1];
-  var inputAlamat = document.getElementById('inputAlamat');
-
-  if(metode === 'Jemput Kurir') {
-    inputAlamat.style.display = 'block';
-    inputAlamat.setAttribute('required', 'true');
-  } else {
-    inputAlamat.style.display = 'none';
-    inputAlamat.removeAttribute('required');
-    inputAlamat.value = '';
-  }
-
-  hitungTotal();
+  document.getElementById('total').innerText = 'Rp ' + subtotal.toLocaleString('id-ID');
 }
 
 function kirimWA() {
@@ -510,16 +493,6 @@ function kirimWA() {
 
   if(totalItem === 0) {
     alert('Pilih menu dulu bro!');
-    return;
-  }
-
-  var selectVal = document.getElementById('areaPengiriman').value.split('|');
-  var ongkir = parseInt(selectVal[0]) || 0;
-  var areaText = selectVal[1];
-  var alamat = document.getElementById('inputAlamat').value.trim();
-
-  if(areaText === 'Jemput Kurir' && alamat === '') {
-    alert('Mohon isi alamat pengantaran dulu!');
     return;
   }
 
@@ -556,37 +529,32 @@ function kirimWA() {
   if(jmlSosisBesar > 0) teks += '- Pizza Sosis Besar x' + jmlSosisBesar + ' = Rp ' + (jmlSosisBesar*25000).toLocaleString('id-ID') + '\n';
   if(jmlSosisKecil > 0) teks += '- Pizza Sosis Kecil x' + jmlSosisKecil + ' = Rp ' + (jmlSosisKecil*20000).toLocaleString('id-ID') + '\n';
 
-  teks += '\nArea: ' + areaText + '\n';
-teks += 'Alamat: ' + alamat + '\n';
-teks += 'Ongkir: Rp ' + ongkir.toLocaleString('id-ID') + '\n';
-teks += '\nTotal Bayar: Rp ' + (subtotal + ongkir).toLocaleString('id-ID');
-  
-   var nomorWA = '+6282193795771'; // Ganti nomor WA lo di sini
-  window.open('https://wa.me/' + nomorWA + '?text=' + encodeURIComponent(teks), '_blank'); 
-tampilkanPopup(); // <-- tambahin ini
+  teks += '\nTotal Bayar: Rp ' + subtotal.toLocaleString('id-ID');
 
-// RESET SEMUA MENU KE 0
-document.getElementById('coklatMocarella').innerText = '0';
-document.getElementById('coklatKeju').innerText = '0';
-document.getElementById('party').innerText = '0';
-document.getElementById('vulcanoNon').innerText = '0';
-document.getElementById('vulcanoPedas').innerText = '0';
-document.getElementById('chicken').innerText = '0';
-document.getElementById('corncheese').innerText = '0';
-document.getElementById('beefSlice').innerText = '0';
-document.getElementById('beef').innerText = '0';
-document.getElementById('mixTopping').innerText = '0';
-document.getElementById('sosisJamur').innerText = '0';
-document.getElementById('kejuLovers').innerText = '0';
-document.getElementById('sosisBesar').innerText = '0';
-document.getElementById('sosisKecil').innerText = '0';
+  var nomorWA = '6282193795771';
+  window.open('https://wa.me/' + nomorWA + '?text=' + encodeURIComponent(teks), '_blank');
+  tampilkanPopup();
 
-// RESET INPUT ALAMAT, AREA, TOTAL
-document.getElementById('inputAlamat').value = '';
-document.getElementById('areaPengiriman').value = '';
-hitungTotal();
+  // RESET SEMUA MENU KE 0
+  document.getElementById('coklatMocarella').innerText = '0';
+  document.getElementById('coklatKeju').innerText = '0';
+  document.getElementById('party').innerText = '0';
+  document.getElementById('vulcanoNon').innerText = '0';
+  document.getElementById('vulcanoPedas').innerText = '0';
+  document.getElementById('chicken').innerText = '0';
+  document.getElementById('corncheese').innerText = '0';
+  document.getElementById('beefSlice').innerText = '0';
+  document.getElementById('beef').innerText = '0';
+  document.getElementById('mixTopping').innerText = '0';
+  document.getElementById('sosisJamur').innerText = '0';
+  document.getElementById('kejuLovers').innerText = '0';
+  document.getElementById('sosisBesar').innerText = '0';
+  document.getElementById('sosisKecil').innerText = '0';
+
+  hitungTotal();
 }
- function balikAwal() {
+
+function balikAwal() {
   document.getElementById('page1').style.display = 'block';
   document.getElementById('page2').style.display = 'none';
 }
@@ -603,6 +571,7 @@ function qrisMuncul() {
 function qrisTutup() {
   document.getElementById('popupQris').style.display = 'none';
 }
+
 function cekJamBuka() {
   var sekarang = new Date().getHours();
   var status = '';
@@ -624,7 +593,6 @@ function cekJamBuka() {
     document.getElementById('statusToko2').innerText = status;
 }
 
-cekJamBuka();
 function tampilkanPopup() {
   document.getElementById('popupSukses').style.display = 'flex';
 }
@@ -633,6 +601,9 @@ function tutupPopup() {
   document.getElementById('popupSukses').style.display = 'none';
 }
 
+// Panggil saat load
+hitungTotal();
+cekJamBuka();
 </script>
 
 <!-- Popup Pesanan Terkirim -->
