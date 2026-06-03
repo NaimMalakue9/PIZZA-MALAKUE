@@ -383,6 +383,17 @@ header {
             <button onclick="tambah('mixTopping')" class="qty-btn qty-plus">+</button>
           </div>
         </div>
+		  
+		  <div class="card">
+  <img src="pizza-sosis-bratwurst.jpg" alt="Pizza Sosis Bratwurst" class="menu-img" loading="lazy">
+  <h3 style="font-size: 14px;">Sosis Bratwurst</h3>
+  <p class="price">35rb</p>
+  <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 8px;">
+    <button onclick="kurang('sosisBratwurst')" class="qty-btn qty-minus">-</button>
+    <span id="sosisBratwurst" style="font-weight: bold; width: 20px;">0</span>
+    <button onclick="tambah('sosisBratwurst')" class="qty-btn qty-plus">+</button>
+  </div>
+</div>
 
         <div class="card">
           <img src="pizza-sosis-jamur.jpg" alt="Pizza Sosis Jamur" class="menu-img" loading="lazy">
@@ -492,6 +503,7 @@ function hitungTotal() {
   var jmlBeefSlice = parseInt(document.getElementById('beefSlice').innerText);
   var jmlBeef = parseInt(document.getElementById('beef').innerText);
   var jmlMixTopping = parseInt(document.getElementById('mixTopping').innerText);
+  var jmlSosisBratwurst = parseInt(document.getElementById('sosisBratwurst').innerText);
   var jmlSosisJamur = parseInt(document.getElementById('sosisJamur').innerText);
   var jmlKejuLovers = parseInt(document.getElementById('kejuLovers').innerText);
   var jmlSosisBesar = parseInt(document.getElementById('sosisBesar').innerText);
@@ -508,6 +520,7 @@ function hitungTotal() {
     (jmlBeefSlice * 22000) +
     (jmlBeef * 30000) +
     (jmlMixTopping * 35000) +
+    (jmlSosisBratwurst * 35000) +
     (jmlSosisJamur * 26000) +
     (jmlKejuLovers * 40000) +
     (jmlSosisBesar * 25000) +
@@ -527,13 +540,14 @@ function kirimWA() {
   var jmlBeefSlice = parseInt(document.getElementById('beefSlice').innerText);
   var jmlBeef = parseInt(document.getElementById('beef').innerText);
   var jmlMixTopping = parseInt(document.getElementById('mixTopping').innerText);
+  var jmlSosisBratwurst = parseInt(document.getElementById('sosisBratwurst').innerText);
   var jmlSosisJamur = parseInt(document.getElementById('sosisJamur').innerText);
   var jmlKejuLovers = parseInt(document.getElementById('kejuLovers').innerText);
   var jmlSosisBesar = parseInt(document.getElementById('sosisBesar').innerText);
   var jmlSosisKecil = parseInt(document.getElementById('sosisKecil').innerText);
 
   var totalItem = jmlCoklatMocarella + jmlCoklatKeju + jmlParty + jmlVulcanoNon + jmlVulcanoPedas +
-                  jmlChicken + jmlCorncheese + jmlBeefSlice + jmlBeef + jmlMixTopping +
+                  jmlChicken + jmlCorncheese + jmlBeefSlice + jmlBeef + jmlMixTopping + jmlSosisBratwurst +
                   jmlSosisJamur + jmlKejuLovers + jmlSosisBesar + jmlSosisKecil;
 
   if(totalItem === 0) {
@@ -552,6 +566,7 @@ function kirimWA() {
     (jmlBeefSlice * 22000) +
     (jmlBeef * 30000) +
     (jmlMixTopping * 35000) +
+    (jmlSosisBratwurst * 35000) +
     (jmlSosisJamur * 26000) +
     (jmlKejuLovers * 40000) +
     (jmlSosisBesar * 25000) +
@@ -569,6 +584,7 @@ function kirimWA() {
   if(jmlBeefSlice > 0) teks += '- Pizza Beef Slice x' + jmlBeefSlice + ' = Rp ' + (jmlBeefSlice*22000).toLocaleString('id-ID') + '\n';
   if(jmlBeef > 0) teks += '- Pizza Beef x' + jmlBeef + ' = Rp ' + (jmlBeef*30000).toLocaleString('id-ID') + '\n';
   if(jmlMixTopping > 0) teks += '- Pizza Mix Topping x' + jmlMixTopping + ' = Rp ' + (jmlMixTopping*35000).toLocaleString('id-ID') + '\n';
+  if(jmlSosisBratwurst > 0) teks += '- Pizza Sosis Bratwurst x' + jmlSosisBratwurst + ' = Rp ' + (jmlSosisBratwurst*35000).toLocaleString('id-ID') + '\n';
   if(jmlSosisJamur > 0) teks += '- Pizza Sosis Jamur x' + jmlSosisJamur + ' = Rp ' + (jmlSosisJamur*26000).toLocaleString('id-ID') + '\n';
   if(jmlKejuLovers > 0) teks += '- Pizza Keju Lovers x' + jmlKejuLovers + ' = Rp ' + (jmlKejuLovers*40000).toLocaleString('id-ID') + '\n';
   if(jmlSosisBesar > 0) teks += '- Pizza Sosis Besar x' + jmlSosisBesar + ' = Rp ' + (jmlSosisBesar*25000).toLocaleString('id-ID') + '\n';
@@ -591,6 +607,7 @@ function kirimWA() {
   document.getElementById('beefSlice').innerText = '0';
   document.getElementById('beef').innerText = '0';
   document.getElementById('mixTopping').innerText = '0';
+  document.getElementById('sosisBratwurst').innerText = '0';
   document.getElementById('sosisJamur').innerText = '0';
   document.getElementById('kejuLovers').innerText = '0';
   document.getElementById('sosisBesar').innerText = '0';
