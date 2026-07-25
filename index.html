@@ -30,7 +30,29 @@ header { padding-top:70px; text-align: center; }
 .tiktok-btn { background: #000; color: white; padding: 16px; border-radius: 12px; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; }
 .fb-btn { background: #1877F2; color: white; padding: 16px; border-radius: 12px; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: bold; }
 .popup { position: fixed; inset: 0; background: rgba(0,0,0,0.7); display: none; align-items: center; justify-content: center; padding: 16px; z-index: 50; }
-.popup-content { background: white; border-radius: 16px; padding: 24px; max-width: 360px; width: 100%; text-align: center; }
+
+/* POPUP QRIS SUDAH DIPERKECIL */
+.popup-content {
+  background: white;
+  border-radius: 16px;
+  padding: 16px; /* dikecilkan */
+  max-width: 320px; /* dikecilkan */
+  width: 90%;
+  text-align: center;
+}
+.popup-content img {
+  width: 70%; /* QR DIKECILKAN JADI 70% */
+  max-width: 220px;
+  border-radius: 12px;
+  margin: 8px auto;
+  display: block;
+}
+.popup-content h3 {
+  font-size: 16px;
+  margin-bottom: 6px;
+  color: #8B0000;
+}
+
 h1, h2, h3 { color: #8B0000; }
 .text-brown { color: #5D4037; }
 .popup-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); display: none; justify-content: center; align-items: center; z-index: 9999; }
@@ -42,11 +64,11 @@ h1, h2, h3 { color: #8B0000; }
 /* BADGE BUKA/TUTUP */
 .status-badge { font-size:13px; font-weight:bold; margin-top:6px; padding:6px 14px; border-radius:20px; display:inline-block; }
 
-/* ANIMASI KEDIP - SUDAH DIBETULIN KURUNG TUTUPNYA */
-@keyframes kedip { 
- 0% { opacity: 1; } 
-  50% { opacity: 0.4; } 
- 100% { opacity: 1; } 
+/* ANIMASI KEDIP */
+@keyframes kedip {
+ 0% { opacity: 1; }
+ 50% { opacity: 0.4; }
+ 100% { opacity: 1; }
 }
 .kedip-buka { animation: kedip 1.2s infinite; }
 
@@ -60,7 +82,7 @@ h1, h2, h3 { color: #8B0000; }
 .rincian-box { background: #FFF7F0; border-radius: 10px; padding: 10px; font-size: 13px; max-height: 120px; overflow-y: auto; }
 .rincian-item { display: flex; justify-content: space-between; margin-bottom: 3px; }
 
-@keyframes popUp { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; }
+@keyframes popUp { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 </style>
 </head>
 <body>
@@ -91,7 +113,6 @@ h1, h2, h3 { color: #8B0000; }
 
   <h2 style="font-size: 20px; text-align: center; margin: 16px 0;">Pilih Menu Favoritmu</h2>
   <div class="grid-2">
-    <!-- MENU TETAP -->
     <div class="card"><img src="pizza-party.jpg" class="menu-img"><h3 style="font-size: 14px;">Party</h3><p class="price">90rb</p><div style="display: flex; align-items: center; justify-content: center; gap: 8px;"><button onclick="kurang('party')" class="qty-btn qty-minus">-</button><span id="party" style="font-weight: bold; width: 20px;">0</span><button onclick="tambah('party')" class="qty-btn qty-plus">+</button></div></div>
     <div class="card"><img src="pizza-vulcano-non-pedas.jpg" class="menu-img"><h3 style="font-size: 14px;">Vulcano Non Pedas</h3><p class="price">48rb</p><div style="display: flex; align-items: center; justify-content: center; gap: 8px;"><button onclick="kurang('vulcanoNon')" class="qty-btn qty-minus">-</button><span id="vulcanoNon" style="font-weight: bold; width: 20px;">0</span><button onclick="tambah('vulcanoNon')" class="qty-btn qty-plus">+</button></div></div>
     <div class="card"><img src="pizza-vulcano-pedas.jpg" class="menu-img"><h3 style="font-size: 14px;">Vulcano Pedas</h3><p class="price">48rb</p><div style="display: flex; align-items: center; justify-content: center; gap: 8px;"><button onclick="kurang('vulcanoPedas')" class="qty-btn qty-minus">-</button><span id="vulcanoPedas" style="font-weight: bold; width: 20px;">0</span><button onclick="tambah('vulcanoPedas')" class="qty-btn qty-plus">+</button></div></div>
@@ -110,17 +131,17 @@ h1, h2, h3 { color: #8B0000; }
   </div>
 
   <div style="text-align:center; padding:30px 20px; margin-bottom: 15px;">
-    <h3 style="color:#d9534f;">INFO PEMESANAN</h3>
+    <h3 style="color:#d9534f;">INFO PEMESAN</h3>
     <p>📱 WhatsApp: <b style="color:#d9534f;">0821-9379-5771</b></p>
     <p>📍 BTN GRIYA BUMI REZKITA BLOL E/5, UGI BARU</p>
     <p>💳 BANK MANDIRI 1700000262752 a.n. KHADIJAH TAHIR</p>
     <p>⏱️ Estimasi: 10-15 menit</p>
-  <p>📦 Area: Wonomulyo & Sekitarnya</p>
-  <div style="display:flex; gap:10px; justify-content:center; margin-top:15px;">
-    <a href="tel:082193795771" style="padding:10px 20px; background:#007bff; color:white; border-radius:8px; text-decoration:none;">📞 Telepon</a>
-    <a href="https://maps.app.goo.gl/UqLyJSTVuCpCWUB28" target="_blank" style="padding:10px 20px; background:#555; color:white; border-radius:8px; text-decoration:none;">📍 Lokasi</a>
-  </div>
-  <p style="margin-top:20px; font-size:12px; color:#888;">© 2025 Pizza Malakue</p>
+    <p>📦 Area: Wonomulyo & Sekitarnya</p>
+    <div style="display:flex; gap:10px; justify-content:center; margin-top:15px;">
+      <a href="tel:082193795771" style="padding:10px 20px; background:#007bff; color:white; border-radius:8px; text-decoration:none;">📞 Telepon</a>
+      <a href="https://maps.app.goo.gl/UqLyJSTVuCpCWUB28" target="_blank" style="padding:10px 20px; background:#555; color:white; border-radius:8px; text-decoration:none;">📍 Lokasi</a>
+    </div>
+    <p style="margin-top:20px; font-size:12px; color:#888;">© 2025 Pizza Malakue</p>
   </div>
 
   <!-- TOMBOL FREEZE + RINCIAN -->
@@ -140,21 +161,21 @@ h1, h2, h3 { color: #8B0000; }
 
 </div>
 
+<!-- POPUP QRIS SUDAH DIPERBAIKI -->
 <div id="popupQris" class="popup" onclick="qrisTutup()">
   <div class="popup-content" onclick="event.stopPropagation()">
     <h3>SCAN QRIS UNTUK BAYAR</h3>
     <p style="font-size:12px; margin:0;"><b>PIZZA MALAKUE</b></p>
     <p style="font-size:11px; color:#666; margin:0 0 8px 0;">NMID: ID1025435253014</p>
-    
+
     <img src="qris-pizza-malakue.jpg" alt="QRIS Pizza Malakue">
-    
-    <p style="font-size: 11px; color: #666; margin: 8px 0;">Silahkan scan dengan Aplikasi E-Wallet/Banking</p>
-    
-    <!-- TOMBOL TUTUP PINDAH KE DALAM SINI -->
-    <button onclick="qrisTutup()" class="btn-primary" style="margin-top: 5px; padding: 12px;">Tutup</button>
+
+    <p style="font-size: 11px; color: #666; margin: 8px 0;">Scan pakai DANA/OVO/ShopeePay/M-Banking</p>
+
+    <button onclick="qrisTutup()" class="btn-primary" style="margin-top: 5px; padding: 12px; font-size: 15px;">Tutup</button>
   </div>
 </div>
-</div>
+
 <div id="popupSukses" class="popup-overlay">
   <div class="popup-box">
     <div style="font-size: 50px;">🎉</div>
@@ -178,16 +199,13 @@ const menuData = {
   sosisKecil: {nama: "Pizza Sosis Kecil", harga: 23000}
 };
 function tambah(item) { document.getElementById(item).innerText = parseInt(document.getElementById(item).innerText) + 1; hitungTotal(); }
-
-// SUDAH DIBETULIN: TAMBAH KURUNG TUTUP }
-function kurang(item) { 
-  var el = document.getElementById(item); 
-  if(parseInt(el.innerText) > 0) { 
-    el.innerText = parseInt(el.innerText) - 1; 
-    hitungTotal(); 
-  } 
+function kurang(item) {
+  var el = document.getElementById(item);
+  if(parseInt(el.innerText) > 0) {
+    el.innerText = parseInt(el.innerText) - 1;
+    hitungTotal();
+  }
 }
-
 function hitungTotal() {
   var subtotal = 0; var rincianHTML = '';
   for(const key in menuData){
