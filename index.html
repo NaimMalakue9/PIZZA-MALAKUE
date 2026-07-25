@@ -140,7 +140,16 @@ h1, h2, h3 { color: #8B0000; }
 
 </div>
 
-<div id="popupQris" class="popup" onclick="qrisTutup()"><div class="popup-content" onclick="event.stopPropagation()"><h3>SILAHKAN SCAN KODE QRIS DI BAWAH</h3><img src="qris-pizza-malakue.jpg" style="width: 100%; border-radius: 12px; margin: 16px 0;"><button onclick="qrisTutup()" class="btn-primary">Tutup</button></div></div>
+<div id="popupQris" class="popup" onclick="qrisTutup()">
+  <div class="popup-content" onclick="event.stopPropagation()">
+    <h3>SILAHKAN SCAN KODE QRIS DI BAWAH</h3>
+    <p style="font-size:13px; margin-bottom: 8px;"><b>PIZZA MALAKUE</b></p>
+    <p style="font-size:12px; color:#666; margin-bottom: 10px;">NMID: ID1025435253014</p>
+    <img src="qris-pizza-malakue.jpg" alt="QRIS Pizza Malakue">
+    <p style="font-size: 12px; color: #666; margin: 10px 0;">TERIMA KASIH BANYAK ATAS PEMBELIAN PIZZA TA 🙏</p>
+    <button onclick="qrisTutup()" class="btn-primary" style="margin-top: 8px;">Tutup</button>
+  </div>
+</div>
 <div id="popupSukses" class="popup-overlay">
   <div class="popup-box">
     <div style="font-size: 50px;">🎉</div>
