@@ -142,9 +142,6 @@ h1, h2, h3 { color: #8B0000; }
   </div>
 </div>
 
-<!-- AUDIO CHIME -->
-<audio id="notifSound" src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg" preload="auto"></audio>
-
 <script>
 const menuData = {
   party: {nama: "Pizza Party", harga: 90000}, vulcanoNon: {nama: "Pizza Vulcano Non Pedas", harga: 48000},
@@ -198,16 +195,8 @@ function kirimWA() {
   }
   if(!adaPesanan){alert('PILIH MENU KI DULU!!!');return;}
 
-  // 1. BUNYI CHIME
-  var audio = document.getElementById('notifSound');
-  audio.currentTime = 0;
-  audio.play().catch(function(e){});
-
-  // 2. SUARA "TERIMA KASIH" 0.5 DETIK KEMUDIAN
-  setTimeout(function(){
-    ngomong("Terima kasih atas pesanannya");
-  }, 500);
-
+  ngomong("Terima kasih atas pesanannya");
+  
   teks += `\n*Total Bayar: Rp ${subtotal.toLocaleString('id-ID')}*`;
   window.open('https://wa.me/6282193795771?text='+encodeURIComponent(teks),'_blank'); tampilkanPopup();
   for(const key in menuData){document.getElementById(key).innerText='0';} hitungTotal();
